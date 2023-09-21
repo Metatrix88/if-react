@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "lint": "prettier --write . && eslint main.js --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +38,9 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
     "prettier": "3.0.3"
   }
 }
