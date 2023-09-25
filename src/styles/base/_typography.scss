@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 body {
   background: $general-white-color;
@@ -10,22 +11,52 @@ body {
 
 h2 {
   font-weight: 500;
-  font-size: $font-large;
-  line-height: 1.16;
+  @include font-size(40px);
+  line-height: $line-height;
   text-align: center;
+
+  //For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include font-size(34px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include font-size(28px);
+  }
 }
 
 h3 {
   font-weight: 400;
-  font-size: $font-big;
-  line-height: 1.16;
+  @include font-size(24px);
+  line-height: $line-height;
+
+  //For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include font-size(20px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include font-size(15px);
+  }
 }
 
 h4 {
   font-weight: 400;
-  font-size: $font-medium;
-  line-height: 1.16;
+  @include font-size(18px);
+  line-height: $line-height;
   color: $primary-color;
+
+  //For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include font-size(16px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include font-size(15px);
+  }
 }
 
 .visually-hidden {
@@ -41,29 +72,30 @@ h4 {
   padding: 0;
 }
 
-@media (max-width: 1024px) {
-  /*For mobile tablets:*/
-  h2 {
-    font-size: $font-large;
-  }
-
-  h3 {
-    font-size: $font-big;
-  }
-
-  h4 {
-    font-size: $font-medium;
-  }
-}
-
-@media (max-width: 600px) {
-  /*For mobile phones:*/
-  h2 {
-    font-size: $font-big;
-  }
-
-  h3,
-  h4 {
-    font-size: $font-medium;
-  }
-}
+////For mobile tablets:
+//@media screen and (max-width: 1024px) {
+//
+//  h2 {
+//    @include font-size(34px);
+//  }
+//
+//  h3 {
+//    @include font-size(20px);
+//  }
+//
+//  h4 {
+//    @include font-size(16px);
+//  }
+//}
+//
+//// For mobile phones:
+//@media (max-width: 600px) {
+//  h2 {
+//    font-size: $font-big;
+//  }
+//
+//  h3,
+//  h4 {
+//    font-size: $font-medium;
+//  }
+//}

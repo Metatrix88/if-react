@@ -11,14 +11,26 @@ $general-white-color: #ffffff;
 $border-light-color: #f3f3f4;
 $bg-color: #eaf0f9;
 
-// Fonts-size
-$font-large: 40px;
-$font-big: 24px;
-$font-medium: 18px;
+//Screen
+$screen-sm: 1024px;
+$screen-md: 600px;
 
 // Space
-$line-height: 1.2;
+$line-height: 1.16;
 $line-height-extra: 1.5;
+
+//Flex loyout
+$col-width: calc(100% / 12);
+$col-width-md: calc(100% / 6);
+
+
+
+//// Fonts-size
+//$font-large: 40px;
+//$font-big: 24px;
+//$font-medium: 18px;
+
+
 
 //@import "mixins";
 ////Size
@@ -26,62 +38,43 @@ $line-height-extra: 1.5;
 ////$padding-container: 104px;
 //@include size-container(1232px, 104px)
 
-$col-width: calc(100% / 12);
+
 
 $unit: 16px;
-$block-space: 120px;
-$title-bottom: 104px;
+//$block-space: 120px;
+//$title-bottom: 104px;
 $basic-radius: 8px;
 
 //For mobile tablets (max-width: 1024px):
 @media screen and (max-width: 1024px) {
-  // Fonts-size
-  $font-large: 34px;
-  $font-big: 20px;
-  $font-medium: 16px;
+  //// Fonts-size
+  //$font-large: 34px;
+  //$font-big: 20px;
+  //$font-medium: 16px;
 
   ////Size
   //$max-width-container: 656px;
   //$padding-container: 54px;
 
   $unit: 8px;
-  $block-space: 80px;
-  $title-bottom: 80px;
+  //$block-space: 80px;
+  //$title-bottom: 80px;
   $basic-radius: 6px;
 }
 
 //For mobile phones (max-width: 600px):
 @media screen and (max-width: 600px) {
   // Fonts-size
-  $font-big: 28px;
-  $font-medium: 15px;
+  //$font-big: 28px;
+  //$font-medium: 15px;
 
   ////Size
   //$padding-container: 16px;
 
-  $col-width: calc(100% / 6);
 
-  $block-space: 40px;
-  $title-bottom: 32px;
+
+  //$block-space: 40px;
+  //$title-bottom: 32px;
   $basic-radius: 4px;
 }
 
-// Fonts-size
-$font-large: 40px;
-$font-big: 24px;
-$font-medium: 18px;
-
-//For mobile tablets (max-width: 1024px):
-@media (max-width: 1024px) {
-  // Fonts-size
-  $font-large: 34px;
-  $font-big: 20px;
-  $font-medium: 16px;
-}
-
-//For mobile phones (max-width: 600px):
-@media (max-width: 600px) {
-  //Fonts-size
-  $font-big: 28px;
-  $font-medium: 15px;
-}

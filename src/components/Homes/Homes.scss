@@ -1,17 +1,34 @@
 @import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
 
-.apartments {
+.homes {
   position: relative;
   background-color: $bg-color;
-  padding-top: $block-space;
-  padding-bottom: $block-space;
+  @include block-padding(120px);
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include block-padding(80px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include block-padding(40px);
+  }
+
   &__title {
-    margin-bottom: var(--title-bottom);
-    color: red;
+    @include title-bottom(104px);
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      @include title-bottom(80px);
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      @include title-bottom(32px);
+    }
   }
 }
 
-//.apartments__title {
-//  margin-bottom: var(--title-bottom);
-//  color: red;
-//}
+

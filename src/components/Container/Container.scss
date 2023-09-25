@@ -2,25 +2,17 @@
 @import '../../styles/abstracts/mixins';
 
 .container {
-  //max-width: calc($max-width-container + $padding-container * 2);
-  //padding: 0 $padding-container;
   @include size-container(1232px, 104px);
   margin: 0 auto;
 
   // For mobile tablets:
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: $screen-sm) {
     @include size-container(656px, 54px);
-    //.container {
-    //  max-width: calc($max-width-container + $padding-container * 2);
-    //  padding: 0 $padding-container;
-    //  margin: 40px auto;
-    //}
   }
 
   // For mobile phones:
-  @media screen and (max-width: 600px) {
-    //.container {
+  @media screen and (max-width: $screen-md) {
+    @include size-container(656px, 16px);
     max-width: 100%;
-    //}
   }
 }

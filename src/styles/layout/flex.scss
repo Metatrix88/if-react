@@ -60,8 +60,8 @@
   padding-right: calc($unit / 2);
 }
 
-@media (max-width: 1024px) {
-  /*For mobile tablets:*/
+//For mobile tablets:
+@media screen and (max-width: $screen-sm) {
   .col-md-1 {
     width: $col-width;
   }
@@ -111,8 +111,8 @@
   }
 
   [class*='col-'] {
-    padding-left: $unit;
-    padding-right: $unit;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   [class*='col-md']._right {
@@ -135,14 +135,14 @@
   }
 }
 
-@media (max-width: 600px) {
-  /*For mobile phones:*/
+//For mobile phones:
+@media (max-width: $screen-md) {
   .col-sm-1 {
-    width: $col-width;
+    width: $col-width-md;
   }
 
   .col-sm-2 {
-    width: calc($col-width * 2);
+    width: calc($col-width-md * 2);
   }
 
   .col-sm-3 {
@@ -150,11 +150,11 @@
   }
 
   .col-sm-4 {
-    width: calc($col-width * 4);
+    width: calc($col-width-md * 4);
   }
 
   .col-sm-5 {
-    width: calc($col-width * 5);
+    width: calc($col-width-md * 5);
   }
 
   .col-sm-6 {

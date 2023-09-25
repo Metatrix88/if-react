@@ -5,8 +5,8 @@ import './Homes.scss';
 
 export const Homes = () => {
   return (
-    <Container className="apartments">
-      <h2 className="apartments__title">Homes guests loves</h2>
+    <Container className="homes">
+      <h2 className="homes__title">Homes guests loves</h2>
       {/*<ul className="row">*/}
       {/*  <li className="col-lg-3 col-md-6 col-sm-3 apartments__card">*/}
       {/*    <a className="link apartments__link" href="#" target="_blank">*/}
