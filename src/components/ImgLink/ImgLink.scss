@@ -1,0 +1,16 @@
+@import '../../styles/abstracts/variables';
+
+.link__img {
+  margin-bottom: 24px;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 16px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    margin-bottom: 8px;
+  }
+
+}

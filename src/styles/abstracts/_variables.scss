@@ -19,26 +19,20 @@ $screen-md: 600px;
 $line-height: 1.16;
 $line-height-extra: 1.5;
 
-//Flex loyout
+//Flex layout
 $col-width: calc(100% / 12);
 $col-width-md: calc(100% / 6);
-
-
 
 //// Fonts-size
 //$font-large: 40px;
 //$font-big: 24px;
 //$font-medium: 18px;
 
-
-
 //@import "mixins";
 ////Size
 ////$max-width-container: 1232px;
 ////$padding-container: 104px;
 //@include size-container(1232px, 104px)
-
-
 
 $unit: 16px;
 //$block-space: 120px;
@@ -71,10 +65,7 @@ $basic-radius: 8px;
   ////Size
   //$padding-container: 16px;
 
-
-
   //$block-space: 40px;
   //$title-bottom: 32px;
   $basic-radius: 4px;
 }
-
