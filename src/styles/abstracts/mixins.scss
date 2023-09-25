@@ -1,0 +1,4 @@
+@mixin size-container($max-width, $padding) {
+  max-width: $max-width + $padding * 2;
+  padding: $padding;
+}

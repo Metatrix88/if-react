@@ -1,0 +1,17 @@
+@import '../../styles/abstracts/variables';
+
+.apartments {
+  position: relative;
+  background-color: $bg-color;
+  padding-top: $block-space;
+  padding-bottom: $block-space;
+  &__title {
+    margin-bottom: var(--title-bottom);
+    color: red;
+  }
+}
+
+//.apartments__title {
+//  margin-bottom: var(--title-bottom);
+//  color: red;
+//}

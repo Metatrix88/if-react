@@ -1,0 +1,69 @@
+@import '../abstracts/variables';
+
+body {
+  background: $general-white-color;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 400;
+  color: $text-color;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: $font-large;
+  line-height: 1.16;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: $font-big;
+  line-height: 1.16;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: $font-medium;
+  line-height: 1.16;
+  color: $primary-color;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  /*For mobile tablets:*/
+  h2 {
+    font-size: $font-large;
+  }
+
+  h3 {
+    font-size: $font-big;
+  }
+
+  h4 {
+    font-size: $font-medium;
+  }
+}
+
+@media (max-width: 600px) {
+  /*For mobile phones:*/
+  h2 {
+    font-size: $font-big;
+  }
+
+  h3,
+  h4 {
+    font-size: $font-medium;
+  }
+}
