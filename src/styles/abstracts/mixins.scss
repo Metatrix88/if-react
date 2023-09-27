@@ -1,0 +1,21 @@
+@mixin size-container($width, $padding) {
+  max-width: $width + $padding * 2;
+  padding: $padding;
+  width: 100%;
+}
+
+//Font size
+@mixin font-size($size) {
+  font-size: $size;
+}
+
+//Block-padding
+@mixin block-padding($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+// Title-bottom
+@mixin title-bottom($bottom) {
+  margin-bottom: $bottom;
+}

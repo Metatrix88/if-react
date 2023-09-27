@@ -1,0 +1,30 @@
+import React from 'react';
+
+// components
+import { Container } from '../Container';
+import { ContainerCards } from '../ContainerCards';
+import { Card } from '../Card';
+import { ImgLink } from '../ImgLink';
+
+import { homes } from '../ImgLink/config';
+
+// styles
+import './Homes.scss';
+
+export const Homes = () => {
+  return (
+    <Container className="homes">
+      <h2 className="homes__title">Homes guests loves</h2>
+      <ContainerCards>
+        {homes.map((home) => (
+          <Card key={home.id} className="homes__card">
+            <ImgLink {...home} className="homes__link"></ImgLink>
+            <h3 className="homes__subtitle">
+              {home.city}, {home.country}
+            </h3>
+          </Card>
+        ))}
+      </ContainerCards>
+    </Container>
+  );
+};

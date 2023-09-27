@@ -1,0 +1,18 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.container {
+  @include size-container(1232px, 104px);
+  margin: 0 auto;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include size-container(656px, 54px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include size-container(656px, 16px);
+    max-width: 100%;
+  }
+}

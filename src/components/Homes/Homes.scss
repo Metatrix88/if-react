@@ -1,0 +1,72 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.homes {
+  position: relative;
+  background-color: $bg-color;
+  @include block-padding(120px);
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include block-padding(80px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include block-padding(40px);
+  }
+
+  &__title {
+    @include title-bottom(104px);
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      @include title-bottom(80px);
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      @include title-bottom(32px);
+    }
+  }
+
+  &__card {
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 32px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    margin-bottom: 24px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+
+  &__subtitle {
+    color: $secondary-text-color;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      font-size: 12px;
+    }
+  }
+}
