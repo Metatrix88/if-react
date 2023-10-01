@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Card.scss';
+import '../../styles/layout/flex.scss';
 
 export const Card = ({ children, className }) => {
   return (

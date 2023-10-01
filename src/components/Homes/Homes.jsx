@@ -18,7 +18,7 @@ export const Homes = () => {
       <ContainerCards>
         {homes.map((home) => (
           <Card key={home.id} className="homes__card">
-            <ImgLink {...home} className="homes__link"></ImgLink>
+            <ImgLink {...home} className="homes__link" />
             <h3 className="homes__subtitle">
               {home.city}, {home.country}
             </h3>
