@@ -20,8 +20,24 @@ $line-height: 1.16;
 $line-height-extra: 1.5;
 
 //Flex layout
-$col-width: calc(100% / 12);
-$col-width-md: calc(100% / 6);
+$col-width: 100% / 12;
+$col-width-md: 100% / 6;
+
+
+//Indents:
+$section-title-bottom-lg: 104px;
+$section-title-bottom-md: 80px;
+$section-title-bottom-sm: 32px;
+
+$section-padding-top-bottom-lg: 120px;
+$section-padding-top-bottom-md: 80px;
+$section-padding-top-bottom-sm: 40px;
+
+//Button-radius:
+$button-radius-lg: 8px;
+$button-radius-md: 6px;
+$button-radius-sm: 4px;
+
 
 //// Fonts-size
 //$font-large: 40px;
@@ -37,7 +53,7 @@ $col-width-md: calc(100% / 6);
 $unit: 16px;
 //$block-space: 120px;
 //$title-bottom: 104px;
-$basic-radius: 8px;
+//$basic-radius: 8px;
 
 //For mobile tablets (max-width: 1024px):
 @media screen and (max-width: 1024px) {
@@ -53,7 +69,7 @@ $basic-radius: 8px;
   $unit: 8px;
   //$block-space: 80px;
   //$title-bottom: 80px;
-  $basic-radius: 6px;
+  //$basic-radius: 6px;
 }
 
 //For mobile phones (max-width: 600px):
@@ -67,5 +83,5 @@ $basic-radius: 8px;
 
   //$block-space: 40px;
   //$title-bottom: 32px;
-  $basic-radius: 4px;
+  //$basic-radius: 4px;
 }

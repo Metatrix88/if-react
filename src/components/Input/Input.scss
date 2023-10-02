@@ -1,0 +1,27 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+input::placeholder {
+  font-size: 18px;
+  color: $text-color;
+}
+
+input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 24px;
+  background: transparent;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    padding: 28px 12px 6px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    padding: 24px 8px 6px;
+  }
+}

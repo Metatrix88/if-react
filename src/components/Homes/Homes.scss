@@ -4,29 +4,29 @@
 .homes {
   position: relative;
   background-color: $bg-color;
-  @include block-padding(120px);
+  @include block-padding($section-padding-top-bottom-lg);
 
   // For mobile tablets:
   @media screen and (max-width: $screen-sm) {
-    @include block-padding(80px);
+    @include block-padding($section-padding-top-bottom-md);
   }
 
   // For mobile phones:
   @media screen and (max-width: $screen-md) {
-    @include block-padding(40px);
+    @include block-padding($section-padding-top-bottom-sm);
   }
 
   &__title {
-    @include title-bottom(104px);
+    @include title-bottom($section-title-bottom-lg);
 
     // For mobile tablets:
     @media screen and (max-width: $screen-sm) {
-      @include title-bottom(80px);
+      @include title-bottom($section-title-bottom-md);
     }
 
     // For mobile phones:
     @media screen and (max-width: $screen-md) {
-      @include title-bottom(32px);
+      @include title-bottom($section-title-bottom-sm);
     }
   }
 
