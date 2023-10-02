@@ -23,6 +23,7 @@
 
 .desktop-form__input {
   position: relative;
+  width: 100%;
 }
 
 .desktop-form__input > label {
@@ -86,4 +87,3 @@
 .desktop-form__button-search:focus {
   border: 3px solid $accent-color;
 }
-

@@ -9,6 +9,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    padding: 15px 16px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    padding: 5px 15px;
+  }
 }
 
 .btn.primary {
@@ -16,8 +26,19 @@
   color: white;
 }
 
+.btn.icon {
+  width: auto;
 
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    padding: 0;
+  }
 
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    padding: 0;
+  }
+}
 
 .button-next {
   position: absolute;

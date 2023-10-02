@@ -3,7 +3,7 @@
 
 .top-section {
   min-height: 100vh;
-  background-image: url("../../../public/images/jpg/background.jpg");
+  background-image: url('../../../public/images/jpg/background.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
     @media screen and (max-width: $screen-sm) {
       max-width: 475px;
       font-size: 40px;
-      @include  title-bottom(80px);
+      @include title-bottom(80px);
     }
 
     // For mobile phones:

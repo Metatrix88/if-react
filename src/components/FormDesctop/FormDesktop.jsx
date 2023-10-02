@@ -38,7 +38,13 @@ export const FormDesktop = () => {
           </div>
         ),
       )}
-      <Button className='desktop-form__button-search' color='primary' type='submit'>Search</Button>
+      <Button
+        className="desktop-form__button-search"
+        color="primary"
+        type="submit"
+      >
+        Search
+      </Button>
     </form>
   );
 };

@@ -1,0 +1,141 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.laptop-form {
+  display: none;
+}
+
+// For mobile tablets:
+@media screen and (max-width: $screen-sm) {
+  .search-form--laptop {
+    display: grid;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 1.16;
+    font-weight: 500;
+    padding: 12px;
+    background-color: $accent-color;
+    border: 4px solid $accent-color;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      display: grid;
+      gap: 8px;
+      font-size: 15px;
+      padding: 4px;;
+    }
+  }
+
+  .laptop-form {
+    margin-bottom: 80px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 32px;
+    }
+  }
+
+  .laptop-form__input-wrap {
+    width: 100%;
+    background: $general-white-color;
+    white-space: normal;
+    border-radius: $button-radius-md;
+  }
+
+  .laptop-form__input--full-width {
+    grid-column: 1/3;
+  }
+
+  .laptop-form__destination-wrap {
+    display: flex;
+  }
+
+  .laptop-form__button-icon {
+    margin: 14px 4px 14px 12px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin: 16px 0 16px 12px;
+    }
+  }
+
+  .laptop-form__input {
+    position: relative;
+    width: 100%;
+  }
+
+  .laptop-form__properties-wrap {
+    display: flex;
+  }
+
+  .laptop-form__input-properties:nth-child(n + 2):before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -8px;
+    height: 40px;
+    border-right: 1px solid $secondary-text-color;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      top: 8px;
+      left: 0;
+      height: 32px;
+    }
+  }
+
+  .laptop-form__input > label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    pointer-events: all;
+    font-size: 16px;
+    line-height: 1.16;
+    font-weight: 400;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      left: 8px;
+      font-size: 12px;
+    }
+  }
+
+  .laptop-form__input-destination > label {
+    font-weight: 500;
+    font-size: 18px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      font-size: 15px;
+    }
+  }
+
+  .input-laptop:focus ~ label,
+  .input-laptop:not(:focus):valid ~ label {
+    top: 16px;
+    color: $text-color;
+    opacity: 1;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      top: 14px;
+    }
+  }
+
+  .laptop-form__button-search {
+    grid-column: 1/3;
+    line-height: 1;
+    padding: 14px;
+    border: 3px solid $primary-color;
+    border-radius: $button-radius-lg;
+    font-weight: 500;
+    font-size: 22px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      font-size: 19px;
+    }
+  }
+}
