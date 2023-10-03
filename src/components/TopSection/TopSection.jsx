@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Container } from '../Container';
 import { FormDesktop } from '../FormDesctop';
-import {FormLaptop} from '../FormLaptop';
-import {MobileApps} from '../MobileApps';
+import { FormLaptop } from '../FormLaptop';
+import { MobileApps } from '../MobileApps';
 
 import './TopSection.scss';
 
@@ -18,8 +18,8 @@ export const TopSection = () => {
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
         <FormDesktop />
-        <FormLaptop/>
-        <MobileApps/>
+        <FormLaptop />
+        <MobileApps />
       </Container>
     </section>
   );

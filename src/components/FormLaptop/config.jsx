@@ -5,7 +5,7 @@ export const inputDestination = {
   label: 'Your destination or hotel name',
   placeholder: '',
   classNameInput: 'input-laptop',
-}
+};
 
 export const inputsDate = [
   {
@@ -24,7 +24,7 @@ export const inputsDate = [
     placeholder: '',
     classNameInput: 'input-laptop',
   },
-]
+];
 
 export const inputsProperties = [
   {
@@ -51,4 +51,4 @@ export const inputsProperties = [
     placeholder: '',
     classNameInput: 'input-laptop',
   },
-]
+];

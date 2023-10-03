@@ -15,7 +15,7 @@ export const Button = (
     outlined: variant === 'outlined',
     text: variant === 'text',
     icon: variant === 'icon',
-  }
+  };
 
   return (
     <button

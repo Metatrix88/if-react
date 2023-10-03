@@ -22,7 +22,7 @@
       display: grid;
       gap: 8px;
       font-size: 15px;
-      padding: 4px;;
+      padding: 4px;
     }
   }
 
@@ -69,7 +69,7 @@
   }
 
   .laptop-form__input-properties:nth-child(n + 2):before {
-    content: "";
+    content: '';
     position: absolute;
     top: 6px;
     left: -8px;

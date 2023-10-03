@@ -9,7 +9,7 @@ import './App.scss';
 export const App = () => {
   return (
     <>
-      <Sprite/>
+      <Sprite />
       <TopSection />
       <Homes />
     </>

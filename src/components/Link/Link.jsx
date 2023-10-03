@@ -12,7 +12,8 @@ export const Link = ({
 }) => {
   const variants = {
     text: variant === 'text',
-    img: variant === 'img',
+    button: variant === 'button',
+    card: variant === 'card',
   };
   return (
     <a

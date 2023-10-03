@@ -4,9 +4,10 @@ import React from 'react';
 import { Container } from '../Container';
 import { ContainerCards } from '../ContainerCards';
 import { Card } from '../Card';
-import { ImgLink } from '../ImgLink';
+import { Link } from '../Link';
+import { Image } from '../Image';
 
-import { homes } from '../ImgLink/config';
+import { homes } from './config';
 
 // styles
 import './Homes.scss';
@@ -18,10 +19,18 @@ export const Homes = () => {
       <ContainerCards>
         {homes.map((home) => (
           <Card key={home.id} className="homes__card">
-            <ImgLink {...home} className="homes__link" />
-            <h3 className="homes__subtitle">
-              {home.city}, {home.country}
-            </h3>
+            <Link
+              {...home}
+              className="homes__link"
+              variant="card"
+              target="_blank"
+            >
+              <Image {...home} className="homes__img" />
+              {home.name}
+              <h3 className="homes__subtitle">
+                {home.city}, {home.country}
+              </h3>
+            </Link>
           </Card>
         ))}
       </ContainerCards>

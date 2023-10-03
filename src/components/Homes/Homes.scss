@@ -56,16 +56,38 @@
     }
   }
 
+  .homes__img {
+    margin-bottom: 24px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
+  }
+
   &__link:hover,
   &__link:focus {
     color: $accent-color;
   }
 
   &__subtitle {
+    margin-top: 24px;
     color: $secondary-text-color;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-top: 16px;
+      font-size: 20px;
+    }
 
     // For mobile phones:
     @media screen and (max-width: $screen-md) {
+      margin-top: 4px;
       font-size: 12px;
     }
   }
