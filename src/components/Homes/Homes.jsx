@@ -4,8 +4,8 @@ import React from 'react';
 import { Container } from '../Container';
 import { ContainerCards } from '../ContainerCards';
 import { Card } from '../Card';
-import { Link } from '../Link';
-import { Image } from '../Image';
+import { Link } from '../UI/Link';
+import { Image } from '../UI/Image';
 
 import { homes } from './config';
 

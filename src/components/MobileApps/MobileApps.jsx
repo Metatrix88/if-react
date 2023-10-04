@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Link } from '../Link';
+import { Link } from '../UI/Link';
 import { GooglePlay, AppStore } from '../../icons';
 
 import './MobileApps.scss';

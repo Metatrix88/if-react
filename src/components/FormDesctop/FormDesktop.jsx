@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
 //Components
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Button } from '../Button';
+import { Input } from '../UI/Input';
+import { Label } from '../UI/Label';
+import { Button } from '../UI/Button';
 
 //Styles
 import './FormDesktop.scss';
 
-import { inputsDesktop } from './config';
 import { homes } from '../Homes/config';
 import { filteredHotels } from '../../assets/filter';
 
@@ -35,6 +34,7 @@ export const FormDesktop = ({ setHotels }) => {
     event.preventDefault();
     const filterHotels = filteredHotels(homes, inputCity);
     setHotels(filterHotels);
+    setInputCity('');
   };
 
   return (
@@ -42,32 +42,41 @@ export const FormDesktop = ({ setHotels }) => {
       className="lg-4-col search-form--desktop desktop-form"
       onSubmit={handleSubmit}
     >
-      {inputsDesktop.map(
-        ({
-          id,
-          name,
-          title,
-          label,
-          placeholder,
-          classNameInput,
-          classNameLabel,
-        }) => (
-          <div key={id} className="desktop-form__input">
-            <Input
-              id={id}
-              className={classNameInput}
-              name={name}
-              title={title}
-              placeholder={placeholder}
-              onChange={handleChange}
-              required
-            />
-            <Label className={classNameLabel} htmlFor={id}>
-              {label}
-            </Label>
-          </div>
-        ),
-      )}
+      <div className="desktop-form__input">
+        <Input
+          id="city"
+          className="desktop-form__input-city"
+          name="city"
+          title="Your destination or hotel name"
+          placeholder=""
+          value={inputCity}
+          onChange={handleChange}
+          required
+        />
+        <Label htmlFor="city">Your destination or hotel name</Label>
+      </div>
+      <div className="desktop-form__input">
+        <Input
+          id="date"
+          className="desktop-form__input-date"
+          name="date"
+          title="Check-in — Check-out"
+          placeholder=""
+          onChange={handleChange}
+        />
+        <Label htmlFor="date">Check-in — Check-ou</Label>
+      </div>
+      <div className="desktop-form__input">
+        <Input
+          id="filter"
+          className="desktop-form__input-city"
+          name="filter"
+          title="2 Adults — 0 Children — 1 Room"
+          placeholder="2 Adults — 0 Children — 1 Room"
+          onChange={handleChange}
+        />
+        <Label className="visually-hidden" htmlFor="filter">2 Adults — 0 Children — 1 Room</Label>
+      </div>
       <Button
         className="desktop-form__button-search"
         color="primary"

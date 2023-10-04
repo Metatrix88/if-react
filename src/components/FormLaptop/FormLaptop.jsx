@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Button } from '../Button';
+import { Button } from '../UI/Button';
 import { Search } from '../../icons';
-import { Input } from '../Input';
-import { Label } from '../Label';
+import { Input } from '../UI/Input';
+import { Label } from '../UI/Label';
 
 import './FormLaptop.scss';
 
