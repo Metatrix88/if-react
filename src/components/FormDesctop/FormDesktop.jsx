@@ -75,7 +75,9 @@ export const FormDesktop = ({ setHotels }) => {
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
         />
-        <Label className="visually-hidden" htmlFor="filter">2 Adults — 0 Children — 1 Room</Label>
+        <Label className="visually-hidden" htmlFor="filter">
+          2 Adults — 0 Children — 1 Room
+        </Label>
       </div>
       <Button
         className="desktop-form__button-search"
