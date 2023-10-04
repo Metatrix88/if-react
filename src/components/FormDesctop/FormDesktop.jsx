@@ -10,9 +10,9 @@ import './FormDesktop.scss';
 
 import { inputsDesktop } from './config';
 import { homes } from '../Homes/config';
-import {filteredHotels} from '../../assets/filter';
+import { filteredHotels } from '../../assets/filter';
 
-export const FormDesktop = ({setHotels}) => {
+export const FormDesktop = ({ setHotels }) => {
   const [inputCity, setInputCity] = useState('');
   // const [inputDate, setInputDate] = useState('');
   // const [inputAdults, setInputAdults] = useState('');
@@ -33,8 +33,8 @@ export const FormDesktop = ({setHotels}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const filterHotels = filteredHotels(homes, inputCity)
-    setHotels(filterHotels)
+    const filterHotels = filteredHotels(homes, inputCity);
+    setHotels(filterHotels);
   };
 
   return (

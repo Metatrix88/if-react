@@ -8,7 +8,7 @@ import { Container } from '../Container';
 
 import './Available.scss';
 
-export const Available = ({hotels}) => {
+export const Available = ({ hotels }) => {
   return (
     <Container className="available">
       <h2 className="available__title">Available hotels</h2>

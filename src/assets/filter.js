@@ -13,4 +13,4 @@ export const filteredHotels = (arr, str) => {
   });
 
   return hotels;
-}
+};
