@@ -10,46 +10,32 @@ import './FormDesktop.scss';
 
 import { inputsDesktop } from './config';
 import { homes } from '../Homes/config';
+import {filteredHotels} from '../../assets/filter';
 
-export const FormDesktop = () => {
+export const FormDesktop = ({setHotels}) => {
   const [inputCity, setInputCity] = useState('');
-  const [inputDate, setInputDate] = useState('');
-  const [inputAdults, setInputAdults] = useState('');
+  // const [inputDate, setInputDate] = useState('');
+  // const [inputAdults, setInputAdults] = useState('');
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'city') {
       setInputCity(event.target.value);
-    } else if (event.target.name === 'date') {
-      setInputDate(event.target.value);
-    } else {
-      setInputAdults(event.target.value);
     }
+    // if (event.target.name === 'date') {
+    //   setInputDate(event.target.value);
+    // }
+    //
+    // if (event.target.name === 'adults'){
+    //   setInputAdults(event.target.value);
+    // }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const inputCityLowerCase = inputCity.toLowerCase();
-
-    const availableHotel = homes.filter(({ name, city, country }) => {
-      const nameLowerCase = name.toLowerCase();
-      const cityLowerCase = city.toLowerCase();
-      const countryLowerCase = country.toLowerCase();
-      return (
-        nameLowerCase.includes(inputCityLowerCase) ||
-        cityLowerCase.includes(inputCityLowerCase) ||
-        countryLowerCase.includes(inputCityLowerCase)
-      );
-    });
-
-    if (availableHotel.length === 0) {
-      alert('Нет совпадений по введенным данным!!!!');
-    }
-
-    return availableHotel;
+    const filterHotels = filteredHotels(homes, inputCity)
+    setHotels(filterHotels)
   };
-
-  console.log(inputCity, inputDate, inputAdults);
 
   return (
     <form

@@ -7,7 +7,7 @@ import { MobileApps } from '../MobileApps';
 
 import './TopSection.scss';
 
-export const TopSection = () => {
+export const TopSection = ({ setHotels }) => {
   return (
     <section className="top-section">
       <Container>
@@ -17,7 +17,7 @@ export const TopSection = () => {
         <h2 className="top-section__title">
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
-        <FormDesktop />
+        <FormDesktop setHotels={setHotels} />
         <FormLaptop />
         <MobileApps />
       </Container>

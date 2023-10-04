@@ -8,14 +8,12 @@ import { Container } from '../Container';
 
 import './Available.scss';
 
-import { homes } from '../Homes/config';
-
-export const Available = () => {
+export const Available = ({hotels}) => {
   return (
     <Container className="available">
       <h2 className="available__title">Available hotels</h2>
       <ContainerCards>
-        {homes.map((home) => (
+        {hotels.map((home) => (
           <Card key={home.id} className="available__card">
             <Link
               {...home}
