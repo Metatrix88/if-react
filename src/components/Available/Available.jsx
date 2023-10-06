@@ -1,33 +1,29 @@
 import React from 'react';
 
-// components
-import { Container } from '../Container';
 import { ContainerCards } from '../ContainerCards';
 import { Card } from '../Card';
 import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
+import { Container } from '../Container';
 
-import { homes } from './config';
+import './Available.scss';
 
-// styles
-import './Homes.scss';
-
-export const Homes = () => {
+export const Available = ({ hotels }) => {
   return (
-    <Container className="homes">
-      <h2 className="homes__title">Homes guests loves</h2>
+    <Container className="available">
+      <h2 className="available__title">Available hotels</h2>
       <ContainerCards>
-        {homes.map((home) => (
-          <Card key={home.id} className="homes__card">
+        {hotels.map((home) => (
+          <Card key={home.id} className="available__card">
             <Link
               {...home}
-              className="homes__link"
+              className="available__link"
               variant="card"
               target="_blank"
             >
-              <Image {...home} className="homes__img" />
+              <Image {...home} className="available__img" />
               {home.name}
-              <h3 className="homes__subtitle">
+              <h3 className="available__subtitle">
                 {home.city}, {home.country}
               </h3>
             </Link>
