@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { Container } from '../Container';
 import { FormDesktop } from '../FormDesctopClass';
@@ -13,7 +13,6 @@ export class TopSection extends Component {
   }
 
   render() {
-
     return (
       <section className="top-section">
         <Container>

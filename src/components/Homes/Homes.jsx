@@ -19,11 +19,7 @@ export const Homes = () => {
       <ContainerCards>
         {homes.map((home) => (
           <Card key={home.id} className="homes__card">
-            <Link
-              className="homes__link"
-              variant="card"
-              target="_blank"
-            >
+            <Link className="homes__link" variant="card" target="_blank">
               <Image {...home} className="homes__img" />
               {home.name}
               <h3 className="homes__subtitle">

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { Sprite } from '../Sprite';
 import { Homes } from '../HomesClass';
@@ -7,7 +7,6 @@ import { Available } from '../AvailableClass';
 
 import './App.scss';
 
-
 // import {getHotels} from '../../services/hotels';
 
 export class App extends Component {
@@ -15,7 +14,7 @@ export class App extends Component {
     super(props);
     this.state = {
       hotels: [],
-    }
+    };
     this.updateAvailableHotels = this.updateAvailableHotels.bind(this);
   }
 
@@ -24,14 +23,14 @@ export class App extends Component {
   // }
 
   updateAvailableHotels(newHotels) {
-    this.setState(prevState => ({
-      hotels: [...prevState.hotels, ...newHotels]
+    this.setState((prevState) => ({
+      hotels: [...prevState.hotels, ...newHotels],
     }));
   }
 
   render() {
     const { hotels } = this.state;
-    console.log(2, hotels)
+    console.log(2, hotels);
 
     return (
       <>
