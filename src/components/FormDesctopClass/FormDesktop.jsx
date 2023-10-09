@@ -7,10 +7,7 @@ import { Button } from '../UI/Button';
 
 //Styles
 import './FormDesktop.scss';
-import { searchHotel } from '../../services/hotels';
-
-// import { homes } from '../Homes/config';
-// import { filteredHotels } from '../../assets/filter';
+import {updateAvailableHotels} from '../../services/hotels';
 
 export class FormDesktop extends Component {
   constructor(props) {
@@ -33,51 +30,9 @@ export class FormDesktop extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.searchHotels([
-      {
-        id: 'aa560608-a879-48a7-80b6-deff2806b250',
-        name: 'Apartment Sunshine',
-        city: 'Santa  Cruz de Tenerife',
-        country: 'Spain',
-        imageUrl:
-          'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
-      },
-      {
-        id: 'a2bf824d-edd8-41f0-8b70-244334086ab4',
-        name: 'Hostel Friendship',
-        city: 'Berlin',
-        country: 'Germany',
-        imageUrl:
-          'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
-      },
-      {
-        id: '15706be7-2e4f-4ea7-8698-3cfab390e733',
-        name: 'San Firenze Suites',
-        city: 'Florence',
-        country: 'Italy',
-        imageUrl:
-          'https://res.cloudinary.com/intellectfox/image/upload/v1612356595/fe/san-firenze_sq4lhr.jpg',
-      },
-      {
-        id: '34ab0b18-3111-4887-8237-b31c7c976891',
-        name: 'Ponta Mar Hotel',
-        city: 'Fortaleza',
-        country: 'Brazil',
-        imageUrl:
-          'https://res.cloudinary.com/intellectfox/image/upload/v1612301867/fe/ponta-mar_apr3os.jpg',
-      },
-      {
-        id: '299c5ecb-3089-46e9-a38c-aa552fd9bcd9',
-        name: 'Le Meridien',
-        city: 'Nice',
-        country: 'France',
-        imageUrl:
-          'https://res.cloudinary.com/intellectfox/image/upload/v1612302207/fe/le-meridien_zcobql.jpg',
-      },
-    ]);
     const valCityInput = this.state.inputCity;
-    searchHotel(valCityInput).then((res) => {
-      console.log(1, res);
+    updateAvailableHotels(valCityInput).then((res) => {
+      this.props.searchHotels(res);
     });
     this.setState({ inputCity: '' });
   }

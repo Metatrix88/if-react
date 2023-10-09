@@ -7,7 +7,7 @@ import { Available } from '../AvailableClass';
 
 import './App.scss';
 
-// import {getHotels} from '../../services/hotels';
+import {getHotels} from '../../services/hotels';
 
 export class App extends Component {
   constructor(props) {
@@ -18,14 +18,14 @@ export class App extends Component {
     this.updateAvailableHotels = this.updateAvailableHotels.bind(this);
   }
 
-  // componentDidMount() {
-  //   getHotels().then((hotels) => this.setState({ hotels }));
-  // }
+  componentDidMount() {
+    getHotels().then((hotels) => this.setState({ hotels }));
+  }
 
   updateAvailableHotels(newHotels) {
-    this.setState((prevState) => ({
-      hotels: [...prevState.hotels, ...newHotels],
-    }));
+    this.setState({
+      hotels: newHotels
+    });
   }
 
   render() {

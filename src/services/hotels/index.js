@@ -8,7 +8,7 @@ export const getHotels = async () => {
   return hotels;
 };
 
-export const searchHotel = async (str) => {
+export const updateAvailableHotels = async (str) => {
   const { data: hotels } = await axios.get(apiUrl, {
     params: {
       search: str,
