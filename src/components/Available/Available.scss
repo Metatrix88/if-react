@@ -4,16 +4,16 @@
 .available {
   position: relative;
   background-color: $bg-color;
-  @include block-padding($section-padding-top-bottom-lg);
+  @include block-padding($section-padding-top-bottom-lg, 104px);
 
   // For mobile tablets:
   @media screen and (max-width: $screen-sm) {
-    @include block-padding($section-padding-top-bottom-md);
+    @include block-padding($section-padding-top-bottom-md, 64px);
   }
 
   // For mobile phones:
   @media screen and (max-width: $screen-md) {
-    @include block-padding($section-padding-top-bottom-sm);
+    @include block-padding($section-padding-top-bottom-sm, 32px);
   }
 
   &__title {
@@ -31,19 +31,7 @@
   }
 
   &__card {
-    // For mobile tablets:
-    @media screen and (max-width: $screen-sm) {
-      margin-bottom: 32px;
-    }
-
-    // For mobile phones:
-    @media screen and (max-width: $screen-md) {
-      margin-bottom: 0;
-    }
-  }
-
-  &__link {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 
     // For mobile tablets:
     @media screen and (max-width: $screen-sm) {
@@ -52,9 +40,23 @@
 
     // For mobile phones:
     @media screen and (max-width: $screen-md) {
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
   }
+
+  //&__link {
+  //  margin-bottom: 24px;
+  //
+  //  // For mobile tablets:
+  //  @media screen and (max-width: $screen-sm) {
+  //    margin-bottom: 16px;
+  //  }
+  //
+  //  // For mobile phones:
+  //  @media screen and (max-width: $screen-md) {
+  //    margin-bottom: 4px;
+  //  }
+  //}
 
   .available__img {
     margin-bottom: 24px;
