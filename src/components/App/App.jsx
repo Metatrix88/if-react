@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Sprite } from '../Sprite';
-import { Homes } from '../HomesClass';
+import { Homes } from '../Homes';
 import { TopSection } from '../TopSection';
 import { Available } from '../Available';
 

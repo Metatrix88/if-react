@@ -15,11 +15,7 @@ export const Available = ({ hotels }) => {
       <ContainerCards>
         {hotels.map((home) => (
           <Card key={home.id} className="available__card">
-            <Link
-              className="available__link"
-              variant="card"
-              target="_blank"
-            >
+            <Link className="available__link" variant="card" target="_blank">
               <Image {...home} className="available__img" />
               {home.name}
               <h3 className="available__subtitle">

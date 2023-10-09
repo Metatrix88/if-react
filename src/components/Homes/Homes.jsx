@@ -20,7 +20,6 @@ export const Homes = () => {
         {homes.map((home) => (
           <Card key={home.id} className="homes__card">
             <Link
-              {...home}
               className="homes__link"
               variant="card"
               target="_blank"
