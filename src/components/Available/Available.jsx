@@ -16,7 +16,6 @@ export const Available = ({ hotels }) => {
         {hotels.map((home) => (
           <Card key={home.id} className="available__card">
             <Link
-              {...home}
               className="available__link"
               variant="card"
               target="_blank"

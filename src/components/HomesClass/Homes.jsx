@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+import { getHotels } from '../../services/hotels';
 
 // components
 import { Container } from '../Container';
@@ -7,25 +9,30 @@ import { Card } from '../Card';
 import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
 
-import { homes } from './config';
-
 // styles
 import './Homes.scss';
 
 export class Homes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hotels: [],
+    };
+  }
+
+  componentDidMount() {
+    getHotels().then((hotels) => this.setState({ hotels }));
+  }
+
   render() {
+    const { hotels } = this.state;
     return (
       <Container className="homes">
         <h2 className="homes__title">Homes guests loves</h2>
         <ContainerCards>
-          {homes.map((home) => (
+          {hotels.map((home) => (
             <Card key={home.id} className="homes__card">
-              <Link
-                {...home}
-                className="homes__link"
-                variant="card"
-                target="_blank"
-              >
+              <Link className="homes__link" variant="card" target="_blank">
                 <Image {...home} className="homes__img" />
                 {home.name}
                 <h3 className="homes__subtitle">

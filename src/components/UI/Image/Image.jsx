@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 import './Image.scss';
 
-export const Image = ({ url, name, className }) => {
+export const Image = ({ imageUrl, name, className }) => {
   return (
-    <img className={classNames('images', className)} src={url} alt={name} />
+    <img className={classNames('images', className)} src={imageUrl} alt={name} />
   );
 };
