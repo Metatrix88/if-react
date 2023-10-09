@@ -29,8 +29,8 @@ export class App extends Component {
   }
 
   render() {
+
     const { hotels } = this.state;
-    console.log(2, hotels);
 
     return (
       <>

@@ -15,7 +15,6 @@ export class FormDesktop extends Component {
     this.state = {
       inputCity: '',
     };
-    console.log(3, this.props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
