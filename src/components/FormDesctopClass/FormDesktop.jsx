@@ -7,7 +7,7 @@ import { Button } from '../UI/Button';
 
 //Styles
 import './FormDesktop.scss';
-import {updateAvailableHotels} from '../../services/hotels';
+import { updateAvailableHotels } from '../../services/hotels';
 
 export class FormDesktop extends Component {
   constructor(props) {

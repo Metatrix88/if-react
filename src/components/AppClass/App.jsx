@@ -7,7 +7,7 @@ import { Available } from '../AvailableClass';
 
 import './App.scss';
 
-import {getHotels} from '../../services/hotels';
+import { getHotels } from '../../services/hotels';
 
 export class App extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export class App extends Component {
 
   updateAvailableHotels(newHotels) {
     this.setState({
-      hotels: newHotels
+      hotels: newHotels,
     });
   }
 
