@@ -10,9 +10,9 @@
 }
 
 //Block-padding
-@mixin block-padding($padding) {
-  padding-top: $padding;
-  padding-bottom: $padding;
+@mixin block-padding($paddingTop, $paddingBottom) {
+  padding-top: $paddingTop;
+  padding-bottom: $paddingBottom;
 }
 
 // Title-bottom
