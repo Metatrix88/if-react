@@ -8,8 +8,7 @@ import { Button } from '../UI/Button';
 //Styles
 import './FormDesktop.scss';
 
-import { homes } from '../Homes/config';
-import { filteredHotels } from '../../assets/filter';
+import {updateAvailableHotels} from '../../services/hotels';
 
 export const FormDesktop = ({ setHotels }) => {
   const [inputCity, setInputCity] = useState('');
@@ -32,8 +31,9 @@ export const FormDesktop = ({ setHotels }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const filterHotels = filteredHotels(homes, inputCity);
-    setHotels(filterHotels);
+    updateAvailableHotels(inputCity).then((data) => {
+      setHotels(data);
+    });
     setInputCity('');
   };
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Sprite } from '../Sprite';
-import { Homes } from '../HomesClass';
+import { Homes } from '../ClassesComponents/HomesClass';
 import { TopSection } from '../TopSectionClass';
 import { Available } from '../AvailableClass';
 

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { getHotels } from '../../services/hotels';
 
 // components
 import { Container } from '../Container';
@@ -7,12 +9,16 @@ import { Card } from '../Card';
 import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
 
-import { homes } from './config';
-
 // styles
 import './Homes.scss';
 
 export const Homes = () => {
+  const [homes, setHomes] = useState([]);
+
+  useEffect(() => {
+    getHotels().then((hotels) => setHomes(hotels));
+  }, []);
+
   return (
     <Container className="homes">
       <h2 className="homes__title">Homes guests loves</h2>
