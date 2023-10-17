@@ -14,5 +14,6 @@ export const updateAvailableHotels = async (str) => {
       search: str,
     },
   });
+
   return hotels;
 };

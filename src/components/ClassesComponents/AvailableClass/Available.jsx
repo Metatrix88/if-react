@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import { ContainerCards } from '../ContainerCards';
-import { Card } from '../Card';
-import { Link } from '../UI/Link';
-import { Image } from '../UI/Image';
-import { Container } from '../Container';
+import { ContainerCards } from '../../ContainerCards';
+import { Card } from '../../Card';
+import { Link } from '../../UI/Link';
+import { Image } from '../../UI/Image';
+import { Container } from '../../Container';
 
 import './Available.scss';
 

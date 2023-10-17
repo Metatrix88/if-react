@@ -1,12 +1,12 @@
 // export const inputsDesktop = [
-  // {
-  //   id: 'city',
-  //   name: 'city',
-  //   title: 'Your destination or hotel name',
-  //   label: 'Your destination or hotel name',
-  //   placeholder: '',
-  //   classNameInput: 'desktop-form__input-city',
-  // },
+// {
+//   id: 'city',
+//   name: 'city',
+//   title: 'Your destination or hotel name',
+//   label: 'Your destination or hotel name',
+//   placeholder: '',
+//   classNameInput: 'desktop-form__input-city',
+// },
 //   {
 //     id: 'date',
 //     name: 'date',

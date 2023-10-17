@@ -8,10 +8,13 @@ import { Button } from '../UI/Button';
 //Styles
 import './FormDesktop.scss';
 
-import {updateAvailableHotels} from '../../services/hotels';
+import { updateAvailableHotels } from '../../services/hotels';
+import { useAvailableContext } from '../../contexts/Available.context';
 
-export const FormDesktop = ({ setHotels }) => {
+export const FormDesktop = ({ setAvailableVisible }) => {
   const [inputCity, setInputCity] = useState('');
+  const { setHotels } = useAvailableContext();
+
   // const [inputDate, setInputDate] = useState('');
   // const [inputAdults, setInputAdults] = useState('');
 
@@ -29,18 +32,24 @@ export const FormDesktop = ({ setHotels }) => {
     // }
   };
 
-  const handleSubmit = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
-    updateAvailableHotels(inputCity).then((data) => {
-      setHotels(data);
-    });
+    const data = await updateAvailableHotels(inputCity);
+    setHotels(data);
+
+    if (data.length === 0) {
+      setAvailableVisible(false);
+    } else {
+      setAvailableVisible(true);
+    }
+
     setInputCity('');
   };
 
   return (
     <form
       className="lg-4-col search-form--desktop desktop-form"
-      onSubmit={handleSubmit}
+      onSubmit={handleSearch}
     >
       <div className="desktop-form__input">
         <Input

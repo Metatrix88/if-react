@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 //Components
-import { Input } from '../UI/Input';
-import { Label } from '../UI/Label';
-import { Button } from '../UI/Button';
+import { Input } from '../../UI/Input';
+import { Label } from '../../UI/Label';
+import { Button } from '../../UI/Button';
 
 //Styles
 import './FormDesktop.scss';
-import { updateAvailableHotels } from '../../services/hotels';
+import { updateAvailableHotels } from '../../../services/hotels';
 
 export class FormDesktop extends Component {
   constructor(props) {
