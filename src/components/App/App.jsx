@@ -14,12 +14,14 @@ import './App.scss';
 
 export const App = () => {
   const [isAvailableVisible, setAvailableVisible] = useState(false);
+  const [isAvailableVisibleLapTop, setAvailableVisibleLapTop] = useState(false);
+
   return (
     <>
       <Sprite />
       <AvailableContextProvider>
-        <TopSection setAvailableVisible={setAvailableVisible} />
-        {isAvailableVisible && <Available />}
+        <TopSection setAvailableVisible={setAvailableVisible} setAvailableVisibleLapTop={setAvailableVisibleLapTop} />
+        {isAvailableVisible && <Available /> || isAvailableVisibleLapTop && <Available />}
       </AvailableContextProvider>
       <Homes />
     </>

@@ -9,7 +9,7 @@ import { MobileApps } from '../MobileApps';
 // styles
 import './TopSection.scss';
 
-export const TopSection = ({ setAvailableVisible }) => {
+export const TopSection = ({ setAvailableVisible, setAvailableVisibleLapTop }) => {
   return (
     <section className="top-section">
       <Container>
@@ -20,7 +20,7 @@ export const TopSection = ({ setAvailableVisible }) => {
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
         <FormDesktop setAvailableVisible={setAvailableVisible} />
-        <FormLaptop />
+        <FormLaptop setAvailableVisibleLapTop={setAvailableVisibleLapTop} />
         <MobileApps />
       </Container>
     </section>
