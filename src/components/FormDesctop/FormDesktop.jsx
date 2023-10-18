@@ -4,36 +4,50 @@ import React, { useState } from 'react';
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 import { Button } from '../UI/Button';
+// import { Calendar } from '../Calendar';
 
 //Styles
 import './FormDesktop.scss';
 
 import { updateAvailableHotels } from '../../services/hotels';
 import { useAvailableContext } from '../../contexts/Available.context';
+import {CalendarDesktopForm} from '../CalendarDesktopForm';
 
 export const FormDesktop = ({ setAvailableVisible }) => {
   const [inputCity, setInputCity] = useState('');
   const { setHotels } = useAvailableContext();
+  const [dateRange, setDateRange] = useState([null, null]);
 
-  // const [inputDate, setInputDate] = useState('');
-  // const [inputAdults, setInputAdults] = useState('');
+  const [startDate, endDate] = dateRange;
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'city') {
       setInputCity(event.target.value);
     }
-    // if (event.target.name === 'date') {
-    //   setInputDate(event.target.value);
-    // }
-    //
-    // if (event.target.name === 'adults'){
-    //   setInputAdults(event.target.value);
-    // }
   };
 
   const handleSearch = async (event) => {
     event.preventDefault();
+
+    if(dateRange) {
+      const dayStart = startDate.getDate();
+      const monthStart = startDate.getMonth() + 1;
+      const yearStart = startDate.getFullYear();
+
+      const dayEnd = endDate.getDate();
+      const monthEnd = endDate.getMonth() + 1;
+      const yearEnd = endDate.getFullYear();
+
+      const dateStart = {dayStart,monthStart,yearStart}
+      const dateEnd = {dayEnd,
+        monthEnd,
+        yearEnd }
+
+      console.log(dateStart)
+      console.log(dateEnd)
+    }
+
     const data = await updateAvailableHotels(inputCity);
     setHotels(data);
 
@@ -64,21 +78,11 @@ export const FormDesktop = ({ setAvailableVisible }) => {
         />
         <Label htmlFor="city">Your destination or hotel name</Label>
       </div>
-      <div className="desktop-form__input">
-        <Input
-          id="date"
-          className="desktop-form__input-date"
-          name="date"
-          title="Check-in — Check-out"
-          placeholder=""
-          onChange={handleChange}
-        />
-        <Label htmlFor="date">Check-in — Check-ou</Label>
-      </div>
+        <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange}/>
       <div className="desktop-form__input">
         <Input
           id="filter"
-          className="desktop-form__input-city"
+          className="desktop-form__input-filter"
           name="filter"
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"

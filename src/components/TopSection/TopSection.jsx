@@ -9,7 +9,10 @@ import { MobileApps } from '../MobileApps';
 // styles
 import './TopSection.scss';
 
-export const TopSection = ({ setAvailableVisible, setAvailableVisibleLapTop }) => {
+export const TopSection = ({
+  setAvailableVisible,
+  setAvailableVisibleLapTop,
+}) => {
   return (
     <section className="top-section">
       <Container>

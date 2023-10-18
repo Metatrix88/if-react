@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
+// styles
 import './Container.scss';
 
 export const Container = ({ children, className }) => {

@@ -8,7 +8,7 @@
   background-color: white;
   font-size: 18px;
   grid-template-columns:
-    minmax(150px, 1fr) minmax(150px, 259px) minmax(150px, 314px)
+    minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px)
     minmax(150px, 192px);
 }
 
@@ -35,11 +35,20 @@
   pointer-events: all;
 }
 
+.desktop-form__label-date {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  pointer-events: all;
+}
+
 .desktop-form__input-city {
   border: 3px solid transparent;
   border-radius: $button-radius-lg;
   margin-left: -3px;
-  margin-top: -3px;
+  margin-top: -2px;
   margin-bottom: -3px;
 }
 
@@ -47,7 +56,7 @@
 .desktop-form__input-filter {
   border: 3px solid transparent;
   border-radius: $button-radius-lg;
-  margin-top: -3px;
+  margin-top: -2px;
   margin-bottom: -3px;
 }
 

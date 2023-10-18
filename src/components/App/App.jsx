@@ -20,8 +20,12 @@ export const App = () => {
     <>
       <Sprite />
       <AvailableContextProvider>
-        <TopSection setAvailableVisible={setAvailableVisible} setAvailableVisibleLapTop={setAvailableVisibleLapTop} />
-        {isAvailableVisible && <Available /> || isAvailableVisibleLapTop && <Available />}
+        <TopSection
+          setAvailableVisible={setAvailableVisible}
+          setAvailableVisibleLapTop={setAvailableVisibleLapTop}
+        />
+        {(isAvailableVisible && <Available />) ||
+          (isAvailableVisibleLapTop && <Available />)}
       </AvailableContextProvider>
       <Homes />
     </>
