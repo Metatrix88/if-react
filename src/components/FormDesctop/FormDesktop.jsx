@@ -11,7 +11,7 @@ import './FormDesktop.scss';
 
 import { updateAvailableHotels } from '../../services/hotels';
 import { useAvailableContext } from '../../contexts/Available.context';
-import {CalendarDesktopForm} from '../CalendarDesktopForm';
+import { CalendarDesktopForm } from '../CalendarDesktopForm';
 
 export const FormDesktop = ({ setAvailableVisible }) => {
   const [inputCity, setInputCity] = useState('');
@@ -30,7 +30,7 @@ export const FormDesktop = ({ setAvailableVisible }) => {
   const handleSearch = async (event) => {
     event.preventDefault();
 
-    if(dateRange) {
+    if (dateRange) {
       const dayStart = startDate.getDate();
       const monthStart = startDate.getMonth() + 1;
       const yearStart = startDate.getFullYear();
@@ -39,13 +39,11 @@ export const FormDesktop = ({ setAvailableVisible }) => {
       const monthEnd = endDate.getMonth() + 1;
       const yearEnd = endDate.getFullYear();
 
-      const dateStart = {dayStart,monthStart,yearStart}
-      const dateEnd = {dayEnd,
-        monthEnd,
-        yearEnd }
+      const dateStart = { dayStart, monthStart, yearStart };
+      const dateEnd = { dayEnd, monthEnd, yearEnd };
 
-      console.log(dateStart)
-      console.log(dateEnd)
+      console.log(dateStart);
+      console.log(dateEnd);
     }
 
     const data = await updateAvailableHotels(inputCity);
@@ -78,7 +76,7 @@ export const FormDesktop = ({ setAvailableVisible }) => {
         />
         <Label htmlFor="city">Your destination or hotel name</Label>
       </div>
-        <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange}/>
+      <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
       <div className="desktop-form__input">
         <Input
           id="filter"
