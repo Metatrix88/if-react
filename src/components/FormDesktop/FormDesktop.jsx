@@ -68,7 +68,7 @@ export const FormDesktop = () => {
           onChange={handleChange}
           required
         />
-        <Label htmlFor="city">Your destination or hotel name</Label>
+        <Label htmlFor="city" className="desktop-form__label-city">Your destination or hotel name</Label>
       </div>
       <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
       <div className="desktop-form__input">
