@@ -13,12 +13,10 @@ import { updateAvailableHotels } from '../../services/hotels';
 import { useAvailableContext } from '../../contexts/Available.context';
 import { CalendarDesktopForm } from '../CalendarDesktopForm';
 
-export const FormDesktop = ({ setAvailableVisible }) => {
+export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
   const { setHotels } = useAvailableContext();
   const [dateRange, setDateRange] = useState([null, null]);
-
-  const [startDate, endDate] = dateRange;
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -29,6 +27,8 @@ export const FormDesktop = ({ setAvailableVisible }) => {
 
   const handleSearch = async (event) => {
     event.preventDefault();
+
+    const [startDate, endDate] = dateRange;
 
     if (dateRange) {
       const dayStart = startDate.getDate();
@@ -48,12 +48,6 @@ export const FormDesktop = ({ setAvailableVisible }) => {
 
     const data = await updateAvailableHotels(inputCity);
     setHotels(data);
-
-    if (data.length === 0) {
-      setAvailableVisible(false);
-    } else {
-      setAvailableVisible(true);
-    }
 
     setInputCity('');
   };

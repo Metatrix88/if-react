@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // context
-import { AvailableContextProvider } from '../../contexts/Available.context';
+import { useAvailableContext } from '../../contexts/Available.context';
 
 // components
 import { Sprite } from '../Sprite';
@@ -13,20 +13,14 @@ import { Available } from '../Available';
 import './App.scss';
 
 export const App = () => {
-  const [isAvailableVisible, setAvailableVisible] = useState(false);
-  const [isAvailableVisibleLapTop, setAvailableVisibleLapTop] = useState(false);
+  const { hotels } = useAvailableContext();
 
   return (
     <>
       <Sprite />
-      <AvailableContextProvider>
-        <TopSection
-          setAvailableVisible={setAvailableVisible}
-          setAvailableVisibleLapTop={setAvailableVisibleLapTop}
-        />
-        {(isAvailableVisible && <Available />) ||
-          (isAvailableVisibleLapTop && <Available />)}
-      </AvailableContextProvider>
+      <TopSection
+      />
+      {hotels.length > 0 && <Available />}
       <Homes />
     </>
   );

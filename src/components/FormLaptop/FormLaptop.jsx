@@ -11,7 +11,7 @@ import './FormLaptop.scss';
 import { updateAvailableHotels } from '../../services/hotels';
 import { useAvailableContext } from '../../contexts/Available.context';
 
-export const FormLaptop = ({ setAvailableVisibleLapTop }) => {
+export const FormLaptop = () => {
   const [inputCity, setInputCity] = useState('');
   const { setHotels } = useAvailableContext();
 
@@ -37,17 +37,14 @@ export const FormLaptop = ({ setAvailableVisibleLapTop }) => {
     const data = await updateAvailableHotels(inputCity);
     setHotels(data);
 
-    if (data.length === 0) {
-      setAvailableVisibleLapTop(false);
-    } else {
-      setAvailableVisibleLapTop(true);
-    }
-
     setInputCity('');
   };
 
   return (
-    <form className="md-2-col sm-2-col search-form--laptop laptop-form">
+    <form
+      className="md-2-col sm-2-col search-form--laptop laptop-form"
+      onSubmit={handleSearch}
+    >
       <div className="laptop-form__input-wrap laptop-form__input--full-width">
         <div className="laptop-form__destination-wrap">
           <Button
@@ -133,7 +130,6 @@ export const FormLaptop = ({ setAvailableVisibleLapTop }) => {
         className="laptop-form__button-search"
         color="primary"
         type="submit"
-        onSubmit={handleSearch}
       >
         Search
       </Button>
