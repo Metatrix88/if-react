@@ -22,6 +22,11 @@
   color: white;
 }
 
+.react-datepicker {
+  display: flex;
+  top: 8px;
+}
+
 .react-datepicker__input-container > input {
   min-width: 240px;
 }

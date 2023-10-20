@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import { Container } from '../Container';
-import { FormDesktop } from '../FormDesctop';
+import { FormDesktop } from '../FormDesktop';
 import { FormLaptop } from '../FormLaptop';
 import { MobileApps } from '../MobileApps';
 

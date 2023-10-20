@@ -21,6 +21,7 @@ export const CalendarDesktopForm = ({ className, dateRange, setDateRange }) => {
         selectsRange={true}
         startDate={startDate}
         endDate={endDate}
+        monthsShown={2}
         onChange={handleChange}
         isClearable={true}
       />

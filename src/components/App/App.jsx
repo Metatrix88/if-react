@@ -18,8 +18,7 @@ export const App = () => {
   return (
     <>
       <Sprite />
-      <TopSection
-      />
+      <TopSection />
       {hotels.length > 0 && <Available />}
       <Homes />
     </>
