@@ -7,8 +7,14 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './CalendarLaptopForm.scss';
 
-export const CalendarLaptopFormOut = ({ title, className, id, name, dateOut, setDateOut }) => {
-
+export const CalendarLaptopFormOut = ({
+  title,
+  className,
+  id,
+  name,
+  dateOut,
+  setDateOut,
+}) => {
   const handleChange = (date) => {
     setDateOut(date);
   };
@@ -23,9 +29,7 @@ export const CalendarLaptopFormOut = ({ title, className, id, name, dateOut, set
         id={id}
         name={name}
       />
-      <label htmlFor={id}>
-        {title}
-      </label>
+      <label htmlFor={id}>{title}</label>
     </div>
   );
 };

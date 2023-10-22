@@ -10,7 +10,10 @@ import { Button } from '../UI/Button';
 import { Search } from '../../icons';
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
-import {CalendarLaptopFormIn, CalendarLaptopFormOut} from '../CalendarLaptopForm';
+import {
+  CalendarLaptopFormIn,
+  CalendarLaptopFormOut,
+} from '../CalendarLaptopForm';
 
 // styles
 import './FormLaptop.scss';
@@ -18,8 +21,8 @@ import './FormLaptop.scss';
 export const FormLaptop = () => {
   const [inputCity, setInputCity] = useState('');
   // const [date, setDate] = useState(new Date());
-  const [dateIn, setDateIn] = useState(new Date())
-  const [dateOut, setDateOut] = useState(new Date())
+  const [dateIn, setDateIn] = useState(new Date());
+  const [dateOut, setDateOut] = useState(new Date());
   const { setHotels } = useAvailableContext();
 
   const handleChange = (event) => {
@@ -89,16 +92,16 @@ export const FormLaptop = () => {
         <CalendarLaptopFormIn
           setDateIn={setDateIn}
           dateIn={dateIn}
-          title='Check-in'
+          title="Check-in"
           id="date-in"
-          name='dateIn'
+          name="dateIn"
         />
       </div>
       <div className="laptop-form__input-wrap">
         <CalendarLaptopFormOut
           setDateOut={setDateOut}
           dateOut={dateOut}
-          title='Check-out'
+          title="Check-out"
           id="date-out"
           name="dateOut"
         />
