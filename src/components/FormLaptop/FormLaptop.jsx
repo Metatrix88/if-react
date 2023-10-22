@@ -1,39 +1,57 @@
 import React, { useState } from 'react';
 
+import { updateAvailableHotels } from '../../services/hotels';
+
+// contexts
+import { useAvailableContext } from '../../contexts/Available.context';
+
 // components
 import { Button } from '../UI/Button';
 import { Search } from '../../icons';
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
+import {CalendarLaptopFormIn, CalendarLaptopFormOut} from '../CalendarLaptopForm';
 
 // styles
 import './FormLaptop.scss';
-import { updateAvailableHotels } from '../../services/hotels';
-import { useAvailableContext } from '../../contexts/Available.context';
 
 export const FormLaptop = () => {
   const [inputCity, setInputCity] = useState('');
+  // const [date, setDate] = useState(new Date());
+  const [dateIn, setDateIn] = useState(new Date())
+  const [dateOut, setDateOut] = useState(new Date())
   const { setHotels } = useAvailableContext();
-
-  // const [inputDate, setInputDate] = useState('');
-  // const [inputAdults, setInputAdults] = useState('');
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'destination') {
       setInputCity(event.target.value);
     }
-    // if (event.target.name === 'date') {
-    //   setInputDate(event.target.value);
-    // }
-    //
-    // if (event.target.name === 'adults'){
-    //   setInputAdults(event.target.value);
-    // }
   };
 
   const handleSearch = async (event) => {
     event.preventDefault();
+
+    if (dateIn) {
+      const dayStart = dateIn.getDate();
+      const monthStart = dateIn.getMonth() + 1;
+      const yearStart = dateIn.getFullYear();
+
+      const dateStart = { dayStart, monthStart, yearStart };
+
+      console.log(1, dateStart);
+    }
+
+    if (dateOut) {
+      const dayEnd = dateOut.getDate();
+      const monthEnd = dateOut.getMonth() + 1;
+      const yearEnd = dateOut.getFullYear();
+
+      const dateEnd = { dayEnd, monthEnd, yearEnd };
+
+      console.log(2, dateEnd);
+    }
+
     const data = await updateAvailableHotels(inputCity);
     setHotels(data);
 
@@ -68,28 +86,22 @@ export const FormLaptop = () => {
       </div>
 
       <div className="laptop-form__input-wrap">
-        <div className="laptop-form__input">
-          <Input
-            className="input-laptop"
-            name="date"
-            id="checkIn"
-            title="Check-in"
-            onChange={handleChange}
-          />
-          <Label htmlFor="checkIn">Check-in</Label>
-        </div>
+        <CalendarLaptopFormIn
+          setDateIn={setDateIn}
+          dateIn={dateIn}
+          title='Check-in'
+          id="date-in"
+          name='dateIn'
+        />
       </div>
       <div className="laptop-form__input-wrap">
-        <div className="laptop-form__input">
-          <Input
-            className="input-laptop"
-            name="date"
-            id="checkOut"
-            title="Check-out"
-            onChange={handleChange}
-          />
-          <Label htmlFor="checkOut">Check-out</Label>
-        </div>
+        <CalendarLaptopFormOut
+          setDateOut={setDateOut}
+          dateOut={dateOut}
+          title='Check-out'
+          id="date-out"
+          name="dateOut"
+        />
       </div>
 
       <div className="laptop-form__input-wrap laptop-form__input--full-width">

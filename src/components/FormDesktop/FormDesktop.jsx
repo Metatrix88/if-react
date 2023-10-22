@@ -15,8 +15,8 @@ import { CalendarDesktopForm } from '../CalendarDesktopForm';
 
 export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
-  const { setHotels } = useAvailableContext();
   const [dateRange, setDateRange] = useState([null, null]);
+  const { setHotels } = useAvailableContext();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -68,7 +68,9 @@ export const FormDesktop = () => {
           onChange={handleChange}
           required
         />
-        <Label htmlFor="city" className="desktop-form__label-city">Your destination or hotel name</Label>
+        <Label htmlFor="city" className="desktop-form__label-city">
+          Your destination or hotel name
+        </Label>
       </div>
       <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
       <div className="desktop-form__input">

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
@@ -11,7 +11,7 @@ export const CalendarDesktopForm = ({ className, dateRange, setDateRange }) => {
   const [isInputFocused, setInputFocused] = useState(false);
   const [startDate, endDate] = dateRange;
 
-  const handleFocus =() => {
+  const handleFocus = () => {
     setInputFocused(true);
   };
 
@@ -27,19 +27,24 @@ export const CalendarDesktopForm = ({ className, dateRange, setDateRange }) => {
 
   return (
     <div className={classNames('desktop-form__input', className)}>
-        <DatePicker
-          className='desktop-form__input-date'
-          selectsRange={true}
-          startDate={startDate}
-          endDate={endDate}
-          monthsShown={2}
-          onChange={handleChange}
-          isClearable={true}
-          id='date'
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-      <label htmlFor="date" className={`desktop-form__label-date ${isInputFocused ? 'focused' : ''}`}>
+      <DatePicker
+        className="desktop-form__input-date"
+        selectsRange={true}
+        startDate={startDate}
+        endDate={endDate}
+        monthsShown={2}
+        onChange={handleChange}
+        isClearable={true}
+        id="date"
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+      <label
+        htmlFor="date"
+        className={`desktop-form__label-date ${
+          isInputFocused ? 'focused' : ''
+        }`}
+      >
         Check-in — Check-out
       </label>
     </div>
