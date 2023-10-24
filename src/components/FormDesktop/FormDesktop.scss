@@ -8,7 +8,7 @@
   background-color: white;
   font-size: 18px;
   grid-template-columns:
-    minmax(150px, 1fr) minmax(150px, 259px) minmax(150px, 314px)
+    minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px)
     minmax(150px, 192px);
 }
 
@@ -26,28 +26,38 @@
   width: 100%;
 }
 
-.desktop-form__input > label {
+.desktop-form__label-city,
+.desktop-form__label-date {
   position: absolute;
   top: 50%;
   left: 24px;
   transform: translateY(-50%);
   transition: all 0.3s;
-  pointer-events: all;
+  pointer-events: auto;
 }
 
 .desktop-form__input-city {
   border: 3px solid transparent;
   border-radius: $button-radius-lg;
   margin-left: -3px;
-  margin-top: -3px;
+  margin-top: -2px;
   margin-bottom: -3px;
 }
 
-.desktop-form__input-date,
+.desktop-form__input-date {
+  border: 3px solid transparent;
+  border-radius: $button-radius-lg;
+  margin-top: -2px;
+  margin-bottom: -3px;
+  min-width: 240px;
+  padding: 18px 24px;
+  width: 100%;
+}
+
 .desktop-form__input-filter {
   border: 3px solid transparent;
   border-radius: $button-radius-lg;
-  margin-top: -3px;
+  margin-top: -2px;
   margin-bottom: -3px;
 }
 
@@ -65,9 +75,13 @@
 }
 
 .desktop-form__input-city:focus ~ label,
-.desktop-form__input-city:not(:focus):valid ~ label,
-.desktop-form__input-date:focus ~ label,
-.desktop-form__input-date:not(:focus):valid ~ label {
+.desktop-form__input-city:not(:focus):valid ~ label {
+  top: -40px;
+  color: $general-white-color;
+  opacity: 1;
+}
+
+.desktop-form__label-date.focused {
   top: -40px;
   color: $general-white-color;
   opacity: 1;

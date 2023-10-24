@@ -1,13 +1,15 @@
 import React from 'react';
 
+// components
 import { Container } from '../Container';
-import { FormDesktop } from '../FormDesctop';
+import { FormDesktop } from '../FormDesktop';
 import { FormLaptop } from '../FormLaptop';
 import { MobileApps } from '../MobileApps';
 
+// styles
 import './TopSection.scss';
 
-export const TopSection = ({ setHotels }) => {
+export const TopSection = () => {
   return (
     <section className="top-section">
       <Container>
@@ -17,7 +19,7 @@ export const TopSection = ({ setHotels }) => {
         <h2 className="top-section__title">
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
-        <FormDesktop setHotels={setHotels} />
+        <FormDesktop />
         <FormLaptop />
         <MobileApps />
       </Container>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { Sprite } from '../Sprite';
+import { Sprite } from '../../Sprite';
 import { Homes } from '../HomesClass';
 import { TopSection } from '../TopSectionClass';
 import { Available } from '../AvailableClass';
 
 import './App.scss';
 
-import { getHotels } from '../../services/hotels';
+import { getHotels } from '../../../services/hotels';
 
 export class App extends Component {
   constructor(props) {
@@ -29,7 +29,6 @@ export class App extends Component {
   }
 
   render() {
-
     const { hotels } = this.state;
 
     return (

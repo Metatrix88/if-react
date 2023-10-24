@@ -1,14 +1,20 @@
 import React from 'react';
 
+import { useAvailableContext } from '../../contexts/Available.context';
+
+// components
 import { ContainerCards } from '../ContainerCards';
 import { Card } from '../Card';
 import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
 import { Container } from '../Container';
 
+// styles
 import './Available.scss';
 
-export const Available = ({ hotels }) => {
+export const Available = () => {
+  const { hotels } = useAvailableContext();
+
   return (
     <Container className="available">
       <h2 className="available__title">Available hotels</h2>
