@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 
-//Components
+import { updateAvailableHotels } from '../../services/hotels';
+
+// context
+import { useAvailableContext } from '../../contexts/Available.context';
+import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
+
+// components
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 import { Button } from '../UI/Button';
-// import { Calendar } from '../Calendar';
-
-//Styles
-import './FormDesktop.scss';
-
-import { updateAvailableHotels } from '../../services/hotels';
-import { useAvailableContext } from '../../contexts/Available.context';
 import { CalendarDesktopForm } from '../CalendarDesktopForm';
-import {FilterCountersContainer} from '../FilterCountersContainer';
+import { FilterCountersContainer } from '../FilterCountersContainer';
+
+// styles
+import './FormDesktop.scss';
 
 export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
+  const { adults } = useFilterCountersContext()
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -82,6 +85,7 @@ export const FormDesktop = () => {
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
+          value={`${adults} Adults — 0 Children — 1 Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
           2 Adults — 0 Children — 1 Room
@@ -94,7 +98,7 @@ export const FormDesktop = () => {
       >
         Search
       </Button>
-      <FilterCountersContainer/>
+      <FilterCountersContainer />
     </form>
   );
 };

@@ -1,27 +1,56 @@
 import React from 'react';
 
+// components
+import { Button } from '../UI/Button';
+import { Input } from '../UI/Input';
+import { Label } from '../UI/Label';
+
+// styles
 import './FilterCountersContainer.scss';
-import {Button} from '../UI/Button';
-import {Input} from '../UI/Input';
-import {Label} from '../UI/Label';
+
+import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
 
 export const FilterCountersContainer = () => {
+  const { adults, setAdults } = useFilterCountersContext()
+
+  const handleIncrement = (event) => {
+    event.preventDefault();
+    if (adults < 30) {
+      setAdults(adults + 1);
+    }
+  };
+
+  const handleDecrement = (event) => {
+    event.preventDefault();
+    if (adults > 0) {
+      setAdults(adults - 1);
+    }
+  };
+
   return (
-    <div
-      className="desktop-form__filter filter desktop-form__filter--disabled"
-    >
+    <div className="desktop-form__filter filter desktop-form__filter--disabled">
       <ul className="filter__counters">
         <li className="filter__adults counter-item">
-          <Label className="counter__label" htmlFor="counter-adults">Adults</Label>
-          <Button variant='counter'>-</Button>
+          <Label className="counter__label" htmlFor="counter-adults">
+            Adults
+          </Label>
+          <Button
+            variant="counter"
+            onClick={handleDecrement}
+            disabled={adults === 0}
+          >-</Button>
           <Input
             className="counter__input"
             id="counter-adults"
             name="counter-adults"
-            value="1"
+            value={adults}
             disabled
           />
-          <Button variant='counter'>+</Button>
+          <Button
+            variant="counter"
+            onClick={handleIncrement}
+            disabled={adults === 30}
+          >+</Button>
           {/*<label className="counter__label" htmlFor="counter-adults"*/}
           {/*>Adults</label*/}
           {/*>*/}
@@ -49,8 +78,10 @@ export const FilterCountersContainer = () => {
           {/*</button>*/}
         </li>
         <li className="filter__children counter-item">
-          <Label className="counter__label" htmlFor="counter-children">Children</Label>
-          <Button variant='counter'>-</Button>
+          <Label className="counter__label" htmlFor="counter-children">
+            Children
+          </Label>
+          <Button variant="counter">-</Button>
           <Input
             className="counter__input"
             id="counter-children"
@@ -58,7 +89,7 @@ export const FilterCountersContainer = () => {
             value="0"
             disabled
           />
-          <Button variant='counter'>+</Button>
+          <Button variant="counter">+</Button>
           {/*<label className="counter__label" htmlFor="counter-children"*/}
           {/*>Children</label*/}
           {/*>*/}
@@ -86,8 +117,10 @@ export const FilterCountersContainer = () => {
           {/*</button>*/}
         </li>
         <li className="filter__rooms counter-item">
-          <Label className="counter__label" htmlFor="counter-rooms">Rooms</Label>
-          <Button variant='counter'>-</Button>
+          <Label className="counter__label" htmlFor="counter-rooms">
+            Rooms
+          </Label>
+          <Button variant="counter">-</Button>
           <Input
             className="counter__input"
             id="counter-rooms"
@@ -95,7 +128,7 @@ export const FilterCountersContainer = () => {
             value="1"
             disabled
           />
-          <Button variant='counter'>+</Button>
+          <Button variant="counter">+</Button>
           {/*<label className="counter__label" htmlFor="counter-rooms"*/}
           {/*>Rooms</label*/}
           {/*>*/}
@@ -130,5 +163,5 @@ export const FilterCountersContainer = () => {
         </p>
       </div>
     </div>
-  )
+  );
 };
