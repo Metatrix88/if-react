@@ -12,6 +12,7 @@ import './FormDesktop.scss';
 import { updateAvailableHotels } from '../../services/hotels';
 import { useAvailableContext } from '../../contexts/Available.context';
 import { CalendarDesktopForm } from '../CalendarDesktopForm';
+import {FilterCountersContainer} from '../FilterCountersContainer';
 
 export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
@@ -93,6 +94,7 @@ export const FormDesktop = () => {
       >
         Search
       </Button>
+      <FilterCountersContainer/>
     </form>
   );
 };

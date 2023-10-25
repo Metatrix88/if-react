@@ -13,6 +13,7 @@
 }
 
 .desktop-form {
+  position: relative;
   margin-bottom: 120px;
 
   // For mobile tablets:
@@ -42,6 +43,7 @@
   margin-left: -3px;
   margin-top: -2px;
   margin-bottom: -3px;
+  padding: 18px 16px;
 }
 
 .desktop-form__input-date {
@@ -50,7 +52,7 @@
   margin-top: -2px;
   margin-bottom: -3px;
   min-width: 240px;
-  padding: 18px 24px;
+  padding: 18px 16px;
   width: 100%;
 }
 
@@ -59,6 +61,7 @@
   border-radius: $button-radius-lg;
   margin-top: -2px;
   margin-bottom: -3px;
+  padding: 18px 16px;
 }
 
 .desktop-form__input-city:hover,
