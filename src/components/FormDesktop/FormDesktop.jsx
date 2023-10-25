@@ -4,7 +4,7 @@ import { updateAvailableHotels } from '../../services/hotels';
 
 // context
 import { useAvailableContext } from '../../contexts/Available.context';
-import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
+import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
 
 // components
 import { Input } from '../UI/Input';
@@ -20,7 +20,7 @@ export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
-  const { adults } = useFilterCountersContext()
+  const { adults, childrenCount, rooms } = useFilterCountersContext();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -49,6 +49,10 @@ export const FormDesktop = () => {
       console.log(dateStart);
       console.log(dateEnd);
     }
+
+    console.log(adults);
+    console.log(childrenCount);
+    console.log(rooms);
 
     const data = await updateAvailableHotels(inputCity);
     setHotels(data);
@@ -85,7 +89,7 @@ export const FormDesktop = () => {
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
-          value={`${adults} Adults — 0 Children — 1 Room`}
+          value={`${adults} Adults — ${childrenCount} Children — ${rooms} Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
           2 Adults — 0 Children — 1 Room
