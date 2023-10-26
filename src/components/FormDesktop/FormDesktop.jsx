@@ -21,7 +21,8 @@ export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
-  const { adults, childrenCount, rooms, childrenAges } = useFilterCountersContext();
+  const { adults, childrenCount, rooms, childrenAges } =
+    useFilterCountersContext();
   const inputRef = useRef(null);
   const countersRef = useRef(null);
 
@@ -68,8 +69,8 @@ export const FormDesktop = () => {
       endDateMillis,
       adults,
       children: validChildrenAges.join(','),
-      rooms
-    }
+      rooms,
+    };
 
     const data = await updateAvailableHotels(queryParams);
     setHotels(data);

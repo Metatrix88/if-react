@@ -9,14 +9,13 @@ export const getHotels = async () => {
 };
 
 export const updateAvailableHotels = async (queryParams) => {
-  try{
+  try {
     const { data: hotels } = await axios.get(apiUrl, {
-      params: queryParams
+      params: queryParams,
     });
 
     return hotels;
   } catch (error) {
-    console.error('Error fetching data:', error)
+    console.error('Error fetching data:', error);
   }
-
 };
