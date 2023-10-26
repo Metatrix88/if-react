@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // components
 import { Button } from '../UI/Button';
@@ -11,29 +11,35 @@ import './FilterCountersContainer.scss';
 import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
 
 export const FilterCountersContainer = () => {
-  // const [childCount, setChilCount] = useState([]);
+  const [childrenAge, setChildrenAge] = useState(Array(10).fill(0));
   const { adults, setAdults } = useFilterCountersContext();
   const { rooms, setRooms } = useFilterCountersContext();
   const { childrenCount, setChildrenCount } = useFilterCountersContext();
 
-  const handleIncrement = (counter, setCounter, max) => (event) => {
-    event.preventDefault();
+  const handleIncrement = (counter, setCounter, max) => (e) => {
+    e.preventDefault();
     if (counter < max) {
       setCounter(counter + 1);
     }
   };
 
-  const handleDecrement = (counter, setCounter, min) => (event) => {
-    event.preventDefault();
+  const handleDecrement = (counter, setCounter, min) => (e) => {
+    e.preventDefault();
     if (counter > min) {
       setCounter(counter - 1);
     }
   };
 
+  const handleChildrenAgeChange = (childIndex, age) => {
+    const updateChildrenAge = [...childrenAge];
+    updateChildrenAge[childIndex] = age;
+    setChildrenAge(updateChildrenAge);
+  }
+
   return (
-    <div className="desktop-form__filter filter desktop-form__filter--disabled">
+    <div className="desktop-form__filter filter">
       <ul className="filter__counters">
-        <li className="filter__adults counter-item">
+        <li className="filter__adults counter__item">
           <Label className="counter__label" htmlFor="counter-adults">
             Adults
           </Label>
@@ -59,7 +65,7 @@ export const FilterCountersContainer = () => {
             +
           </Button>
         </li>
-        <li className="filter__children counter-item">
+        <li className="filter__children counter__item">
           <Label className="counter__label" htmlFor="counter-children">
             Children
           </Label>
@@ -85,7 +91,7 @@ export const FilterCountersContainer = () => {
             +
           </Button>
         </li>
-        <li className="filter__rooms counter-item">
+        <li className="filter__rooms counter__item">
           <Label className="counter__label" htmlFor="counter-rooms">
             Rooms
           </Label>
@@ -113,10 +119,28 @@ export const FilterCountersContainer = () => {
         </li>
       </ul>
       {childrenCount > 0 && (
-        <div className="filter__children-info filter__children--disabled">
+        <div>
           <p className="filter__children-question">
             What is the age of the child you’re travelling with?
           </p>
+          <div className="filter-container__children-selects">
+          {Array.from({ length: childrenCount }, (_, index) => (
+            // <div key={index}>
+              <select
+                key={index}
+                className="filter__children-select"
+                value={childrenAge[index]}
+                onChange={(e) => handleChildrenAgeChange(index, e.target.value)}
+              >
+                {Array.from({length: 18}, (_, age) => (
+                  <option key={age} value={age}>
+                    {age} years old
+                  </option>
+                ))}
+              </select>
+            // </div>
+          ))}
+          </div>
         </div>
       )}
     </div>

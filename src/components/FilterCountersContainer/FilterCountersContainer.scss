@@ -3,6 +3,7 @@
 
 .desktop-form__filter {
   position: absolute;
+  z-index: 1;
   top: 65px;
   left: 67%;
 }
@@ -19,33 +20,18 @@
   margin-bottom: 16px;
 }
 
-.counter-item {
+.counter__item {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-//.counter__button {
-//  width: 30px;
-//  height: 30px;
-//  border: 1px solid $primary-color;
-//  font-size: 18px;
-//  font-weight: 400;
-//}
-
-.button-disabled {
-  border: 1px solid rgba(206, 206, 206, 1);
-  color: rgba(206, 206, 206, 1);
-}
-
-//Применен
 .counter__label {
   font-size: 16px;
   width: 70px;
 }
 
-//Применен
 .counter__input {
   font-size: 16px;
   max-width: 30px;
@@ -65,15 +51,18 @@
   margin-bottom: 16px;
 }
 
+.filter-container__children-selects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .filter__children-select {
-  max-width: 100px;
-  width: 100%;
+  width: 48%;
   font-size: 12px;
   padding: 8px;
   border: 1px solid $primary-color;
   cursor: pointer;
-  margin-bottom: 8px;
-  margin-right: 8px;
 }
 
 //.filter__children--disabled {
