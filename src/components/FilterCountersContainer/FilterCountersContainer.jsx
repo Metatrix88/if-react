@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // components
 import { Button } from '../UI/Button';
@@ -11,10 +11,16 @@ import './FilterCountersContainer.scss';
 import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
 
 export const FilterCountersContainer = () => {
-  const [childrenAge, setChildrenAge] = useState(Array(10).fill(0));
-  const { adults, setAdults } = useFilterCountersContext();
-  const { rooms, setRooms } = useFilterCountersContext();
-  const { childrenCount, setChildrenCount } = useFilterCountersContext();
+  const {
+    adults,
+    setAdults,
+    rooms,
+    setRooms,
+    childrenCount,
+    setChildrenCount,
+    childrenAges,
+    setChildrenAges,
+  } = useFilterCountersContext();
 
   const handleIncrement = (counter, setCounter, max) => (e) => {
     e.preventDefault();
@@ -31,9 +37,9 @@ export const FilterCountersContainer = () => {
   };
 
   const handleChildrenAgeChange = (childIndex, age) => {
-    const updateChildrenAge = [...childrenAge];
+    const updateChildrenAge = [...childrenAges];
     updateChildrenAge[childIndex] = age;
-    setChildrenAge(updateChildrenAge);
+    setChildrenAges(updateChildrenAge);
   };
 
   return (
@@ -129,7 +135,7 @@ export const FilterCountersContainer = () => {
               <select
                 key={index}
                 className="filter__children-select"
-                value={childrenAge[index]}
+                value={childrenAges[index]}
                 onChange={(e) => handleChildrenAgeChange(index, e.target.value)}
               >
                 {Array.from({ length: 18 }, (_, age) => (

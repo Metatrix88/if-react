@@ -10,6 +10,7 @@ export const FilterCountersContextProvider = ({ children }) => {
   const [adults, setAdults] = useState(1);
   const [rooms, setRooms] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
+  const [childrenAges, setChildrenAges] = useState(Array(10).fill(0));
 
   return (
     <FilterCountersContext.Provider
@@ -20,6 +21,8 @@ export const FilterCountersContextProvider = ({ children }) => {
         setRooms,
         childrenCount,
         setChildrenCount,
+        childrenAges,
+        setChildrenAges,
       }}
     >
       {children}

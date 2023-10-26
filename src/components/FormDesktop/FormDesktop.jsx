@@ -21,7 +21,7 @@ export const FormDesktop = () => {
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
-  const { adults, childrenCount, rooms } = useFilterCountersContext();
+  const { adults, childrenCount, rooms, childrenAges } = useFilterCountersContext();
   const inputRef = useRef(null);
   const countersRef = useRef(null);
 
@@ -34,7 +34,7 @@ export const FormDesktop = () => {
 
   const toggleCountersVisibility = () => {
     setIsCountersVisible(!isCountersVisible);
-  }
+  };
 
   const handleClick = (event) => {
     if (inputRef.current.contains(event.target)) {
@@ -58,31 +58,20 @@ export const FormDesktop = () => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
-    const startDateMillis = startDate.getTime()
-    const endDateMillis = endDate.getTime()
-    // if (dateRange) {
-    //   const dayStart = startDate.getDate();
-    //   const monthStart = startDate.getMonth() + 1;
-    //   const yearStart = startDate.getFullYear();
-    //
-    //   const dayEnd = endDate.getDate();
-    //   const monthEnd = endDate.getMonth() + 1;
-    //   const yearEnd = endDate.getFullYear();
-    //
-    //   const dateStart = { dayStart, monthStart, yearStart };
-    //   const dateEnd = { dayEnd, monthEnd, yearEnd };
-    //
-    //   console.log(dateStart);
-    //   console.log(dateEnd);
-    // }
+    const startDateMillis = startDate.getTime();
+    const endDateMillis = endDate.getTime();
+    const validChildrenAges = childrenAges.filter((age) => age !== 0);
 
-    console.log(startDateMillis);
-    console.log(endDateMillis);
-    console.log(adults);
-    console.log(childrenCount);
-    console.log(rooms);
+    const queryParams = {
+      search: inputCity,
+      startDateMillis,
+      endDateMillis,
+      adults,
+      children: validChildrenAges.join(','),
+      rooms
+    }
 
-    const data = await updateAvailableHotels(inputCity);
+    const data = await updateAvailableHotels(queryParams);
     setHotels(data);
 
     setInputCity('');
@@ -131,10 +120,11 @@ export const FormDesktop = () => {
       >
         Search
       </Button>
-      {isCountersVisible &&
+      {isCountersVisible && (
         <div ref={countersRef}>
-        <FilterCountersContainer />
-      </div>}
+          <FilterCountersContainer />
+        </div>
+      )}
     </form>
   );
 };
