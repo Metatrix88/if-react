@@ -34,7 +34,7 @@ export const FilterCountersContainer = () => {
     const updateChildrenAge = [...childrenAge];
     updateChildrenAge[childIndex] = age;
     setChildrenAge(updateChildrenAge);
-  }
+  };
 
   return (
     <div className="desktop-form__filter filter">
@@ -124,22 +124,22 @@ export const FilterCountersContainer = () => {
             What is the age of the child you’re travelling with?
           </p>
           <div className="filter-container__children-selects">
-          {Array.from({ length: childrenCount }, (_, index) => (
-            // <div key={index}>
+            {Array.from({ length: childrenCount }, (_, index) => (
+              // <div key={index}>
               <select
                 key={index}
                 className="filter__children-select"
                 value={childrenAge[index]}
                 onChange={(e) => handleChildrenAgeChange(index, e.target.value)}
               >
-                {Array.from({length: 18}, (_, age) => (
+                {Array.from({ length: 18 }, (_, age) => (
                   <option key={age} value={age}>
                     {age} years old
                   </option>
                 ))}
               </select>
-            // </div>
-          ))}
+              // </div>
+            ))}
           </div>
         </div>
       )}

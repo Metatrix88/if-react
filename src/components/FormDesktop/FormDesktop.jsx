@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { updateAvailableHotels } from '../../services/hotels';
 
@@ -17,10 +17,13 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 import './FormDesktop.scss';
 
 export const FormDesktop = () => {
+  const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
   const { adults, childrenCount, rooms } = useFilterCountersContext();
+  const inputRef = useRef(null);
+  const countersRef = useRef(null);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -29,27 +32,52 @@ export const FormDesktop = () => {
     }
   };
 
+  const toggleCountersVisibility = () => {
+    setIsCountersVisible(!isCountersVisible);
+  }
+
+  const handleClick = (event) => {
+    if (inputRef.current.contains(event.target)) {
+      return;
+    }
+
+    if (countersRef.current && !countersRef.current.contains(event.target)) {
+      setIsCountersVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   const handleSearch = async (event) => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
+    const startDateMillis = startDate.getTime()
+    const endDateMillis = endDate.getTime()
+    // if (dateRange) {
+    //   const dayStart = startDate.getDate();
+    //   const monthStart = startDate.getMonth() + 1;
+    //   const yearStart = startDate.getFullYear();
+    //
+    //   const dayEnd = endDate.getDate();
+    //   const monthEnd = endDate.getMonth() + 1;
+    //   const yearEnd = endDate.getFullYear();
+    //
+    //   const dateStart = { dayStart, monthStart, yearStart };
+    //   const dateEnd = { dayEnd, monthEnd, yearEnd };
+    //
+    //   console.log(dateStart);
+    //   console.log(dateEnd);
+    // }
 
-    if (dateRange) {
-      const dayStart = startDate.getDate();
-      const monthStart = startDate.getMonth() + 1;
-      const yearStart = startDate.getFullYear();
-
-      const dayEnd = endDate.getDate();
-      const monthEnd = endDate.getMonth() + 1;
-      const yearEnd = endDate.getFullYear();
-
-      const dateStart = { dayStart, monthStart, yearStart };
-      const dateEnd = { dayEnd, monthEnd, yearEnd };
-
-      console.log(dateStart);
-      console.log(dateEnd);
-    }
-
+    console.log(startDateMillis);
+    console.log(endDateMillis);
     console.log(adults);
     console.log(childrenCount);
     console.log(rooms);
@@ -81,7 +109,7 @@ export const FormDesktop = () => {
         </Label>
       </div>
       <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
-      <div className="desktop-form__input">
+      <div className="desktop-form__input" ref={inputRef}>
         <Input
           id="filter"
           className="desktop-form__input-filter"
@@ -89,6 +117,7 @@ export const FormDesktop = () => {
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
+          onClick={toggleCountersVisibility}
           value={`${adults} Adults — ${childrenCount} Children — ${rooms} Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
@@ -102,7 +131,10 @@ export const FormDesktop = () => {
       >
         Search
       </Button>
-      <FilterCountersContainer />
+      {isCountersVisible &&
+        <div ref={countersRef}>
+        <FilterCountersContainer />
+      </div>}
     </form>
   );
 };
