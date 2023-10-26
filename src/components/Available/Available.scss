@@ -81,7 +81,7 @@
   }
 
   .swiper-wrapper {
-    padding-bottom: 16px
+    padding-bottom: 16px;
   }
 
   .swiper-button-prev,
@@ -99,7 +99,6 @@
   .swiper-button-prev:after,
   .swiper-button-next:after,
   .swiper-rtl {
-
     // For mobile tablets:
     @media screen and (max-width: $screen-sm) {
       font-size: 35px;
