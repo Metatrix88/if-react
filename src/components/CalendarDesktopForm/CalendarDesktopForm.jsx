@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {memo, useState} from 'react';
 import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
@@ -7,7 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './CalendarDesktopForm.scss';
 
-export const CalendarDesktopForm = ({ className, dateRange, setDateRange }) => {
+export const CalendarDesktopForm = memo(({ className, dateRange, setDateRange }) => {
   const [isInputFocused, setInputFocused] = useState(false);
   const [startDate, endDate] = dateRange;
 
@@ -49,4 +49,6 @@ export const CalendarDesktopForm = ({ className, dateRange, setDateRange }) => {
       </label>
     </div>
   );
-};
+});
+
+CalendarDesktopForm.displayName = 'CalendarDesktopForm';

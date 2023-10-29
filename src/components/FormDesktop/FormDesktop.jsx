@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef, memo} from 'react';
 
 import { updateAvailableHotels } from '../../services/hotels';
 
@@ -16,7 +16,7 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 // styles
 import './FormDesktop.scss';
 
-export const FormDesktop = () => {
+export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
@@ -128,4 +128,6 @@ export const FormDesktop = () => {
       )}
     </form>
   );
-};
+});
+
+FormDesktop.displayName = 'FormDesktop';
