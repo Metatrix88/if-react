@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -17,10 +17,17 @@ import 'swiper/css/pagination';
 
 export const Available = () => {
   const { hotels } = useAvailableContext();
+  const availableRef = useRef(null);
+
+  useEffect(() => {
+    if (availableRef.current) {
+      availableRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [hotels]);
 
   return (
     <Container className="available">
-      <h2 className="available__title">Available hotels</h2>
+      <h2 ref={availableRef} className="available__title">Available hotels</h2>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}
