@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 
-import { updateAvailableHotels } from '../../services/hotels';
+// import { updateAvailableHotels } from '../../services/hotels';
 
 // context
 import { useAvailableContext } from '../../contexts/Available.context';
@@ -15,6 +15,8 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles
 import './FormDesktop.scss';
+import {fetchData, wrapPromise} from '../../lib/wrapPromise';
+import {apiUrl} from '../../services/constants';
 
 export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);
@@ -55,7 +57,7 @@ export const FormDesktop = memo(() => {
     };
   }, []);
 
-  const handleSearch = async (event) => {
+  const handleSearch = (event) => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
@@ -72,8 +74,9 @@ export const FormDesktop = memo(() => {
       rooms,
     };
 
-    const data = await updateAvailableHotels(queryParams);
-    setHotels(data);
+    // const hotels = await updateAvailableHotels(queryParams);
+    const hotels = wrapPromise(fetchData(apiUrl, queryParams));
+    setHotels(hotels);
 
     setInputCity('');
   };
