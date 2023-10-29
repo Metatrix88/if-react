@@ -61,9 +61,25 @@ export const FormDesktop = memo(() => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
-    const startDateMillis = startDate.getTime();
-    const endDateMillis = endDate.getTime();
+
+    let startDateMillis = '';
+    let endDateMillis = '';
+
+    if (startDate === null) {
+       startDateMillis = false;
+    } else {
+       startDateMillis = startDate.getTime();
+    }
+
+    if (endDate === null) {
+      endDateMillis = false;
+    } else {
+      endDateMillis = startDate.getTime();
+    }
+
     const validChildrenAges = childrenAges.filter((age) => age !== 0);
+
+
 
     const queryParams = {
       search: inputCity,
