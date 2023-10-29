@@ -1,5 +1,5 @@
-import {updateAvailableHotels} from '../services/hotels';
-import {apiUrl} from '../services/constants';
+import { updateAvailableHotels } from '../services/hotels';
+import { apiUrl } from '../services/constants';
 
 const cache = new Map();
 
@@ -28,15 +28,15 @@ export const wrapPromise = (promise) => {
   } else {
     promise.status = 'pending';
     promise.then(
-      result => {
+      (result) => {
         promise.status = 'fulfilled';
         promise.value = result;
       },
-      reason => {
+      (reason) => {
         promise.status = 'rejected';
         promise.reason = reason;
       },
     );
     throw promise;
   }
-}
+};

@@ -15,8 +15,8 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles
 import './FormDesktop.scss';
-import {fetchData, wrapPromise} from '../../lib/wrapPromise';
-import {apiUrl} from '../../services/constants';
+import { fetchData, wrapPromise } from '../../lib/wrapPromise';
+import { apiUrl } from '../../services/constants';
 
 export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);

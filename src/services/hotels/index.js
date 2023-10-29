@@ -8,11 +8,12 @@ export const getHotels = async () => {
   return hotels;
 };
 
-const delay = () => new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(true);
-  }, 5000)
-});
+const delay = () =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, 5000);
+  });
 
 export const updateAvailableHotels = async (queryParams) => {
   try {

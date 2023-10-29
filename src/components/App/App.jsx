@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 
 // context
 // import { useAvailableContext } from '../../contexts/Available.context';
@@ -8,7 +8,7 @@ import { Sprite } from '../Sprite';
 import { Homes } from '../Homes';
 import { TopSection } from '../TopSection';
 import { Available } from '../Available';
-import {Loader} from '../Loader';
+import { Loader } from '../Loader';
 
 // styles
 import './App.scss';
@@ -20,9 +20,9 @@ export const App = () => {
     <>
       <Sprite />
       <TopSection />
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         {/*{hotels.length > 0 && <Available />}*/}
-         <Available />
+        <Available />
       </Suspense>
       <Homes />
     </>
