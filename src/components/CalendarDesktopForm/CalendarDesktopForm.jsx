@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react';
+import { string, func, array} from 'prop-types';
 import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
@@ -53,4 +54,11 @@ export const CalendarDesktopForm = memo(
   },
 );
 
+CalendarDesktopForm.propTypes = {
+  className: string,
+  dateRange: array,
+  setDateRange: func,
+};
+
 CalendarDesktopForm.displayName = 'CalendarDesktopForm';
+

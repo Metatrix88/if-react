@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 
-// import { updateAvailableHotels } from '../../services/hotels';
+import { updateAvailableHotels } from '../../services/hotels';
+// import { fetchData, wrapPromise } from '../../lib/wrapPromise';
+// import { apiUrl } from '../../services/constants';
 
 // context
 import { useAvailableContext } from '../../contexts/Available.context';
@@ -15,8 +17,6 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles
 import './FormDesktop.scss';
-import { fetchData, wrapPromise } from '../../lib/wrapPromise';
-import { apiUrl } from '../../services/constants';
 
 export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);
@@ -57,7 +57,7 @@ export const FormDesktop = memo(() => {
     };
   }, []);
 
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
@@ -66,9 +66,9 @@ export const FormDesktop = memo(() => {
     let endDateMillis = '';
 
     if (startDate === null) {
-       startDateMillis = false;
+      startDateMillis = false;
     } else {
-       startDateMillis = startDate.getTime();
+      startDateMillis = startDate.getTime();
     }
 
     if (endDate === null) {
@@ -79,8 +79,6 @@ export const FormDesktop = memo(() => {
 
     const validChildrenAges = childrenAges.filter((age) => age !== 0);
 
-
-
     const queryParams = {
       search: inputCity,
       startDateMillis,
@@ -90,8 +88,8 @@ export const FormDesktop = memo(() => {
       rooms,
     };
 
-    // const hotels = await updateAvailableHotels(queryParams);
-    const hotels = wrapPromise(fetchData(apiUrl, queryParams));
+    const hotels = await updateAvailableHotels(queryParams);
+    // const hotels = wrapPromise(fetchData(apiUrl, queryParams));
     setHotels(hotels);
 
     setInputCity('');
