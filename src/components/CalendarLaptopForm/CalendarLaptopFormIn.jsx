@@ -12,11 +12,11 @@ export const CalendarLaptopFormIn = ({
   className,
   id,
   name,
-  dateIn,
-  setDateIn,
+  dateStart,
+  setDateStart,
 }) => {
   const handleChange = (date) => {
-    setDateIn(date);
+    setDateStart(date);
   };
 
   return (
@@ -24,7 +24,7 @@ export const CalendarLaptopFormIn = ({
       <DatePicker
         className={classNames(className)}
         showIcon
-        selected={dateIn}
+        selected={dateStart}
         onChange={handleChange}
         id={id}
         name={name}

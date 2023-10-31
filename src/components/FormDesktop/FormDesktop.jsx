@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 
 // context
-import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
-import {useFormContext} from '../../contexts/Form.context';
+import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
+import { useFormContext } from '../../contexts/Form.context';
 
 // components
 import { Input } from '../UI/Input';
@@ -38,7 +38,7 @@ export const FormDesktop = memo(() => {
     setEndDateMillis,
     setAdultsQuantity,
     setRoomsQuantity,
-    setChildrenQuantityAndAge
+    setChildrenQuantityAndAge,
   } = useFormContext();
 
   const handleChange = (event) => {
@@ -78,11 +78,11 @@ export const FormDesktop = memo(() => {
 
     if (startDate !== null) {
       setStartDateMillis(startDate.getTime());
-      }
+    }
 
     if (endDate !== null) {
       setEndDateMillis(endDate.getTime());
-      }
+    }
 
     setInputName(cityInput);
     setAdultsQuantity(adultsCounter);

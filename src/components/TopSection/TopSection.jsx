@@ -23,8 +23,8 @@ export const TopSection = () => {
         </h2>
         <FilterCountersContextProvider>
           <FormDesktop />
+          <FormLaptop />
         </FilterCountersContextProvider>
-        <FormLaptop />
         <MobileApps />
       </Container>
     </section>

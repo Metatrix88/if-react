@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-// import { updateAvailableHotels } from '../../services/hotels';
-
 // contexts
-// import { useAvailableContext } from '../../contexts/Available.context';
+import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
+import {useFormContext} from '../../contexts/Form.context';
 
 // components
 import { Button } from '../UI/Button';
@@ -19,48 +18,55 @@ import {
 import './FormLaptop.scss';
 
 export const FormLaptop = () => {
-  const [inputCity, setInputCity] = useState('');
-  // const [date, setDate] = useState(new Date());
-  const [dateIn, setDateIn] = useState(new Date());
-  const [dateOut, setDateOut] = useState(new Date());
-  // const { setHotels } = useAvailableContext();
+  const [cityInput, setCityInput] = useState('');
+  const [dateStart, setDateStart] = useState(null);
+  const [dateOut, setDateOut] = useState(null);
+
+  const {
+    adultsCounter,
+    setAdultsCounter,
+    childrenCounter,
+    setChildrenCounter,
+    roomsCounter,
+    setRoomsCounter,
+  } = useFilterCountersContext();
+
+  const {
+    setInputName,
+    setStartDateMillis,
+    setEndDateMillis,
+    setAdultsQuantity,
+    setRoomsQuantity,
+  } = useFormContext();
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'destination') {
-      setInputCity(event.target.value);
+      setCityInput(event.target.value);
     }
   };
-
-  console.log(inputCity)
 
   const handleSearch = async (event) => {
     event.preventDefault();
 
-    if (dateIn) {
-      const dayStart = dateIn.getDate();
-      const monthStart = dateIn.getMonth() + 1;
-      const yearStart = dateIn.getFullYear();
-
-      const dateStart = { dayStart, monthStart, yearStart };
-
-      console.log(1, dateStart);
+    if (dateStart !== null) {
+      setStartDateMillis(dateStart.getTime());
     }
 
-    if (dateOut) {
-      const dayEnd = dateOut.getDate();
-      const monthEnd = dateOut.getMonth() + 1;
-      const yearEnd = dateOut.getFullYear();
-
-      const dateEnd = { dayEnd, monthEnd, yearEnd };
-
-      console.log(2, dateEnd);
+    if (dateOut !== null) {
+      setEndDateMillis(dateOut.getTime());
     }
 
-    // const data = await updateAvailableHotels(inputCity);
-    // setHotels(data);
+    setInputName(cityInput);
+    setAdultsQuantity(adultsCounter);
+    setRoomsQuantity(roomsCounter);
 
-    setInputCity('');
+    setCityInput('');
+    setDateStart(null);
+    setDateOut(null);
+    setAdultsCounter(1);
+    setChildrenCounter(0);
+    setRoomsCounter(1);
   };
 
   return (
@@ -83,6 +89,7 @@ export const FormLaptop = () => {
               name="destination"
               id="destination"
               title="Your destination or hotel name"
+              value={cityInput}
               onChange={handleChange}
             />
             <Label htmlFor="destination">Your destination or hotel name</Label>
@@ -92,8 +99,8 @@ export const FormLaptop = () => {
 
       <div className="laptop-form__input-wrap">
         <CalendarLaptopFormIn
-          setDateIn={setDateIn}
-          dateIn={dateIn}
+          setDateStart={setDateStart}
+          dateStart={dateStart}
           title="Check-in"
           id="date-in"
           name="dateIn"
@@ -117,6 +124,7 @@ export const FormLaptop = () => {
               name="adults"
               id="adults"
               title="Adults"
+              value={adultsCounter}
               onChange={handleChange}
             />
             <Label htmlFor="adults">Adults</Label>
@@ -127,6 +135,7 @@ export const FormLaptop = () => {
               name="children"
               id="children"
               title="Children"
+              value={childrenCounter}
               onChange={handleChange}
             />
             <Label htmlFor="children">Children</Label>
@@ -137,6 +146,7 @@ export const FormLaptop = () => {
               name="rooms"
               id="rooms"
               title="Rooms"
+              value={roomsCounter}
               onChange={handleChange}
             />
             <Label htmlFor="rooms">Rooms</Label>

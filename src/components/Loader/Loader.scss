@@ -1,3 +1,22 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
 .loader {
   text-align: center;
+
+  &__img {
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      width: 150px;
+      height: 150px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      width: 100px;
+      height: 100px;
+    }
+  }
 }
+

@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 
 // context
 import { FormContextProvider } from '../../contexts/Form.context';
@@ -14,7 +14,6 @@ import { Loader } from '../Loader';
 import './App.scss';
 
 export const App = () => {
-
   return (
     <>
       <Sprite />
