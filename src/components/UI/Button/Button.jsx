@@ -1,5 +1,5 @@
 import React from 'react';
-import {string,} from 'prop-types';
+import { string } from 'prop-types';
 import classNames from 'classnames';
 
 import './Button.scss';
@@ -34,4 +34,4 @@ Button.propTypes = {
   variant: string,
   color: string,
   className: string,
-}
+};

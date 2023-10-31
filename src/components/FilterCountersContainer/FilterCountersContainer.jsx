@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
+
+import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
 
 // components
 import { Button } from '../UI/Button';
@@ -8,16 +10,14 @@ import { Label } from '../UI/Label';
 // styles
 import './FilterCountersContainer.scss';
 
-import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
-
-export const FilterCountersContainer = () => {
+export const FilterCountersContainer = memo(() => {
   const {
-    adults,
-    setAdults,
-    rooms,
-    setRooms,
-    childrenCount,
-    setChildrenCount,
+    adultsCounter,
+    setAdultsCounter,
+    roomsCounter,
+    setRoomsCounter,
+    childrenCounter,
+    setChildrenCounter,
     childrenAges,
     setChildrenAges,
   } = useFilterCountersContext();
@@ -51,8 +51,8 @@ export const FilterCountersContainer = () => {
           </Label>
           <Button
             variant="counter"
-            onClick={handleDecrement(adults, setAdults, 1)}
-            disabled={adults === 1}
+            onClick={handleDecrement(adultsCounter, setAdultsCounter, 1)}
+            disabled={adultsCounter === 1}
           >
             -
           </Button>
@@ -60,13 +60,13 @@ export const FilterCountersContainer = () => {
             className="counter__input"
             id="counter-adults"
             name="counter-adults"
-            value={adults}
+            value={adultsCounter}
             disabled
           />
           <Button
             variant="counter"
-            onClick={handleIncrement(adults, setAdults, 30)}
-            disabled={adults === 30}
+            onClick={handleIncrement(adultsCounter, setAdultsCounter, 30)}
+            disabled={adultsCounter === 30}
           >
             +
           </Button>
@@ -77,8 +77,8 @@ export const FilterCountersContainer = () => {
           </Label>
           <Button
             variant="counter"
-            onClick={handleDecrement(childrenCount, setChildrenCount, 0)}
-            disabled={childrenCount === 0}
+            onClick={handleDecrement(childrenCounter, setChildrenCounter, 0)}
+            disabled={childrenCounter === 0}
           >
             -
           </Button>
@@ -86,13 +86,13 @@ export const FilterCountersContainer = () => {
             className="counter__input"
             id="counter-children"
             name="counter-children"
-            value={childrenCount}
+            value={childrenCounter}
             disabled
           />
           <Button
             variant="counter"
-            onClick={handleIncrement(childrenCount, setChildrenCount, 10)}
-            disabled={childrenCount === 10}
+            onClick={handleIncrement(childrenCounter, setChildrenCounter, 10)}
+            disabled={childrenCounter === 10}
           >
             +
           </Button>
@@ -103,8 +103,8 @@ export const FilterCountersContainer = () => {
           </Label>
           <Button
             variant="counter"
-            onClick={handleDecrement(rooms, setRooms, 1)}
-            disabled={rooms === 1}
+            onClick={handleDecrement(roomsCounter, setRoomsCounter, 1)}
+            disabled={roomsCounter === 1}
           >
             -
           </Button>
@@ -112,25 +112,25 @@ export const FilterCountersContainer = () => {
             className="counter__input"
             id="counter-rooms"
             name="counter-rooms"
-            value={rooms}
+            value={roomsCounter}
             disabled
           />
           <Button
             variant="counter"
-            onClick={handleIncrement(rooms, setRooms, 30)}
-            disabled={rooms === 30}
+            onClick={handleIncrement(roomsCounter, setRoomsCounter, 30)}
+            disabled={roomsCounter === 30}
           >
             +
           </Button>
         </li>
       </ul>
-      {childrenCount > 0 && (
+      {childrenCounter > 0 && (
         <div>
           <p className="filter__children-question">
             What is the age of the child you’re travelling with?
           </p>
           <div className="filter-container__children-selects">
-            {Array.from({ length: childrenCount }, (_, index) => (
+            {Array.from({ length: childrenCounter }, (_, index) => (
               // <div key={index}>
               <select
                 key={index}
@@ -151,4 +151,6 @@ export const FilterCountersContainer = () => {
       )}
     </div>
   );
-};
+});
+
+FilterCountersContainer.displayName = 'FilterCountersContainer';

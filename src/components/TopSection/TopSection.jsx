@@ -1,6 +1,5 @@
 import React from 'react';
 
-// context
 import { FilterCountersContextProvider } from '../../contexts/FilterCounters.context';
 
 // components

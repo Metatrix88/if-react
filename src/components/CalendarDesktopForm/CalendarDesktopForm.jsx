@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { string, func, array} from 'prop-types';
+import { string, func, array } from 'prop-types';
 import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
@@ -61,4 +61,3 @@ CalendarDesktopForm.propTypes = {
 };
 
 CalendarDesktopForm.displayName = 'CalendarDesktopForm';
-

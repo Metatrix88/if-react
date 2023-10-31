@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { updateAvailableHotels } from '../../services/hotels';
+// import { updateAvailableHotels } from '../../services/hotels';
 
 // contexts
-import { useAvailableContext } from '../../contexts/Available.context';
+// import { useAvailableContext } from '../../contexts/Available.context';
 
 // components
 import { Button } from '../UI/Button';
@@ -23,7 +23,7 @@ export const FormLaptop = () => {
   // const [date, setDate] = useState(new Date());
   const [dateIn, setDateIn] = useState(new Date());
   const [dateOut, setDateOut] = useState(new Date());
-  const { setHotels } = useAvailableContext();
+  // const { setHotels } = useAvailableContext();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -31,6 +31,8 @@ export const FormLaptop = () => {
       setInputCity(event.target.value);
     }
   };
+
+  console.log(inputCity)
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -55,8 +57,8 @@ export const FormLaptop = () => {
       console.log(2, dateEnd);
     }
 
-    const data = await updateAvailableHotels(inputCity);
-    setHotels(data);
+    // const data = await updateAvailableHotels(inputCity);
+    // setHotels(data);
 
     setInputCity('');
   };

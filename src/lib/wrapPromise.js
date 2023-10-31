@@ -3,16 +3,17 @@ import { apiUrl } from '../services/constants';
 
 const cache = new Map();
 
-export function fetchData(url, queryParams) {
-  if (!cache.has(url)) {
-    cache.set(url, getData(url, queryParams));
+export function fetchData(url, params) {
+  const cacheKey = url + JSON.stringify(params);
+  if (!cache.has(cacheKey)) {
+    cache.set(cacheKey, getData(url, params));
   }
-  return cache.get(url);
+  return cache.get(cacheKey);
 }
 
-async function getData(url, queryParams) {
+async function getData(url, params) {
   if (url === apiUrl) {
-    return await updateAvailableHotels(queryParams);
+    return await updateAvailableHotels(params);
   } else {
     throw Error('Not implemented');
   }

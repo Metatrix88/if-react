@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import {string} from 'prop-types';
+import { string } from 'prop-types';
 import classNames from 'classnames';
 
 export const Label = memo(({ children, className, htmlFor }) => {
@@ -12,5 +12,5 @@ export const Label = memo(({ children, className, htmlFor }) => {
 Label.propTypes = {
   className: string,
   htmlFor: string,
-}
+};
 Label.displayName = 'Label';

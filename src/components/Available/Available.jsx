@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, {memo, useEffect, useRef} from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useAvailableContext } from '../../contexts/Available.context';
+import { fetchData, wrapPromise } from '../../lib/wrapPromise';
+import { apiUrl } from '../../services/constants';
+
+// context
+import {useFormContext} from '../../contexts/Form.context';
 
 // components
 import { Link } from '../UI/Link';
@@ -15,9 +19,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export const Available = () => {
-  const { hotels } = useAvailableContext();
+export const Available = memo( () => {
   const availableRef = useRef(null);
+  const { inputName, startDateMillis, endDateMillis, adultsQuantity, childrenQuantityAndAge, roomsQuantity} = useFormContext();
+
+  const queryParams = {
+    search: inputName,
+    startDateMillis,
+    endDateMillis,
+    adultsQuantity,
+    childrenQuantityAndAge,
+    roomsQuantity,
+  };
+
+  const hotels = wrapPromise(fetchData(apiUrl, queryParams));
 
   useEffect(() => {
     if (availableRef.current) {
@@ -44,7 +59,7 @@ export const Available = () => {
         pagination={{ clickable: true }}
         navigation
       >
-        {hotels.map((home) => (
+        {hotels.length === 0 ? <p className="available__text-info">Nothing was found for your request</p> : hotels.map((home) => (
           <SwiperSlide key={home.id}>
             <Link className="available__link" variant="card" target="_blank">
               <Image {...home} className="available__img" />
@@ -58,4 +73,6 @@ export const Available = () => {
       </Swiper>
     </Container>
   );
-};
+});
+
+Available.displayName = 'Available';

@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 
-import { updateAvailableHotels } from '../../services/hotels';
-// import { fetchData, wrapPromise } from '../../lib/wrapPromise';
-// import { apiUrl } from '../../services/constants';
-
 // context
-import { useAvailableContext } from '../../contexts/Available.context';
-import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
+import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
+import {useFormContext} from '../../contexts/Form.context';
 
 // components
 import { Input } from '../UI/Input';
@@ -20,18 +16,35 @@ import './FormDesktop.scss';
 
 export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);
-  const [inputCity, setInputCity] = useState('');
+  const [cityInput, setCityInput] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
-  const { setHotels } = useAvailableContext();
-  const { adults, childrenCount, rooms, childrenAges } =
-    useFilterCountersContext();
+
   const inputRef = useRef(null);
   const countersRef = useRef(null);
+
+  const {
+    adultsCounter,
+    setAdultsCounter,
+    childrenCounter,
+    setChildrenCounter,
+    roomsCounter,
+    setRoomsCounter,
+    childrenAges,
+  } = useFilterCountersContext();
+
+  const {
+    setInputName,
+    setStartDateMillis,
+    setEndDateMillis,
+    setAdultsQuantity,
+    setRoomsQuantity,
+    setChildrenQuantityAndAge
+  } = useFormContext();
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'city') {
-      setInputCity(event.target.value);
+      setCityInput(event.target.value);
     }
   };
 
@@ -61,38 +74,26 @@ export const FormDesktop = memo(() => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
+    const validChildrenAges = childrenAges.filter((age) => age !== 0).join(',');
 
-    let startDateMillis = '';
-    let endDateMillis = '';
+    if (startDate !== null) {
+      setStartDateMillis(startDate.getTime());
+      }
 
-    if (startDate === null) {
-      startDateMillis = false;
-    } else {
-      startDateMillis = startDate.getTime();
-    }
+    if (endDate !== null) {
+      setEndDateMillis(endDate.getTime());
+      }
 
-    if (endDate === null) {
-      endDateMillis = false;
-    } else {
-      endDateMillis = startDate.getTime();
-    }
+    setInputName(cityInput);
+    setAdultsQuantity(adultsCounter);
+    setChildrenQuantityAndAge(validChildrenAges);
+    setRoomsQuantity(roomsCounter);
 
-    const validChildrenAges = childrenAges.filter((age) => age !== 0);
-
-    const queryParams = {
-      search: inputCity,
-      startDateMillis,
-      endDateMillis,
-      adults,
-      children: validChildrenAges.join(','),
-      rooms,
-    };
-
-    const hotels = await updateAvailableHotels(queryParams);
-    // const hotels = wrapPromise(fetchData(apiUrl, queryParams));
-    setHotels(hotels);
-
-    setInputCity('');
+    setCityInput('');
+    setDateRange([null, null]);
+    setAdultsCounter(1);
+    setChildrenCounter(0);
+    setRoomsCounter(1);
   };
 
   return (
@@ -107,7 +108,7 @@ export const FormDesktop = memo(() => {
           name="city"
           title="Your destination or hotel name"
           placeholder=""
-          value={inputCity}
+          value={cityInput}
           onChange={handleChange}
           required
         />
@@ -125,7 +126,7 @@ export const FormDesktop = memo(() => {
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
           onClick={toggleCountersVisibility}
-          value={`${adults} Adults — ${childrenCount} Children — ${rooms} Room`}
+          value={`${adultsCounter} Adults — ${childrenCounter} Children — ${roomsCounter} Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
           2 Adults — 0 Children — 1 Room

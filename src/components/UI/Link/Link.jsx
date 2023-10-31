@@ -1,5 +1,5 @@
 import React from 'react';
-import {string} from 'prop-types';
+import { string } from 'prop-types';
 import classNames from 'classnames';
 
 import './Link.scss';
@@ -31,4 +31,4 @@ Link.propTypes = {
   variant: string,
   className: string,
   href: string,
-}
+};
