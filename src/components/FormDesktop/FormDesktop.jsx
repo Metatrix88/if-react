@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-//Components
+import { updateAvailableHotels } from '../../services/hotels';
+
+// context
+import { useAvailableContext } from '../../contexts/Available.context';
+import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
+
+// components
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 import { Button } from '../UI/Button';
-// import { Calendar } from '../Calendar';
+import { CalendarDesktopForm } from '../CalendarDesktopForm';
+import { FilterCountersContainer } from '../FilterCountersContainer';
 
-//Styles
+// styles
 import './FormDesktop.scss';
 
-import { updateAvailableHotels } from '../../services/hotels';
-import { useAvailableContext } from '../../contexts/Available.context';
-import { CalendarDesktopForm } from '../CalendarDesktopForm';
-
 export const FormDesktop = () => {
+  const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [inputCity, setInputCity] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
   const { setHotels } = useAvailableContext();
+  const { adults, childrenCount, rooms, childrenAges } =
+    useFilterCountersContext();
+  const inputRef = useRef(null);
+  const countersRef = useRef(null);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -25,28 +33,46 @@ export const FormDesktop = () => {
     }
   };
 
+  const toggleCountersVisibility = () => {
+    setIsCountersVisible(!isCountersVisible);
+  };
+
+  const handleClick = (event) => {
+    if (inputRef.current.contains(event.target)) {
+      return;
+    }
+
+    if (countersRef.current && !countersRef.current.contains(event.target)) {
+      setIsCountersVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   const handleSearch = async (event) => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
+    const startDateMillis = startDate.getTime();
+    const endDateMillis = endDate.getTime();
+    const validChildrenAges = childrenAges.filter((age) => age !== 0);
 
-    if (dateRange) {
-      const dayStart = startDate.getDate();
-      const monthStart = startDate.getMonth() + 1;
-      const yearStart = startDate.getFullYear();
+    const queryParams = {
+      search: inputCity,
+      startDateMillis,
+      endDateMillis,
+      adults,
+      children: validChildrenAges.join(','),
+      rooms,
+    };
 
-      const dayEnd = endDate.getDate();
-      const monthEnd = endDate.getMonth() + 1;
-      const yearEnd = endDate.getFullYear();
-
-      const dateStart = { dayStart, monthStart, yearStart };
-      const dateEnd = { dayEnd, monthEnd, yearEnd };
-
-      console.log(dateStart);
-      console.log(dateEnd);
-    }
-
-    const data = await updateAvailableHotels(inputCity);
+    const data = await updateAvailableHotels(queryParams);
     setHotels(data);
 
     setInputCity('');
@@ -73,7 +99,7 @@ export const FormDesktop = () => {
         </Label>
       </div>
       <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
-      <div className="desktop-form__input">
+      <div className="desktop-form__input" ref={inputRef}>
         <Input
           id="filter"
           className="desktop-form__input-filter"
@@ -81,6 +107,8 @@ export const FormDesktop = () => {
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
+          onClick={toggleCountersVisibility}
+          value={`${adults} Adults — ${childrenCount} Children — ${rooms} Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
           2 Adults — 0 Children — 1 Room
@@ -93,6 +121,11 @@ export const FormDesktop = () => {
       >
         Search
       </Button>
+      {isCountersVisible && (
+        <div ref={countersRef}>
+          <FilterCountersContainer />
+        </div>
+      )}
     </form>
   );
 };

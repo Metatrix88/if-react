@@ -1,5 +1,8 @@
 import React from 'react';
 
+// context
+import { FilterCountersContextProvider } from '../../contexts/FilterCounters.context';
+
 // components
 import { Container } from '../Container';
 import { FormDesktop } from '../FormDesktop';
@@ -19,7 +22,9 @@ export const TopSection = () => {
         <h2 className="top-section__title">
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
-        <FormDesktop />
+        <FilterCountersContextProvider>
+          <FormDesktop />
+        </FilterCountersContextProvider>
         <FormLaptop />
         <MobileApps />
       </Container>
