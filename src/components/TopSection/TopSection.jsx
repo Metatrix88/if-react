@@ -1,6 +1,5 @@
 import React from 'react';
 
-// context
 import { FilterCountersContextProvider } from '../../contexts/FilterCounters.context';
 
 // components
@@ -24,8 +23,8 @@ export const TopSection = () => {
         </h2>
         <FilterCountersContextProvider>
           <FormDesktop />
+          <FormLaptop />
         </FilterCountersContextProvider>
-        <FormLaptop />
         <MobileApps />
       </Container>
     </section>

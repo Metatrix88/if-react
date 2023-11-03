@@ -30,6 +30,23 @@
     }
   }
 
+  &__text-info {
+    text-align: center;
+    font-size: 32px;
+    margin: 8px 0;
+    color: #07e808;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      font-size: 24px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      font-size: 18px;
+    }
+  }
+
   &__card {
     margin-bottom: 16px;
 

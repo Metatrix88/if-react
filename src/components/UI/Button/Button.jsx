@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import classNames from 'classnames';
 
 import './Button.scss';
@@ -27,4 +28,10 @@ export const Button = (
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  variant: string,
+  color: string,
+  className: string,
 };

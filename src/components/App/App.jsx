@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 // context
-import { useAvailableContext } from '../../contexts/Available.context';
+import { FormContextProvider } from '../../contexts/Form.context';
 
 // components
 import { Sprite } from '../Sprite';
 import { Homes } from '../Homes';
 import { TopSection } from '../TopSection';
 import { Available } from '../Available';
+import { Loader } from '../Loader';
 
 // styles
 import './App.scss';
 
 export const App = () => {
-  const { hotels } = useAvailableContext();
-
   return (
     <>
       <Sprite />
-      <TopSection />
-      {hotels.length > 0 && <Available />}
+      <FormContextProvider>
+        <TopSection />
+        <Suspense fallback={<Loader />}>
+          <Available />
+        </Suspense>
+      </FormContextProvider>
       <Homes />
     </>
   );

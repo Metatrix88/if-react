@@ -8,10 +8,18 @@ export const getHotels = async () => {
   return hotels;
 };
 
-export const updateAvailableHotels = async (queryParams) => {
+const delay = () =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, 3000);
+  });
+
+export const updateAvailableHotels = async (params) => {
   try {
+    await delay();
     const { data: hotels } = await axios.get(apiUrl, {
-      params: queryParams,
+      params: params,
     });
 
     return hotels;
