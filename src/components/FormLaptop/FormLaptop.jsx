@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 // contexts
-import {useFilterCountersContext} from '../../contexts/FilterCounters.context';
-import {useFormContext} from '../../contexts/Form.context';
+import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
+import { useFormContext } from '../../contexts/Form.context';
 
 // components
 import { Button } from '../UI/Button';
