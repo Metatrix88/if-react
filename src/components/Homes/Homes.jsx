@@ -6,7 +6,6 @@ import { getHotels } from '../../services/hotels';
 
 // components
 import { Container } from '../Container';
-import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
 
 // styles
@@ -15,7 +14,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cube';
-// import 'swiper/swiper-bundle.min.css';
 
 export const Homes = () => {
   const [homes, setHomes] = useState([]);
@@ -43,13 +41,13 @@ export const Homes = () => {
       >
         {homes.map((home) => (
           <SwiperSlide key={home.id}>
-            <Link className="homes__link" variant="card" target="_blank">
+            <a href="#" className="homes__link" target="_blank">
               <Image {...home} className="homes__img" />
               {home.name}
               <h3 className="homes__subtitle">
                 {home.city}, {home.country}
               </h3>
-            </Link>
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>

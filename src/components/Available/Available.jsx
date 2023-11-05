@@ -9,7 +9,6 @@ import { apiUrl } from '../../services/constants';
 import { useFormContext } from '../../contexts/Form.context';
 
 // components
-import { Link } from '../UI/Link';
 import { Image } from '../UI/Image';
 import { Container } from '../Container';
 
@@ -73,13 +72,13 @@ export const Available = memo(() => {
         ) : (
           hotels.map((home) => (
             <SwiperSlide key={home.id}>
-              <Link className="available__link" variant="card" target="_blank">
+              <a className="available__link" target="_blank">
                 <Image {...home} className="available__img" />
                 {home.name}
                 <h3 className="available__subtitle">
                   {home.city}, {home.country}
                 </h3>
-              </Link>
+              </a>
             </SwiperSlide>
           ))
         )}

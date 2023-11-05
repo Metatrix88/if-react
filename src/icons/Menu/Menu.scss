@@ -1,0 +1,18 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.icon-menu {
+  fill: $general-white-color;
+  width: 40px;
+  aspect-ratio: 1/1;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    width: 30px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    width: 24px;
+  }
+}

@@ -5,7 +5,7 @@ import './Search.scss';
 
 export const Search = ({ className }) => {
   return (
-    <svg className={classNames('search', className)}>
+    <svg className={classNames('icon-search', className)}>
       <use href="#search" />
     </svg>
   );
