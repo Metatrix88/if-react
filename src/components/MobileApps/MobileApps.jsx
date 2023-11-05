@@ -9,12 +9,20 @@ export const MobileApps = ({ className }) => {
   return (
     <ul className={classNames('mobile-app', className)}>
       <li>
-        <a href="#" target="_blank" aria-label="Download the mobile app for android">
+        <a
+          href="#"
+          target="_blank"
+          aria-label="Download the mobile app for android"
+        >
           <GooglePlay />
         </a>
       </li>
       <li>
-        <a href="#" target="_blank" aria-label="Download the mobile app for android">
+        <a
+          href="#"
+          target="_blank"
+          aria-label="Download the mobile app for android"
+        >
           <AppStore />
         </a>
       </li>

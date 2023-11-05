@@ -2,11 +2,11 @@ import React from 'react';
 
 // components
 import { Container } from '../Container';
+import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
 
 // styles
 import './Header.scss';
-import {Button} from '../UI/Button';
 
 export const Header = () => {
   return (
@@ -34,7 +34,7 @@ export const Header = () => {
             <li className="header__button-night">
               <Button
                 className="header__button"
-                variant='icon'
+                variant="icon"
                 aria-label="Screen Theme Switch"
               >
                 <Night className="header__icon-night header__button--focus" />
@@ -43,7 +43,7 @@ export const Header = () => {
             <li className="header__button-login">
               <Button
                 className="header__button"
-                variant='icon'
+                variant="icon"
                 aria-label="Login"
               >
                 <Login className="header__button--focus" />
@@ -52,7 +52,7 @@ export const Header = () => {
             <li className="header__button-menu">
               <Button
                 className="header__button"
-                variant='icon'
+                variant="icon"
                 aria-label="Menu"
               >
                 <Menu className="header__button--focus" />

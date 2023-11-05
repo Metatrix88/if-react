@@ -13,13 +13,13 @@ import { Loader } from '../Loader';
 
 // styles
 import './App.scss';
-
+import {Footer} from '../Footer';
 
 export const App = () => {
   return (
     <>
       <Sprite />
-      <Header/>
+      <Header />
       <FormContextProvider>
         <TopSection />
         <Suspense fallback={<Loader />}>
@@ -27,6 +27,7 @@ export const App = () => {
         </Suspense>
       </FormContextProvider>
       <Homes />
+      <Footer/>
     </>
   );
 };

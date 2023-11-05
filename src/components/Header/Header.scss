@@ -118,7 +118,7 @@
   }
 
   &__button--focus:hover,
-  &__button:focus &__button--focus{
+  &__button:focus &__button--focus {
     fill: $accent-color;
   }
 }
