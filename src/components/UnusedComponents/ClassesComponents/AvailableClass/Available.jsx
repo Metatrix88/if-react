@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { ContainerCards } from '../../ContainerCards';
 import { Card } from '../../Card';
-import { Image } from '../../UI/Image';
-import { Container } from '../../Container';
+import { Image } from '../../../UI/Image';
+import { Container } from '../../../Container';
 
 import './Available.scss';
 

@@ -8,7 +8,7 @@ import { useFormContext } from '../../contexts/Form.context';
 import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 import { Button } from '../UI/Button';
-import { CalendarDesktopForm } from '../CalendarDesktopForm';
+import { CalendarDesktopForm } from '../UI/CalendarDesktopForm';
 import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles

@@ -1,5 +1,6 @@
 export * from './AppStore';
 export * from './GooglePlay';
+export * from './Close';
 export * from './Logo';
 export * from './Login';
 export * from './Menu';

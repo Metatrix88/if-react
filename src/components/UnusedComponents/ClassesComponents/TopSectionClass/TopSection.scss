@@ -1,9 +1,9 @@
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
 
 .top-section {
   min-height: 100vh;
-  background-image: url('../../../../public/images/jpg/background.jpg');
+  background-image: url('../../../../../public/images/jpg/background.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

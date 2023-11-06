@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import './Button.scss';
 
 export const Button = (
-  { variant, color, className, children, ...props },
-  type = 'button',
+  { variant, color, type = 'button', className, children, ...props }
 ) => {
   const colors = {
     primary: color === 'primary',

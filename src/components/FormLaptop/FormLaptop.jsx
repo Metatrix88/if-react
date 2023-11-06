@@ -12,7 +12,7 @@ import { Label } from '../UI/Label';
 import {
   CalendarLaptopFormIn,
   CalendarLaptopFormOut,
-} from '../CalendarLaptopForm';
+} from '../UI/CalendarLaptopForm';
 
 // styles
 import './FormLaptop.scss';

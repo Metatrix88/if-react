@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 // components
 import { Container } from '../Container';
 import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
+import { LogInModal } from '../LogInModal';
 
 // styles
 import './Header.scss';
 
 export const Header = () => {
+  const logInRef = useRef(null);
+
   return (
     <Container className="header lg-2-col">
       <a href="#" className="header__logo">
@@ -45,9 +48,11 @@ export const Header = () => {
                 className="header__button"
                 variant="icon"
                 aria-label="Login"
+                onClick={() => logInRef.current.open()}
               >
                 <Login className="header__button--focus" />
               </Button>
+              <LogInModal ref={logInRef} />
             </li>
             <li className="header__button-menu">
               <Button

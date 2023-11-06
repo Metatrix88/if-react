@@ -4,16 +4,25 @@
 .footer {
   background-color: $primary-dark-color;
   color: $general-white-color;
-  @include block-padding($section-padding-top-bottom-lg, $section-padding-top-bottom-lg);
+  @include block-padding(
+    $section-padding-top-bottom-lg,
+    $section-padding-top-bottom-lg
+  );
 
   // For mobile tablets:
   @media screen and (max-width: $screen-sm) {
-    @include block-padding($section-padding-top-bottom-md, $section-padding-top-bottom-md);
+    @include block-padding(
+      $section-padding-top-bottom-md,
+      $section-padding-top-bottom-md
+    );
   }
 
   // For mobile phones:
   @media screen and (max-width: $screen-md) {
-    @include block-padding($section-padding-top-bottom-sm, $section-padding-top-bottom-sm);
+    @include block-padding(
+      $section-padding-top-bottom-sm,
+      $section-padding-top-bottom-sm
+    );
   }
 
   &__logo {

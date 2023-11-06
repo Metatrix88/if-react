@@ -72,7 +72,7 @@ export const Available = memo(() => {
         ) : (
           hotels.map((home) => (
             <SwiperSlide key={home.id}>
-              <a className="available__link" target="_blank">
+              <a href='#' className="available__link" target="_blank">
                 <Image {...home} className="available__img" />
                 {home.name}
                 <h3 className="available__subtitle">

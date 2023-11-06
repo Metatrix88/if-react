@@ -13,7 +13,7 @@ import { Loader } from '../Loader';
 
 // styles
 import './App.scss';
-import {Footer} from '../Footer';
+import { Footer } from '../Footer';
 
 export const App = () => {
   return (
@@ -27,7 +27,7 @@ export const App = () => {
         </Suspense>
       </FormContextProvider>
       <Homes />
-      <Footer/>
+      <Footer />
     </>
   );
 };

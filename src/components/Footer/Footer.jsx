@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import { Container } from '../Container';
-import {Logo} from '../../icons';
+import { Logo } from '../../icons';
 
 // styles
 import './Footer.scss';
@@ -12,7 +12,7 @@ export const Footer = () => {
     <footer className="footer">
       <Container>
         <a href="#" className="footer__logo">
-          <Logo className="footer__logo-icon"/>
+          <Logo className="footer__logo-icon" />
         </a>
         <nav className="row footer__nav">
           <ul className="col-lg-4 col-md-4 col-sm-2 _right footer__list">
