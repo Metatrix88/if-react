@@ -1,6 +1,8 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { fetchData, wrapPromise } from '../../lib/wrapPromise';
 import { apiUrl } from '../../services/constants';
@@ -10,13 +12,14 @@ import { useFormContext } from '../../contexts/Form.context';
 
 // components
 import { Image } from '../UI/Image';
-import { Container } from '../Container';
+import { Container } from '../../containers/Container';
 
 // styles
 import './Available.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 
 export const Available = memo(() => {
   const availableRef = useRef(null);
@@ -72,13 +75,19 @@ export const Available = memo(() => {
         ) : (
           hotels.map((home) => (
             <SwiperSlide key={home.id}>
-              <a href='#' className="available__link" target="_blank">
+              <NavLink
+                to={`/hotels/${home.id}`}
+                className={({ isActive}) => (
+                  classNames("available__link", { ["available__link--active"]: isActive } )
+                )}
+                target='_blank'
+              >
                 <Image {...home} className="available__img" />
                 {home.name}
                 <h3 className="available__subtitle">
                   {home.city}, {home.country}
                 </h3>
-              </a>
+              </NavLink>
             </SwiperSlide>
           ))
         )}

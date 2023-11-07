@@ -3,9 +3,9 @@ import React, { memo } from 'react';
 import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
 
 // components
-import { Button } from '../UI/Button';
-import { Input } from '../UI/Input';
-import { Label } from '../UI/Label';
+import { Button } from '../../components/UI/Button';
+import { Input } from '../../components/UI/Input';
+import { Label } from '../../components/UI/Label';
 
 // styles
 import './FilterCountersContainer.scss';

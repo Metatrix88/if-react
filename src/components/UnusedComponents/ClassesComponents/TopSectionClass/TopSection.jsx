@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Container } from '../../../Container';
+import { Container } from '../../../../containers/Container';
 import { FormDesktop } from '../FormDesctopClass';
 import { FormLaptop } from '../../../FormLaptop';
 import { MobileApps } from '../../../MobileApps';

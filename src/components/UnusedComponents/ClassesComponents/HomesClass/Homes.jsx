@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { getHotels } from '../../../../services/hotels';
 
 // components
-import { Container } from '../../../Container';
+import { Container } from '../../../../containers/Container';
 import { ContainerCards } from '../../ContainerCards';
 import { Card } from '../../Card';
 import { Link } from '../../UI/Link';

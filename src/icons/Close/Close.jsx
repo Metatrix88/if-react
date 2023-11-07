@@ -5,6 +5,6 @@ import './Close.scss';
 
 export const Close = ({ className }) => (
   <svg className={classNames('icon-close', className)}>
-    <use href="#closeModal"/>
+    <use href="#closeModal" />
   </svg>
 );

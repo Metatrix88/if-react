@@ -8,16 +8,16 @@ export const getHotels = async () => {
   return hotels;
 };
 
-const delay = () =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, 3000);
-  });
+// Функция которая показывала лоадер
+// const delay = () =>
+//   new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(true);
+//     }, 3000);
+//   });
 
 export const updateAvailableHotels = async (params) => {
   try {
-    await delay();
     const { data: hotels } = await axios.get(apiUrl, {
       params: params,
     });
@@ -25,5 +25,15 @@ export const updateAvailableHotels = async (params) => {
     return hotels;
   } catch (error) {
     console.error('Error fetching data:', error);
+  }
+};
+
+export const fetchHotel = async (hotelId) => {
+  try {
+    const { data: hotel } = await axios.get(`${apiUrl}/${hotelId}`);
+
+    return hotel;
+  } catch (error) {
+    console.error('Error fetching hotel data:', error);
   }
 };

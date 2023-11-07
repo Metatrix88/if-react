@@ -9,7 +9,7 @@ import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 import { Button } from '../UI/Button';
 import { CalendarDesktopForm } from '../UI/CalendarDesktopForm';
-import { FilterCountersContainer } from '../FilterCountersContainer';
+import { FilterCountersContainer } from '../../containers/FilterCountersContainer';
 
 // styles
 import './FormDesktop.scss';
