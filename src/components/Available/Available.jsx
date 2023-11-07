@@ -20,7 +20,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-
 export const Available = memo(() => {
   const availableRef = useRef(null);
   const {
@@ -77,10 +76,12 @@ export const Available = memo(() => {
             <SwiperSlide key={home.id}>
               <NavLink
                 to={`/hotels/${home.id}`}
-                className={({ isActive}) => (
-                  classNames("available__link", { ["available__link--active"]: isActive } )
-                )}
-                target='_blank'
+                className={({ isActive }) =>
+                  classNames('available__link', {
+                    ['available__link--active']: isActive,
+                  })
+                }
+                target="_blank"
               >
                 <Image {...home} className="available__img" />
                 {home.name}

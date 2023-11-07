@@ -14,7 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cube';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Homes = () => {
   const [homes, setHomes] = useState([]);
@@ -42,7 +42,11 @@ export const Homes = () => {
       >
         {homes.map((home) => (
           <SwiperSlide key={home.id}>
-            <Link to={`/hotels/${home.id}`} className="homes__link" target="_blank">
+            <Link
+              to={`/hotels/${home.id}`}
+              className="homes__link"
+              target="_blank"
+            >
               <Image {...home} className="homes__img" />
               {home.name}
               <h3 className="homes__subtitle">

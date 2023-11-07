@@ -1,4 +1,7 @@
 import React, { useRef } from 'react';
+import {Link} from 'react-router-dom';
+
+import {PATH} from '../../constants/paths';
 
 // components
 import { Container } from '../../containers/Container';
@@ -15,9 +18,9 @@ export const Header = () => {
   return (
     <>
       <Container className="header lg-2-col">
-        <a href="#" className="header__logo">
+        <Link to={PATH.index} className="header__logo">
           <Logo />
-        </a>
+        </Link>
         <ul className="header__menu">
           <li className="header__links">
             <ul className="header__list">
