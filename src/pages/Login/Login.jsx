@@ -1,12 +1,12 @@
 import React, { useId, useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import {PATH} from '../../constants/paths';
+import { PATH } from '../../constants/paths';
 
 // components
 import { Button } from '../../components/UI/Button';
-import {Label} from '../../components/UI/Label';
-import {Input} from '../../components/UI/Input';
+import { Label } from '../../components/UI/Label';
+import { Input } from '../../components/UI/Input';
 
 // icons
 import { Logo } from '../../icons';
@@ -17,14 +17,14 @@ import './Login.scss';
 export const Login = () => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const emailId = useId();
   const passwordId = useId();
 
   const handleLogin = () => {
     if (userEmail && userPassword) {
-      navigate(PATH.index)
+      navigate(PATH.index);
     } else {
       alert('Invalid username or password');
     }
@@ -56,11 +56,7 @@ export const Login = () => {
           value={userPassword}
           onChange={(event) => setUserPassword(event.target.value)}
         />
-        <Button
-          className="login__button"
-          color="primary"
-          onClick={handleLogin}
-        >
+        <Button className="login__button" color="primary" onClick={handleLogin}>
           Log In
         </Button>
       </form>

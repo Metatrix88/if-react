@@ -7,6 +7,7 @@ import { PATH } from '../../constants/paths';
 import { Container } from '../../containers/Container';
 import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
+
 // import { LogInModal } from '../LogInModal';
 
 // styles
@@ -14,7 +15,11 @@ import './Header.scss';
 
 export const Header = () => {
   // const logInRef = useRef(null); //вызов модального окна
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    navigate(PATH.login)
+  };
 
   return (
     <>
@@ -51,9 +56,9 @@ export const Header = () => {
               <li className="header__button-login">
                 <Button
                   className="header__button"
+                  onClick={handleLogin}
                   variant="icon"
                   aria-label="Login"
-                  onClick={() => navigate(PATH.login)}
                   // onClick={() => logInRef.current.open()}//модальное окно
                 >
                   <Login className="header__button--focus" />

@@ -10,11 +10,11 @@ export const ErrorBoundary = () => {
   let message = 'Something went wrong';
 
   if (error.message === '204') {
-    message = 'No data to display'
+    message = 'No data to display';
   }
 
   if (error.message === '404') {
-    message = '404. Page not found'
+    message = '404. Page not found';
   }
 
   return (
@@ -23,4 +23,4 @@ export const ErrorBoundary = () => {
       <h3 className="error-boundary__message">{message}</h3>
     </div>
   );
-}
+};
