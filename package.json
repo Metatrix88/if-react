@@ -2,6 +2,7 @@
   "name": "if-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Metatrix88.github.io/if-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -23,6 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "prettier --write . && eslint src/**/*.{js,jsx}"
   },
   "eslintConfig": {
@@ -47,6 +50,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "3.0.3",

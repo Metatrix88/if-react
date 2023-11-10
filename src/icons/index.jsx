@@ -1,4 +1,5 @@
 export * from './AppStore';
+export * from './Error';
 export * from './GooglePlay';
 export * from './Close';
 export * from './Logo';

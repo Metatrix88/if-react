@@ -1,19 +1,20 @@
-import React, { useRef } from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 
-import {PATH} from '../../constants/paths';
+import { PATH } from '../../constants/paths';
 
 // components
 import { Container } from '../../containers/Container';
 import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
-import { LogInModal } from '../LogInModal';
+// import { LogInModal } from '../LogInModal';
 
 // styles
 import './Header.scss';
 
 export const Header = () => {
-  const logInRef = useRef(null);
+  // const logInRef = useRef(null); //вызов модального окна
+  const navigate = useNavigate();
 
   return (
     <>
@@ -52,7 +53,8 @@ export const Header = () => {
                   className="header__button"
                   variant="icon"
                   aria-label="Login"
-                  onClick={() => logInRef.current.open()}
+                  onClick={() => navigate(PATH.login)}
+                  // onClick={() => logInRef.current.open()}//модальное окно
                 >
                   <Login className="header__button--focus" />
                 </Button>
@@ -70,7 +72,7 @@ export const Header = () => {
           </li>
         </ul>
       </Container>
-      <LogInModal ref={logInRef} />
+      {/*{ <LogInModal ref={logInRef} /> //модальное окно**/}
     </>
   );
 };
