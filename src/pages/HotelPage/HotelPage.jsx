@@ -6,7 +6,7 @@ import { fetchHotel } from '../../services/hotels';
 // components
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { Container } from '../../containers/Container';
+import { Container } from '../../components/Container';
 import { Image } from '../../components/UI/Image';
 
 // styles

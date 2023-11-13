@@ -4,9 +4,9 @@ import { FilterCountersContextProvider } from '../../contexts/FilterCounters.con
 
 // components
 import { Container } from '../Container';
-import { FormDesktop } from '../../components/FormDesktop';
-import { FormLaptop } from '../../components/FormLaptop';
-import { MobileApps } from '../../components/MobileApps';
+import { FormDesktop } from '../FormDesktop';
+import { FormLaptop } from '../FormLaptop';
+import { MobileApps } from '../MobileApps';
 
 // styles
 import './TopSection.scss';

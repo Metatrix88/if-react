@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { getHotels } from '../../services/hotels';
 
 // components
-import { Container } from '../../containers/Container';
+import { Container } from '../Container';
 import { Image } from '../UI/Image';
 
 // styles

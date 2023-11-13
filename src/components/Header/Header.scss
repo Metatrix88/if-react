@@ -106,7 +106,6 @@
     }
   }
 
-
   &__button-menu {
     display: none;
 
@@ -116,27 +115,21 @@
     }
   }
 
+  &__button-login--is-login {
+    fill: $accent-color;
+  }
+
   &__button--focus:hover,
   &__button:focus &__button--focus {
     fill: $accent-color;
   }
-}
 
-//.header__button-wrapper:hover .dropdown {
-//  display: block;
-//}
-
-//.dropdown {
-//  display: none;
-//  position: absolute;
-//  top: 100%;
-//  left: 0;
-//  background-color: #fff;
-//  border: 1px solid #ddd;
-//  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-//  z-index: 1;
-//}
-//
-.dropdown.open {
-  display: block;
+  &__modal-logout {
+    width: 80px;
+    margin-left: 79%;
+    margin-top: 5%;
+    background-color: aqua;
+    text-align: center;
+    padding: 5px;
+  }
 }

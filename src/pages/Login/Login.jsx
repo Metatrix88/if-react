@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { PATH } from '../../constants/paths';
@@ -13,10 +13,16 @@ import { Logo } from '../../icons';
 
 // styles
 import './Login.scss';
+import {useAuthContext} from '../../contexts/Auth.context';
 
 export const Login = () => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const {
+    userEmail,
+    setUserEmail,
+    userPassword,
+    setUserPassword,
+  } = useAuthContext();
+
   const navigate = useNavigate();
 
   const emailId = useId();
@@ -33,15 +39,17 @@ export const Login = () => {
   return (
     <div className="login">
       <Logo className="login__logo" />
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleLogin}>
         <Label className="login__label" htmlFor={emailId}>
           Email
         </Label>
         <Input
           className="login__text-field"
+          name="email"
           id={emailId}
           type="email"
           placeholder="Email"
+          autoComplite="off"
           value={userEmail}
           onChange={(event) => setUserEmail(event.target.value)}
         />
@@ -51,12 +59,13 @@ export const Login = () => {
         <Input
           className="login__text-field"
           id={passwordId}
+          name="password"
           type="password"
           placeholder="Password"
           value={userPassword}
           onChange={(event) => setUserPassword(event.target.value)}
         />
-        <Button className="login__button" color="primary" onClick={handleLogin}>
+        <Button className="login__button" color="primary" type='submit'>
           Log In
         </Button>
       </form>

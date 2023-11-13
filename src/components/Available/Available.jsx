@@ -12,7 +12,7 @@ import { useFormContext } from '../../contexts/Form.context';
 
 // components
 import { Image } from '../UI/Image';
-import { Container } from '../../containers/Container';
+import { Container } from '../Container';
 
 // styles
 import './Available.scss';

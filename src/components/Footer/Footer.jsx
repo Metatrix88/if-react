@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import { Container } from '../../containers/Container';
+import { Container } from '../Container';
 import { Logo } from '../../icons';
 
 // styles
