@@ -13,15 +13,11 @@ import { Logo } from '../../icons';
 
 // styles
 import './Login.scss';
-import {useAuthContext} from '../../contexts/Auth.context';
+import { useAuthContext } from '../../contexts/Auth.context';
 
 export const Login = () => {
-  const {
-    userEmail,
-    setUserEmail,
-    userPassword,
-    setUserPassword,
-  } = useAuthContext();
+  const { userEmail, setUserEmail, userPassword, setUserPassword } =
+    useAuthContext();
 
   const navigate = useNavigate();
 
@@ -65,7 +61,7 @@ export const Login = () => {
           value={userPassword}
           onChange={(event) => setUserPassword(event.target.value)}
         />
-        <Button className="login__button" color="primary" type='submit'>
+        <Button className="login__button" color="primary" type="submit">
           Log In
         </Button>
       </form>

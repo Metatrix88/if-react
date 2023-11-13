@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import classNames from 'classnames';
 
 import { PATH } from '../../constants/paths';
-import {useAuthContext} from '../../contexts/Auth.context';
+import { useAuthContext } from '../../contexts/Auth.context';
 
 // components
 import { Container } from '../Container';
@@ -21,15 +21,15 @@ export const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   // const logInRef = useRef(null); //вызов модального окна
-  const [ isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
   const { userEmail, userPassword } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(userEmail && userPassword) {
-      setIsLogin(true)
+    if (userEmail && userPassword) {
+      setIsLogin(true);
     }
-  },[ userEmail, userPassword]);
+  }, [userEmail, userPassword]);
 
   const handleLogin = () => {
     navigate(PATH.login);
@@ -49,7 +49,6 @@ export const Header = () => {
   };
 
   useEffect(() => {
-
     if (isHovered) {
       setIsModalOpen(true);
     }
@@ -93,13 +92,16 @@ export const Header = () => {
                   onClick={handleLogin}
                   variant="icon"
                   aria-label="Login"
-
                   onMouseEnter={openModal}
                   onMouseLeave={closeModal}
 
                   // onClick={() => logInRef.current.open()}//модальное окно
                 >
-                  <Login className={classNames('header__button--focus', { 'header__button-login--is-login': isLogin })}/>
+                  <Login
+                    className={classNames('header__button--focus', {
+                      'header__button-login--is-login': isLogin,
+                    })}
+                  />
                 </Button>
               </li>
               <Modal
@@ -108,13 +110,13 @@ export const Header = () => {
                 className="header__modal-logout"
                 style={{
                   overlay: {
-                    backgroundColor: 'rgba(0, 0, 0, 0)'
-                  }
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                  },
                 }}
                 ariaHideApp={false}
                 // overlayClassName="header__modal-overlay"
               >
-                <button onClick={handleLogout}>LogOut</button>
+                <Button className="header__button-logout" onClick={handleLogout}>LogOut</Button>
               </Modal>
               <li className="header__button-menu">
                 <Button

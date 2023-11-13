@@ -116,7 +116,7 @@
   }
 
   &__button-login--is-login {
-    fill: $accent-color;
+    fill: yellowgreen;
   }
 
   &__button--focus:hover,
@@ -126,10 +126,13 @@
 
   &__modal-logout {
     width: 80px;
-    margin-left: 79%;
+    margin-left: 79.5%;
     margin-top: 5%;
-    background-color: aqua;
-    text-align: center;
-    padding: 5px;
+  }
+
+  &__button-logout {
+    background-color: yellowgreen;
+    padding: 6px;
+    border-radius: 6px;
   }
 }

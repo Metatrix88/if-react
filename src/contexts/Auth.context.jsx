@@ -11,7 +11,9 @@ export const AuthContextProvider = ({ children }) => {
   const [userPassword, setUserPassword] = useState('');
 
   return (
-    <AuthContext.Provider value={{ userEmail, setUserEmail, userPassword,setUserPassword }}>
+    <AuthContext.Provider
+      value={{ userEmail, setUserEmail, userPassword, setUserPassword }}
+    >
       {children}
     </AuthContext.Provider>
   );
