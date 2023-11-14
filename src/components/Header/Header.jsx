@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import Modal from 'react-modal';
 import classNames from 'classnames';
 
+import {setAuthStatus} from '../../store/actions';
+
+// constants
 import { PATH } from '../../constants/paths';
-import { useAuthContext } from '../../contexts/Auth.context';
+import {authStatuses} from '../../constants/authStatuses';
 
 // components
 import { Container } from '../Container';
 import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
-
-// import { LogInModal } from '../LogInModal';
 
 // styles
 import './Header.scss';
@@ -19,23 +21,14 @@ import './Header.scss';
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
-  // const logInRef = useRef(null); //вызов модального окна
-  const [isLogin, setIsLogin] = useState(false);
-  const { userEmail, userPassword } = useAuthContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => state.auth.status === authStatuses.loggedIn)
 
-  useEffect(() => {
-    if (userEmail && userPassword) {
-      setIsLogin(true);
-    }
-  }, [userEmail, userPassword]);
-
-  const handleLogin = () => {
-    navigate(PATH.login);
-  };
+  console.log(loggedIn)
 
   const handleLogout = () => {
+    dispatch(setAuthStatus(authStatuses.loggedOut));
     setIsModalOpen(false);
     navigate(PATH.login);
   };
@@ -89,18 +82,13 @@ export const Header = () => {
               <li className="header__button-login">
                 <Button
                   className="header__button"
-                  onClick={handleLogin}
                   variant="icon"
                   aria-label="Login"
                   onMouseEnter={openModal}
                   onMouseLeave={closeModal}
-
-                  // onClick={() => logInRef.current.open()}//модальное окно
                 >
                   <Login
-                    className={classNames('header__button--focus', {
-                      'header__button-login--is-login': isLogin,
-                    })}
+                    className={classNames('header__button--focus', { "header__button-login--is-login": loggedIn })}
                   />
                 </Button>
               </li>
@@ -114,7 +102,6 @@ export const Header = () => {
                   },
                 }}
                 ariaHideApp={false}
-                // overlayClassName="header__modal-overlay"
               >
                 <Button className="header__button-logout" onClick={handleLogout}>LogOut</Button>
               </Modal>
@@ -131,7 +118,6 @@ export const Header = () => {
           </li>
         </ul>
       </Container>
-      {/*{ <LogInModal ref={logInRef} /> //модальное окно**/}
     </>
   );
 };

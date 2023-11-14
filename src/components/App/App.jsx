@@ -1,4 +1,10 @@
 import React, { Suspense, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+
+// constants
+import { PATH } from '../../constants/paths';
+import {authStatuses} from '../../constants/authStatuses';
 
 // context
 import { FormContextProvider } from '../../contexts/Form.context';
@@ -13,19 +19,16 @@ import { Loader } from '../Loader';
 
 // styles
 import './App.scss';
-import { useAuthContext } from '../../contexts/Auth.context';
-import { useNavigate } from 'react-router-dom';
-import { PATH } from '../../constants/paths';
 
 export const App = () => {
-  const { userEmail, userPassword } = useAuthContext();
+  const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn)
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!userEmail && !userPassword) {
+    if (loggedOut) {
       navigate(PATH.login);
     }
-  }, [userEmail, userPassword]);
+  }, [loggedOut]);
 
   return (
     <>
