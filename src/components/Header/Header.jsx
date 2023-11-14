@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import classNames from 'classnames';
 
-import {setAuthStatus} from '../../store/actions';
+import { setAuthStatus } from '../../store/actions';
 
 // constants
 import { PATH } from '../../constants/paths';
-import {authStatuses} from '../../constants/authStatuses';
+import { authStatuses } from '../../constants/authStatuses';
 
 // components
 import { Container } from '../Container';
@@ -23,9 +23,9 @@ export const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const loggedIn = useSelector((state) => state.auth.status === authStatuses.loggedIn)
-
-  console.log(loggedIn)
+  const loggedIn = useSelector(
+    (state) => state.auth.status === authStatuses.loggedIn,
+  );
 
   const handleLogout = () => {
     dispatch(setAuthStatus(authStatuses.loggedOut));
@@ -88,7 +88,9 @@ export const Header = () => {
                   onMouseLeave={closeModal}
                 >
                   <Login
-                    className={classNames('header__button--focus', { "header__button-login--is-login": loggedIn })}
+                    className={classNames('header__button--focus', {
+                      'header__button-login--is-login': loggedIn,
+                    })}
                   />
                 </Button>
               </li>
@@ -103,7 +105,12 @@ export const Header = () => {
                 }}
                 ariaHideApp={false}
               >
-                <Button className="header__button-logout" onClick={handleLogout}>LogOut</Button>
+                <Button
+                  className="header__button-logout"
+                  onClick={handleLogout}
+                >
+                  LogOut
+                </Button>
               </Modal>
               <li className="header__button-menu">
                 <Button

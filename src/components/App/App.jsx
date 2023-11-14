@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // constants
 import { PATH } from '../../constants/paths';
-import {authStatuses} from '../../constants/authStatuses';
+import { authStatuses } from '../../constants/authStatuses';
 
 // context
 import { FormContextProvider } from '../../contexts/Form.context';
@@ -21,7 +21,9 @@ import { Loader } from '../Loader';
 import './App.scss';
 
 export const App = () => {
-  const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn)
+  const loggedOut = useSelector(
+    (state) => state.auth.status !== authStatuses.loggedIn,
+  );
   const navigate = useNavigate();
 
   useEffect(() => {

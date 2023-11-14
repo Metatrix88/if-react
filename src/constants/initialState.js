@@ -9,4 +9,4 @@ export const INITIAL_STATE = {
     id: null,
     name: null,
   },
-}
+};
