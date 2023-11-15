@@ -9,6 +9,12 @@ export const INITIAL_STATE = {
     id: null,
     name: null,
   },
+  updateCounters: {
+    adultsCounter: 1,
+    childrenCounter: 0,
+    childrenAge: [],
+    roomsCounter: 1,
+  },
   searchParams: {
     cityInput: '',
     dateStart: null,

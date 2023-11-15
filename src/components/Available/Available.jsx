@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef } from 'react';
+import React, {memo, useEffect, useRef } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavLink } from 'react-router-dom';
@@ -19,6 +19,7 @@ import './Available.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+// import {useSelector} from 'react-redux';
 
 export const Available = memo(() => {
   const availableRef = useRef(null);
@@ -30,6 +31,9 @@ export const Available = memo(() => {
     childrenQuantityAndAge,
     roomsQuantity,
   } = useFormContext();
+
+  // const params = useSelector((state) => state.searchParams)
+  // console.log('1params', params)
 
   const queryParams = {
     search: inputName,

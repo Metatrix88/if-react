@@ -13,11 +13,15 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles
 import './FormDesktop.scss';
+import {useDispatch} from 'react-redux';
+import {setFormData} from '../../store/actions';
 
 export const FormDesktop = memo(() => {
   const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [cityInput, setCityInput] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
+
+  // const [adultsInput, setAdulstInput] = useState(1);
 
   const inputRef = useRef(null);
   const countersRef = useRef(null);
@@ -41,12 +45,24 @@ export const FormDesktop = memo(() => {
     setChildrenQuantityAndAge,
   } = useFormContext();
 
+  const dispatch = useDispatch();
+
   const handleChange = (event) => {
-    event.preventDefault();
     if (event.target.name === 'city') {
       setCityInput(event.target.value);
     }
   };
+
+
+
+
+  const handleChangeDataFilter = (data) => {
+    console.log('Data from child:', data);
+  };
+
+
+
+
 
   const toggleCountersVisibility = () => {
     setIsCountersVisible(!isCountersVisible);
@@ -75,14 +91,23 @@ export const FormDesktop = memo(() => {
 
     const [startDate, endDate] = dateRange;
     const validChildrenAges = childrenAges.filter((age) => age !== 0).join(',');
+    let startDateMillis;
+    let endDateMillis;
 
     if (startDate !== null) {
+      startDateMillis = startDate.getTime()
       setStartDateMillis(startDate.getTime());
     }
-
     if (endDate !== null) {
+      endDateMillis = endDate.getTime()
       setEndDateMillis(endDate.getTime());
     }
+
+    dispatch(setFormData({
+      cityInput: cityInput,
+      dateStart: startDateMillis,
+      dateEnd: endDateMillis,
+    }))
 
     setInputName(cityInput);
     setAdultsQuantity(adultsCounter);
@@ -141,7 +166,7 @@ export const FormDesktop = memo(() => {
       </Button>
       {isCountersVisible && (
         <div ref={countersRef}>
-          <FilterCountersContainer />
+          <FilterCountersContainer onData={handleChangeDataFilter} />
         </div>
       )}
     </form>

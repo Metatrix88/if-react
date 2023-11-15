@@ -7,5 +7,9 @@ export const USER = {
 };
 
 export const FORM_DATA = {
-  setFormData: 'set-form-data'
+  setFormData: 'set-form-data',
+};
+
+export const COUNTERS = {
+  changeCounters: 'change/counters',
 };
