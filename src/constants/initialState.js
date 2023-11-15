@@ -9,4 +9,13 @@ export const INITIAL_STATE = {
     id: null,
     name: null,
   },
+  searchParams: {
+    cityInput: '',
+    dateStart: null,
+    dateEnd: null,
+    adultsCounter: 1,
+    childrenCounter: 0,
+    roomsCounter: 1,
+    childrenAges: [],
+  },
 };
