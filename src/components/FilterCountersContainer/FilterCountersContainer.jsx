@@ -25,30 +25,19 @@ export const FilterCountersContainer = memo(() => {
     (state) => state.updateCounters.roomsCounter,
   );
 
-  const handleIncrement = (counter, max) => (e) => {
+  const handleIncrement = (counter, max, counterType) => (e) => {
     e.preventDefault();
-    if (e.target.name === 'adultsPlus' && counter < max) {
-      dispatch(updateCounters({ adultsCounter: counter + 1 }));
-    }
-    if (e.target.name === 'childrenPlus' && counter < max) {
-      dispatch(updateCounters({ childrenCounter: counter + 1 }));
-    }
-    if (e.target.name === 'roomsPlus' && counter < max) {
-      dispatch(updateCounters({ roomsCounter: counter + 1 }));
+
+    if (counter < max) {
+      dispatch(updateCounters({ [`${counterType}Counter`]: counter + 1 }));
     }
   };
 
-  const handleDecrement = (counter, min) => (e) => {
+  const handleDecrement = (counter, min, counterType) => (e) => {
     e.preventDefault();
-    console.log('dsd');
-    if (e.target.name === 'adultsMinus' && counter > min) {
-      dispatch(updateCounters({ adultsCounter: counter - 1 }));
-    }
-    if (e.target.name === 'childrenMinus' && counter > min) {
-      dispatch(updateCounters({ childrenCounter: counter - 1 }));
-    }
-    if (e.target.name === 'roomsMinus' && counter > min) {
-      dispatch(updateCounters({ roomsCounter: counter - 1 }));
+
+    if (counter > min) {
+      dispatch(updateCounters({ [`${counterType}Counter`]: counter - 1 }));
     }
   };
 
@@ -68,7 +57,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="adultsMinus"
             variant="counter"
-            onClick={handleDecrement(adultsCounter, 1)}
+            onClick={handleDecrement(adultsCounter, 1, 'adults')}
             disabled={adultsCounter === 1}
           >
             -
@@ -83,7 +72,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="adultsPlus"
             variant="counter"
-            onClick={handleIncrement(adultsCounter, 30)}
+            onClick={handleIncrement(adultsCounter, 30, 'adults')}
             disabled={adultsCounter === 30}
           >
             +
@@ -96,7 +85,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="childrenMinus"
             variant="counter"
-            onClick={handleDecrement(childrenCounter, 0)}
+            onClick={handleDecrement(childrenCounter, 0, 'children')}
             disabled={childrenCounter === 0}
           >
             -
@@ -111,7 +100,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="childrenPlus"
             variant="counter"
-            onClick={handleIncrement(childrenCounter, 10)}
+            onClick={handleIncrement(childrenCounter, 10, 'children')}
             disabled={childrenCounter === 10}
           >
             +
@@ -124,7 +113,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="roomsMinus"
             variant="counter"
-            onClick={handleDecrement(roomsCounter, 1)}
+            onClick={handleDecrement(roomsCounter, 1, 'rooms')}
             disabled={roomsCounter === 1}
           >
             -
@@ -139,7 +128,7 @@ export const FilterCountersContainer = memo(() => {
           <Button
             name="roomsPlus"
             variant="counter"
-            onClick={handleIncrement(roomsCounter, 30)}
+            onClick={handleIncrement(roomsCounter, 30, 'rooms')}
             disabled={roomsCounter === 30}
           >
             +

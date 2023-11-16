@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavLink } from 'react-router-dom';
@@ -6,9 +6,6 @@ import classNames from 'classnames';
 
 import { fetchData, wrapPromise } from '../../lib/wrapPromise';
 import { apiUrl } from '../../services/constants';
-
-// context
-import { useFormContext } from '../../contexts/Form.context';
 
 // components
 import { Image } from '../UI/Image';
@@ -19,24 +16,20 @@ import './Available.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import {useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 export const Available = memo(() => {
-  const availableRef = useRef(null);
-  const {
-    inputName,
-    startDateMillis,
-    endDateMillis,
-    adultsQuantity,
-    childrenQuantityAndAge,
-    roomsQuantity,
-  } = useFormContext();
+  const inputCityValue = useSelector((state) => state.searchParams.cityInput)
+  const startDateMillis = useSelector((state) => state.searchParams.dateStart)
+  const endDateMillis = useSelector((state) => state.searchParams.dateEnd)
+  const adultsQuantity = useSelector((state) => state.searchParams.adultsQuantity)
+  const childrenQuantityAndAge = useSelector((state) => state.searchParams.childrenQuantityAndAge)
+  const roomsQuantity = useSelector((state) => state.searchParams.roomsQuantity)
 
-  // const params = useSelector((state) => state.searchParams)
-  // console.log('1params', params)
+  const availableRef = useRef(null);
 
   const queryParams = {
-    search: inputName,
+    search: inputCityValue,
     startDateMillis,
     endDateMillis,
     adultsQuantity,

@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux';
 import { PATH } from '../../constants/paths';
 import { authStatuses } from '../../constants/authStatuses';
 
-// context
-import { FormContextProvider } from '../../contexts/Form.context';
-
 // components
 import { Header } from '../Header';
 import { TopSection } from '../TopSection';
@@ -35,12 +32,10 @@ export const App = () => {
   return (
     <>
       <Header />
-      <FormContextProvider>
-        <TopSection />
-        <Suspense fallback={<Loader />}>
-          <Available />
-        </Suspense>
-      </FormContextProvider>
+      <TopSection />
+      <Suspense fallback={<Loader />}>
+        <Available />
+      </Suspense>
       <Homes />
       <Footer />
     </>

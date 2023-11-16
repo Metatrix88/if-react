@@ -19,9 +19,8 @@ export const INITIAL_STATE = {
     cityInput: '',
     dateStart: null,
     dateEnd: null,
-    adultsCounter: 1,
-    childrenCounter: 0,
-    roomsCounter: 1,
-    childrenAges: [],
+    adultsQuantity: 1,
+    roomsQuantity: 1,
+    childrenQuantityAndAge: '',
   },
 };

@@ -7,7 +7,7 @@ export const updateCounters = (
 ) => {
   switch (action.type) {
     case COUNTERS.changeCounters:
-      return { ...state, ...action.payload};
+      return { ...state, ...action.payload };
     default:
       return state;
   }

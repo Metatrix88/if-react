@@ -7,7 +7,7 @@ export const searchParamsReducer = (
 ) => {
   switch (action.type) {
     case FORM_DATA.setFormData:
-      return { ...action.payload };
+      return { ...state, ...action.payload };
     default:
       return state;
   }
