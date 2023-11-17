@@ -1,0 +1,138 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.header {
+  position: absolute;
+  margin-top: 50px;
+  left: 0;
+  right: 0;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    margin-top: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-bottom: 6px;
+    fill: $primary-color;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin: 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 48px;
+  }
+
+  &__links {
+    padding-top: 6px;
+    padding-bottom: 12px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      gap: 16px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $general-white-color;
+  }
+
+  &__link:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 40px;
+    width: 0;
+    height: 4px;
+    background-color: $accent-color;
+    transition: width 0.3s ease-out;
+  }
+
+  &__link:hover:after,
+  &__link:focus:after {
+    width: 85%;
+  }
+
+  &__icon-night {
+    width: 30px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      width: 24px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      width: 16px;
+    }
+  }
+
+  &__button-night {
+    margin-top: 5px;
+    margin-bottom: 11px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin: 0;
+    }
+  }
+
+  &__button-login {
+    margin-bottom: 6px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin: 0;
+    }
+  }
+
+  &__button-menu {
+    display: none;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  &__button-login--is-login {
+    fill: yellowgreen;
+  }
+
+  &__button--focus:hover,
+  &__button:focus &__button--focus {
+    fill: $accent-color;
+  }
+
+  &__modal-logout {
+    width: 80px;
+    margin-left: 79.5%;
+    margin-top: 5%;
+  }
+
+  &__button-logout {
+    background-color: yellowgreen;
+    padding: 6px;
+    border-radius: 6px;
+  }
+}

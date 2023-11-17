@@ -80,6 +80,10 @@
     color: $accent-color;
   }
 
+  &--active {
+    color: #be1ebc;
+  }
+
   &__subtitle {
     margin-top: 24px;
     color: $secondary-text-color;

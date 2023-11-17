@@ -12,7 +12,7 @@ import { Label } from '../UI/Label';
 import {
   CalendarLaptopFormIn,
   CalendarLaptopFormOut,
-} from '../CalendarLaptopForm';
+} from '../UI/CalendarLaptopForm';
 
 // styles
 import './FormLaptop.scss';
@@ -71,7 +71,7 @@ export const FormLaptop = () => {
 
   return (
     <form
-      className="md-2-col sm-2-col search-form--laptop laptop-form"
+      className="laptop-form md-2-col sm-2-col search-form--laptop"
       onSubmit={handleSearch}
     >
       <div className="laptop-form__input-wrap laptop-form__input--full-width">

@@ -1,0 +1,125 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.footer {
+  background-color: $primary-dark-color;
+  color: $general-white-color;
+  @include block-padding(
+    $section-padding-top-bottom-lg,
+    $section-padding-top-bottom-lg
+  );
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include block-padding(
+      $section-padding-top-bottom-md,
+      $section-padding-top-bottom-md
+    );
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include block-padding(
+      $section-padding-top-bottom-sm,
+      $section-padding-top-bottom-sm
+    );
+  }
+
+  &__logo {
+    display: none;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+      max-width: 150px;
+      margin: 0 auto 56px;
+      fill: $general-white-color;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      max-width: 98px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__logo-icon {
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      width: 150px;
+      height: 32px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      width: 98px;
+      height: 19px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__list {
+    font-size: 20px;
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      font-size: 15px;
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+  }
+
+  &__item:first-child {
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+    line-height: 1.16;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      display: none;
+      text-decoration: underline;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    color: $general-white-color;
+    text-decoration: none;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    cursor: pointer;
+    color: $accent-color;
+  }
+
+  &__copyright {
+    font-size: 14px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.homes {
+  position: relative;
+  background-color: $bg-color;
+  @include block-padding($section-padding-top-bottom-lg, 104px);
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    @include block-padding($section-padding-top-bottom-md, 64px);
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    @include block-padding($section-padding-top-bottom-sm, 32px);
+  }
+
+  &__title {
+    @include title-bottom($section-title-bottom-lg);
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      @include title-bottom($section-title-bottom-md);
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      @include title-bottom($section-title-bottom-sm);
+    }
+  }
+
+  &__card {
+    margin-bottom: 16px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .homes__img {
+    margin-bottom: 24px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+
+  &__subtitle {
+    margin-top: 24px;
+    color: $secondary-text-color;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-top: 16px;
+      font-size: 20px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  }
+}

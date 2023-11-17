@@ -1,0 +1,20 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.icon-close {
+  fill: red;
+  width: 30px;
+  aspect-ratio: 1/1;
+  background-color: #f3f0f0;
+  border-radius: 50%;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    width: 30px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    width: 24px;
+  }
+}

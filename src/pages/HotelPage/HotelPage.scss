@@ -1,0 +1,68 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.hotel-page {
+  padding: 150px 16px;
+  text-align: center;
+  background-color: #8c94e1;
+
+  // For mobile tablets:
+  @media screen and (max-width: $screen-sm) {
+    padding: 55px 16px;
+  }
+
+  // For mobile phones:
+  @media screen and (max-width: $screen-md) {
+    padding: 45px 16px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 40px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      @include title-bottom($section-title-bottom-sm);
+    }
+  }
+
+  &__img {
+    margin: 0 auto 24px;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 24px;
+    font-size: 32px;
+    color: #be1ebc;
+
+    // For mobile tablets:
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 16px;
+      font-size: 26px;
+    }
+
+    // For mobile phones:
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 16px;
+  }
+}

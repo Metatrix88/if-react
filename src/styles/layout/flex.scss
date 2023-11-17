@@ -1,5 +1,12 @@
 @import '../abstracts/variables';
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
 .col-lg-1 {
   width: $col-width;
 }
@@ -49,8 +56,8 @@
 }
 
 [class*='col-'] {
-  padding-left: calc($unit / 2);
-  padding-right: calc($unit / 2);
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 //For mobile tablets:
@@ -101,11 +108,6 @@
 
   .col-md-12 {
     width: 100%;
-  }
-
-  [class*='col-'] {
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   [class*='col-md']._right {
