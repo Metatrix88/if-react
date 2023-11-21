@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
+import { updateCounters } from '../../store/actions';
 
 // components
 import { Button } from '../UI/Button';
@@ -11,35 +12,39 @@ import { Label } from '../UI/Label';
 import './FilterCountersContainer.scss';
 
 export const FilterCountersContainer = memo(() => {
-  const {
-    adultsCounter,
-    setAdultsCounter,
-    roomsCounter,
-    setRoomsCounter,
-    childrenCounter,
-    setChildrenCounter,
-    childrenAges,
-    setChildrenAges,
-  } = useFilterCountersContext();
+  const dispatch = useDispatch();
 
-  const handleIncrement = (counter, setCounter, max) => (e) => {
+  const adultsCounter = useSelector(
+    (state) => state.updateCounters.adultsCounter,
+  );
+  const childrenCounter = useSelector(
+    (state) => state.updateCounters.childrenCounter,
+  );
+  const childrenAges = useSelector((state) => state.updateCounters.childrenAge);
+  const roomsCounter = useSelector(
+    (state) => state.updateCounters.roomsCounter,
+  );
+
+  const handleIncrement = (counter, max, counterType) => (e) => {
     e.preventDefault();
+
     if (counter < max) {
-      setCounter(counter + 1);
+      dispatch(updateCounters({ [`${counterType}Counter`]: counter + 1 }));
     }
   };
 
-  const handleDecrement = (counter, setCounter, min) => (e) => {
+  const handleDecrement = (counter, min, counterType) => (e) => {
     e.preventDefault();
+
     if (counter > min) {
-      setCounter(counter - 1);
+      dispatch(updateCounters({ [`${counterType}Counter`]: counter - 1 }));
     }
   };
 
   const handleChildrenAgeChange = (childIndex, age) => {
     const updateChildrenAge = [...childrenAges];
     updateChildrenAge[childIndex] = age;
-    setChildrenAges(updateChildrenAge);
+    dispatch(updateCounters({ childrenAge: updateChildrenAge }));
   };
 
   return (
@@ -50,8 +55,9 @@ export const FilterCountersContainer = memo(() => {
             Adults
           </Label>
           <Button
+            name="adultsMinus"
             variant="counter"
-            onClick={handleDecrement(adultsCounter, setAdultsCounter, 1)}
+            onClick={handleDecrement(adultsCounter, 1, 'adults')}
             disabled={adultsCounter === 1}
           >
             -
@@ -64,8 +70,9 @@ export const FilterCountersContainer = memo(() => {
             disabled
           />
           <Button
+            name="adultsPlus"
             variant="counter"
-            onClick={handleIncrement(adultsCounter, setAdultsCounter, 30)}
+            onClick={handleIncrement(adultsCounter, 30, 'adults')}
             disabled={adultsCounter === 30}
           >
             +
@@ -76,8 +83,9 @@ export const FilterCountersContainer = memo(() => {
             Children
           </Label>
           <Button
+            name="childrenMinus"
             variant="counter"
-            onClick={handleDecrement(childrenCounter, setChildrenCounter, 0)}
+            onClick={handleDecrement(childrenCounter, 0, 'children')}
             disabled={childrenCounter === 0}
           >
             -
@@ -90,8 +98,9 @@ export const FilterCountersContainer = memo(() => {
             disabled
           />
           <Button
+            name="childrenPlus"
             variant="counter"
-            onClick={handleIncrement(childrenCounter, setChildrenCounter, 10)}
+            onClick={handleIncrement(childrenCounter, 10, 'children')}
             disabled={childrenCounter === 10}
           >
             +
@@ -102,8 +111,9 @@ export const FilterCountersContainer = memo(() => {
             Rooms
           </Label>
           <Button
+            name="roomsMinus"
             variant="counter"
-            onClick={handleDecrement(roomsCounter, setRoomsCounter, 1)}
+            onClick={handleDecrement(roomsCounter, 1, 'rooms')}
             disabled={roomsCounter === 1}
           >
             -
@@ -116,8 +126,9 @@ export const FilterCountersContainer = memo(() => {
             disabled
           />
           <Button
+            name="roomsPlus"
             variant="counter"
-            onClick={handleIncrement(roomsCounter, setRoomsCounter, 30)}
+            onClick={handleIncrement(roomsCounter, 30, 'rooms')}
             disabled={roomsCounter === 30}
           >
             +
@@ -131,7 +142,6 @@ export const FilterCountersContainer = memo(() => {
           </p>
           <div className="filter-container__children-selects">
             {Array.from({ length: childrenCounter }, (_, index) => (
-              // <div key={index}>
               <select
                 key={index}
                 className="filter__children-select"
@@ -144,7 +154,6 @@ export const FilterCountersContainer = memo(() => {
                   </option>
                 ))}
               </select>
-              // </div>
             ))}
           </div>
         </div>

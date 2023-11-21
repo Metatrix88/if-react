@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-// context
-import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
-import { useFormContext } from '../../contexts/Form.context';
+import {setFormData, updateCounters} from '../../store/actions';
 
 // components
 import { Input } from '../UI/Input';
@@ -15,34 +14,20 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 import './FormDesktop.scss';
 
 export const FormDesktop = memo(() => {
+  const dispatch = useDispatch();
   const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [cityInput, setCityInput] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
 
+  const adultsCounter = useSelector((state) => state.updateCounters.adultsCounter,);
+  const childrenCounter = useSelector((state) => state.updateCounters.childrenCounter,);
+  const childrenAges = useSelector((state) => state.updateCounters.childrenAge);
+  const roomsCounter = useSelector((state) => state.updateCounters.roomsCounter,);
+
   const inputRef = useRef(null);
   const countersRef = useRef(null);
 
-  const {
-    adultsCounter,
-    setAdultsCounter,
-    childrenCounter,
-    setChildrenCounter,
-    roomsCounter,
-    setRoomsCounter,
-    childrenAges,
-  } = useFilterCountersContext();
-
-  const {
-    setInputName,
-    setStartDateMillis,
-    setEndDateMillis,
-    setAdultsQuantity,
-    setRoomsQuantity,
-    setChildrenQuantityAndAge,
-  } = useFormContext();
-
   const handleChange = (event) => {
-    event.preventDefault();
     if (event.target.name === 'city') {
       setCityInput(event.target.value);
     }
@@ -74,26 +59,39 @@ export const FormDesktop = memo(() => {
     event.preventDefault();
 
     const [startDate, endDate] = dateRange;
-    const validChildrenAges = childrenAges.filter((age) => age !== 0).join(',');
+    const validChildrenAges = childrenAges.join(',');
+    let startDateMillis;
+    let endDateMillis;
 
     if (startDate !== null) {
-      setStartDateMillis(startDate.getTime());
+      startDateMillis = startDate.getTime();
     }
 
     if (endDate !== null) {
-      setEndDateMillis(endDate.getTime());
+      endDateMillis = endDate.getTime();
     }
 
-    setInputName(cityInput);
-    setAdultsQuantity(adultsCounter);
-    setChildrenQuantityAndAge(validChildrenAges);
-    setRoomsQuantity(roomsCounter);
+    dispatch(
+      setFormData({
+        cityInput: cityInput,
+        dateStart: startDateMillis,
+        dateEnd: endDateMillis,
+        adultsQuantity: adultsCounter,
+        roomsQuantity: roomsCounter,
+        childrenQuantityAndAge: validChildrenAges,
+      }),
+    );
+
+    dispatch(updateCounters({
+      adultsCounter: 1,
+      childrenCounter: 0,
+      childrenAge: [],
+      roomsCounter: 1,
+    }),
+    );
 
     setCityInput('');
     setDateRange([null, null]);
-    setAdultsCounter(1);
-    setChildrenCounter(0);
-    setRoomsCounter(1);
   };
 
   return (

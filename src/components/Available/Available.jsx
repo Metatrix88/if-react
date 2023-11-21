@@ -7,9 +7,6 @@ import classNames from 'classnames';
 import { fetchData, wrapPromise } from '../../lib/wrapPromise';
 import { apiUrl } from '../../services/constants';
 
-// context
-import { useFormContext } from '../../contexts/Form.context';
-
 // components
 import { Image } from '../UI/Image';
 import { Container } from '../Container';
@@ -19,20 +16,20 @@ import './Available.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import {useSelector} from 'react-redux';
 
 export const Available = memo(() => {
+  const inputCityValue = useSelector((state) => state.searchParams.cityInput)
+  const startDateMillis = useSelector((state) => state.searchParams.dateStart)
+  const endDateMillis = useSelector((state) => state.searchParams.dateEnd)
+  const adultsQuantity = useSelector((state) => state.searchParams.adultsQuantity)
+  const childrenQuantityAndAge = useSelector((state) => state.searchParams.childrenQuantityAndAge)
+  const roomsQuantity = useSelector((state) => state.searchParams.roomsQuantity)
+
   const availableRef = useRef(null);
-  const {
-    inputName,
-    startDateMillis,
-    endDateMillis,
-    adultsQuantity,
-    childrenQuantityAndAge,
-    roomsQuantity,
-  } = useFormContext();
 
   const queryParams = {
-    search: inputName,
+    search: inputCityValue,
     startDateMillis,
     endDateMillis,
     adultsQuantity,

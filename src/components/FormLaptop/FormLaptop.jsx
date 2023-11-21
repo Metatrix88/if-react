@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import {useDispatch} from 'react-redux';
 
-// contexts
-import { useFilterCountersContext } from '../../contexts/FilterCounters.context';
-import { useFormContext } from '../../contexts/Form.context';
+import {setFormData} from '../../store/actions';
 
 // components
 import { Button } from '../UI/Button';
@@ -18,55 +17,62 @@ import {
 import './FormLaptop.scss';
 
 export const FormLaptop = () => {
+  const dispatch = useDispatch();
   const [cityInput, setCityInput] = useState('');
   const [dateStart, setDateStart] = useState(null);
   const [dateOut, setDateOut] = useState(null);
-
-  const {
-    adultsCounter,
-    setAdultsCounter,
-    childrenCounter,
-    setChildrenCounter,
-    roomsCounter,
-    setRoomsCounter,
-  } = useFilterCountersContext();
-
-  const {
-    setInputName,
-    setStartDateMillis,
-    setEndDateMillis,
-    setAdultsQuantity,
-    setRoomsQuantity,
-  } = useFormContext();
+  const [adultsQuantity, setAdultsQuantity] = useState(1);
+  const [childrenQuantity, setChildrenQuantity] = useState(0);
+  const [roomsQuantity, setRoomsQuantity] = useState(1);
 
   const handleChange = (event) => {
     event.preventDefault();
     if (event.target.name === 'destination') {
       setCityInput(event.target.value);
     }
+
+    if (event.target.name === 'adults') {
+      setAdultsQuantity(event.target.value);
+    }
+    if (event.target.name === 'children') {
+      setChildrenQuantity(event.target.value);
+    }
+    if (event.target.name === 'rooms') {
+      setRoomsQuantity(event.target.value);
+    }
   };
 
   const handleSearch = async (event) => {
     event.preventDefault();
 
+    let dateStartMillis;
+    let dateEndMillis;
+
     if (dateStart !== null) {
-      setStartDateMillis(dateStart.getTime());
+      dateStartMillis = dateStart.getTime();
     }
 
     if (dateOut !== null) {
-      setEndDateMillis(dateOut.getTime());
+      dateEndMillis = dateOut.getTime();
     }
 
-    setInputName(cityInput);
-    setAdultsQuantity(adultsCounter);
-    setRoomsQuantity(roomsCounter);
+    dispatch(
+      setFormData({
+        cityInput: cityInput,
+        dateStart: dateStartMillis,
+        dateEnd: dateEndMillis,
+        adultsQuantity: adultsQuantity,
+        roomsQuantity: roomsQuantity,
+        childrenQuantityAndAge: childrenQuantity,
+      }),
+    );
 
     setCityInput('');
     setDateStart(null);
     setDateOut(null);
-    setAdultsCounter(1);
-    setChildrenCounter(0);
-    setRoomsCounter(1);
+    setAdultsQuantity(1);
+    setChildrenQuantity(0);
+    setRoomsQuantity(1);
   };
 
   return (
@@ -124,7 +130,7 @@ export const FormLaptop = () => {
               name="adults"
               id="adults"
               title="Adults"
-              value={adultsCounter}
+              value={adultsQuantity}
               onChange={handleChange}
             />
             <Label htmlFor="adults">Adults</Label>
@@ -135,7 +141,7 @@ export const FormLaptop = () => {
               name="children"
               id="children"
               title="Children"
-              value={childrenCounter}
+              value={childrenQuantity}
               onChange={handleChange}
             />
             <Label htmlFor="children">Children</Label>
@@ -146,7 +152,7 @@ export const FormLaptop = () => {
               name="rooms"
               id="rooms"
               title="Rooms"
-              value={roomsCounter}
+              value={roomsQuantity}
               onChange={handleChange}
             />
             <Label htmlFor="rooms">Rooms</Label>
