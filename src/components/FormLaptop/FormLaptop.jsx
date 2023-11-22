@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import {setFormData} from '../../store/actions';
+import { setFormData } from '../../store/slices/searchParams.slice';
 
 // components
 import { Button } from '../UI/Button';

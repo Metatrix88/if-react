@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { updateCounters } from '../../store/actions';
+import { setUpdateCounters } from '../../store/slices/updateCounters.slice';
 
 // components
 import { Button } from '../UI/Button';
@@ -29,7 +29,7 @@ export const FilterCountersContainer = memo(() => {
     e.preventDefault();
 
     if (counter < max) {
-      dispatch(updateCounters({ [`${counterType}Counter`]: counter + 1 }));
+      dispatch(setUpdateCounters({ [`${counterType}Counter`]: counter + 1 }));
     }
   };
 
@@ -37,14 +37,14 @@ export const FilterCountersContainer = memo(() => {
     e.preventDefault();
 
     if (counter > min) {
-      dispatch(updateCounters({ [`${counterType}Counter`]: counter - 1 }));
+      dispatch(setUpdateCounters({ [`${counterType}Counter`]: counter - 1 }));
     }
   };
 
   const handleChildrenAgeChange = (childIndex, age) => {
     const updateChildrenAge = [...childrenAges];
     updateChildrenAge[childIndex] = age;
-    dispatch(updateCounters({ childrenAge: updateChildrenAge }));
+    dispatch(setUpdateCounters({ childrenAge: updateChildrenAge }));
   };
 
   return (

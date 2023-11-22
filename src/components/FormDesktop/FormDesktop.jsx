@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {setFormData, updateCounters} from '../../store/actions';
+import { setUpdateCounters } from '../../store/slices/updateCounters.slice';
+import { setFormData } from '../../store/slices/searchParams.slice';
 
 // components
 import { Input } from '../UI/Input';
@@ -82,7 +83,7 @@ export const FormDesktop = memo(() => {
       }),
     );
 
-    dispatch(updateCounters({
+    dispatch(setUpdateCounters({
       adultsCounter: 1,
       childrenCounter: 0,
       childrenAge: [],
