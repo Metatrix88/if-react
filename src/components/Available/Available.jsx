@@ -3,9 +3,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-
-import { fetchData, wrapPromise } from '../../lib/wrapPromise';
-import { apiUrl } from '../../services/constants';
+import { useSelector } from 'react-redux';
 
 // components
 import { Image } from '../UI/Image';
@@ -16,28 +14,12 @@ import './Available.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import {useSelector} from 'react-redux';
+
 
 export const Available = memo(() => {
-  const inputCityValue = useSelector((state) => state.searchParams.cityInput)
-  const startDateMillis = useSelector((state) => state.searchParams.dateStart)
-  const endDateMillis = useSelector((state) => state.searchParams.dateEnd)
-  const adultsQuantity = useSelector((state) => state.searchParams.adultsQuantity)
-  const childrenQuantityAndAge = useSelector((state) => state.searchParams.childrenQuantityAndAge)
-  const roomsQuantity = useSelector((state) => state.searchParams.roomsQuantity)
+  const hotels = useSelector((state) => state.availableHotels.hotels);
 
   const availableRef = useRef(null);
-
-  const queryParams = {
-    search: inputCityValue,
-    startDateMillis,
-    endDateMillis,
-    adultsQuantity,
-    childrenQuantityAndAge,
-    roomsQuantity,
-  };
-
-  const hotels = wrapPromise(fetchData(apiUrl, queryParams));
 
   useEffect(() => {
     if (availableRef.current) {
@@ -64,12 +46,7 @@ export const Available = memo(() => {
         pagination={{ clickable: true }}
         navigation
       >
-        {hotels.length === 0 ? (
-          <p className="available__text-info">
-            Nothing was found for your request
-          </p>
-        ) : (
-          hotels.map((home) => (
+        {hotels.map((home) => (
             <SwiperSlide key={home.id}>
               <NavLink
                 to={`/hotels/${home.id}`}
@@ -87,7 +64,7 @@ export const Available = memo(() => {
                 </h3>
               </NavLink>
             </SwiperSlide>
-          ))
+          )
         )}
       </Swiper>
     </Container>

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {INITIAL_STATE} from '../../constants/initialState';
+import { INITIAL_STATE } from '../../constants/initialState';
 
 const authSlice = createSlice({
   name: 'auth',

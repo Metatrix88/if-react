@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -12,15 +12,14 @@ import { TopSection } from '../TopSection';
 import { Available } from '../Available';
 import { Homes } from '../Homes';
 import { Footer } from '../Footer';
-import { Loader } from '../Loader';
-
-// styles
-import './App.scss';
+import {Loader} from '../Loader';
 
 export const App = () => {
+  const [loading, setLoading] = useState(true);
   const loggedOut = useSelector(
     (state) => state.auth.status !== authStatuses.loggedIn,
   );
+  const hotels = useSelector((state) => state.availableHotels.hotels);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,13 +28,18 @@ export const App = () => {
     }
   }, [loggedOut]);
 
+  useEffect(() => {
+    if (hotels.length > 0) {
+      setLoading(false)
+    }
+  }, [hotels])
+
   return (
     <>
       <Header />
       <TopSection />
-      <Suspense fallback={<Loader />}>
-        <Available />
-      </Suspense>
+      {loading && <Loader />}
+      {!loading && hotels.length > 0 && <Available />}
       <Homes />
       <Footer />
     </>
