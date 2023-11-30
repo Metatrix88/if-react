@@ -23,4 +23,7 @@ export const INITIAL_STATE = {
     roomsQuantity: 1,
     childrenQuantityAndAge: '',
   },
+  availableHotels: {
+    hotels: [],
+  },
 };

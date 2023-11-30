@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {setFormData, updateCounters} from '../../store/actions';
+// services
+import { updateAvailableHotels } from '../../services/hotels';
+
+// slices
+import { setUpdateCounters } from '../../store/slices/updateCounters.slice';
+import { setAvailableHotels } from '../../store/slices/availableHotels.slice';
 
 // components
 import { Input } from '../UI/Input';
@@ -19,10 +24,16 @@ export const FormDesktop = memo(() => {
   const [cityInput, setCityInput] = useState('');
   const [dateRange, setDateRange] = useState([null, null]);
 
-  const adultsCounter = useSelector((state) => state.updateCounters.adultsCounter,);
-  const childrenCounter = useSelector((state) => state.updateCounters.childrenCounter,);
+  const adultsQuantity = useSelector(
+    (state) => state.updateCounters.adultsCounter,
+  );
+  const childrenQuantity = useSelector(
+    (state) => state.updateCounters.childrenCounter,
+  );
   const childrenAges = useSelector((state) => state.updateCounters.childrenAge);
-  const roomsCounter = useSelector((state) => state.updateCounters.roomsCounter,);
+  const roomsQuantity = useSelector(
+    (state) => state.updateCounters.roomsCounter,
+  );
 
   const inputRef = useRef(null);
   const countersRef = useRef(null);
@@ -71,23 +82,26 @@ export const FormDesktop = memo(() => {
       endDateMillis = endDate.getTime();
     }
 
-    dispatch(
-      setFormData({
-        cityInput: cityInput,
-        dateStart: startDateMillis,
-        dateEnd: endDateMillis,
-        adultsQuantity: adultsCounter,
-        roomsQuantity: roomsCounter,
-        childrenQuantityAndAge: validChildrenAges,
-      }),
+    const queryParams = {
+      search: cityInput,
+      startDateMillis,
+      endDateMillis,
+      adultsQuantity,
+      validChildrenAges,
+      roomsQuantity,
+    };
+
+    updateAvailableHotels(queryParams).then((hotels) =>
+      dispatch(setAvailableHotels({hotels})),
     );
 
-    dispatch(updateCounters({
-      adultsCounter: 1,
-      childrenCounter: 0,
-      childrenAge: [],
-      roomsCounter: 1,
-    }),
+    dispatch(
+      setUpdateCounters({
+        adultsCounter: 1,
+        childrenCounter: 0,
+        childrenAge: [],
+        roomsCounter: 1,
+      }),
     );
 
     setCityInput('');
@@ -124,7 +138,7 @@ export const FormDesktop = memo(() => {
           placeholder="2 Adults — 0 Children — 1 Room"
           onChange={handleChange}
           onClick={toggleCountersVisibility}
-          value={`${adultsCounter} Adults — ${childrenCounter} Children — ${roomsCounter} Room`}
+          value={`${adultsQuantity} Adults — ${childrenQuantity} Children — ${roomsQuantity} Room`}
         />
         <Label className="visually-hidden" htmlFor="filter">
           2 Adults — 0 Children — 1 Room

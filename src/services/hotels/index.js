@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { apiUrl, popularHotelsUrl } from '../constants';
+import { urls, popularHotelsUrl } from '../../constants/urls';
 
 export const getHotels = async () => {
   const { data: hotels } = await axios.get(popularHotelsUrl);
@@ -18,7 +18,7 @@ export const getHotels = async () => {
 
 export const updateAvailableHotels = async (params) => {
   try {
-    const { data: hotels } = await axios.get(apiUrl, {
+    const { data: hotels } = await axios.get(urls, {
       params: params,
     });
 
@@ -30,7 +30,7 @@ export const updateAvailableHotels = async (params) => {
 
 export const fetchHotel = async (hotelId) => {
   try {
-    const { data: hotel } = await axios.get(`${apiUrl}/${hotelId}`);
+    const { data: hotel } = await axios.get(`${urls}/${hotelId}`);
 
     return hotel;
   } catch (error) {

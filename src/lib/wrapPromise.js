@@ -1,5 +1,5 @@
 import { updateAvailableHotels } from '../services/hotels';
-import { apiUrl } from '../services/constants';
+import { urls } from '../constants/urls';
 
 const cache = new Map();
 
@@ -12,7 +12,7 @@ export function fetchData(url, params) {
 }
 
 async function getData(url, params) {
-  if (url === apiUrl) {
+  if (url === urls) {
     return await updateAvailableHotels(params);
   } else {
     throw Error('Not implemented');

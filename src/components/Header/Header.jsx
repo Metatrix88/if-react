@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import classNames from 'classnames';
 
-import { setAuthStatus } from '../../store/actions';
+import { setStatus } from '../../store/slices/auth.slice';
 
 // constants
 import { PATH } from '../../constants/paths';
@@ -28,7 +28,7 @@ export const Header = () => {
   );
 
   const handleLogout = () => {
-    dispatch(setAuthStatus(authStatuses.loggedOut));
+    dispatch(setStatus(authStatuses.loggedOut));
     setIsModalOpen(false);
     navigate(PATH.login);
   };
