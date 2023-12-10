@@ -9,9 +9,10 @@ import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 
 // styles
-import './FilterCountersContainer.scss';
+import {useFilterCounters} from './FilterCountersContainer.styles';
 
 export const FilterCountersContainer = memo(() => {
+  const classes = useFilterCounters();
   const dispatch = useDispatch();
 
   const adultsCounter = useSelector(
@@ -48,10 +49,10 @@ export const FilterCountersContainer = memo(() => {
   };
 
   return (
-    <div className="desktop-form__filter filter">
-      <ul className="filter__counters">
-        <li className="filter__adults counter__item">
-          <Label className="counter__label" htmlFor="counter-adults">
+    <div className={classes.root}>
+      <ul className={classes.counters}>
+        <li className={classes.item}>
+          <Label className={classes.label} htmlFor="counter-adults">
             Adults
           </Label>
           <Button
@@ -63,7 +64,7 @@ export const FilterCountersContainer = memo(() => {
             -
           </Button>
           <Input
-            className="counter__input"
+            className={classes.input}
             id="counter-adults"
             name="counter-adults"
             value={adultsCounter}
@@ -78,8 +79,8 @@ export const FilterCountersContainer = memo(() => {
             +
           </Button>
         </li>
-        <li className="filter__children counter__item">
-          <Label className="counter__label" htmlFor="counter-children">
+        <li className={classes.item}>
+          <Label className={classes.label} htmlFor="counter-children">
             Children
           </Label>
           <Button
@@ -91,7 +92,7 @@ export const FilterCountersContainer = memo(() => {
             -
           </Button>
           <Input
-            className="counter__input"
+            className={classes.input}
             id="counter-children"
             name="counter-children"
             value={childrenCounter}
@@ -106,8 +107,8 @@ export const FilterCountersContainer = memo(() => {
             +
           </Button>
         </li>
-        <li className="filter__rooms counter__item">
-          <Label className="counter__label" htmlFor="counter-rooms">
+        <li className={classes.item}>
+          <Label className={classes.label} htmlFor="counter-rooms">
             Rooms
           </Label>
           <Button
@@ -119,7 +120,7 @@ export const FilterCountersContainer = memo(() => {
             -
           </Button>
           <Input
-            className="counter__input"
+            className={classes.input}
             id="counter-rooms"
             name="counter-rooms"
             value={roomsCounter}
@@ -137,14 +138,14 @@ export const FilterCountersContainer = memo(() => {
       </ul>
       {childrenCounter > 0 && (
         <div>
-          <p className="filter__children-question">
+          <p className={classes.filterText}>
             What is the age of the child you’re travelling with?
           </p>
-          <div className="filter-container__children-selects">
+          <div className={classes.selectsWrapper}>
             {Array.from({ length: childrenCounter }, (_, index) => (
               <select
                 key={index}
-                className="filter__children-select"
+                className={classes.select}
                 value={childrenAges[index]}
                 onChange={(e) => handleChildrenAgeChange(index, e.target.value)}
               >

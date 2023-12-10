@@ -7,16 +7,17 @@ import { FormLaptop } from '../FormLaptop';
 import { MobileApps } from '../MobileApps';
 
 // styles
-import './TopSection.scss';
+import {useTopSectionStyles} from './TopSection.styles';
 
 export const TopSection = () => {
+  const classes = useTopSectionStyles();
   return (
-    <section className="top-section">
+    <section className={classes.root}>
       <Container>
-        <h1 className="visually-hidden">
+        <h1 className={classes.visuallyHidden}>
           Search for accommodation, houses, hotels, apartments
         </h1>
-        <h2 className="top-section__title">
+        <h2 className={classes.title}>
           Discover stays to&nbsp;live,&nbsp;work or just relax
         </h2>
         <FormDesktop />

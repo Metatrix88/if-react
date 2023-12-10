@@ -5,8 +5,6 @@ import ReactModal from 'react-modal';
 
 import { Loader } from './components/Loader';
 
-import './index.scss';
-
 import { router } from './routers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Night.scss';
+import { useNightIconStyles } from './Night.icon.styles';
 
 export const Night = ({ className }) => {
+  const classes = useNightIconStyles();
   return (
-    <svg className={classNames('icon-night', className)}>
+    <svg className={classNames(classes.root, className)}>
       <use href="#night" />
     </svg>
   );

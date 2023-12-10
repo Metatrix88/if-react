@@ -1,0 +1,32 @@
+.swiper-wrapper {
+  padding-bottom: 16px;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-rtl {
+  top: 30%;
+  color: #af09d3;
+
+  // For mobile phones:
+  @media screen and (max-width: 600px) {
+    top: 40%;
+  }
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after,
+.swiper-rtl {
+  // For mobile tablets:
+  @media screen and (max-width: 1024px) {
+    font-size: 35px;
+  }
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -2px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #af09d3;
+}

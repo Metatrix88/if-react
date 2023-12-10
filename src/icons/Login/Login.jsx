@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Login.scss';
+import { useLoginIconStyles } from './Login.icon.styles';
 
 export const Login = ({ className }) => {
+  const classes = useLoginIconStyles();
   return (
-    <svg className={classNames('icon-login', className)}>
+    <svg className={classNames(classes.root, className)}>
       <use href="#login" />
     </svg>
   );

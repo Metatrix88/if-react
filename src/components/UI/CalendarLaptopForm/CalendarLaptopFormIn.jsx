@@ -1,35 +1,35 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
 
 // styles
 import 'react-datepicker/dist/react-datepicker.css';
 import './CalendarLaptopForm.scss';
+import { useFormLaptop } from '../../FormLaptop/FormLaptop.styles';
 
 export const CalendarLaptopFormIn = ({
   title,
-  className,
   id,
   name,
   dateStart,
   setDateStart,
 }) => {
+  const classes = useFormLaptop();
   const handleChange = (date) => {
     setDateStart(date);
   };
 
   return (
-    <div className="laptop-form__input">
+    <div className={classes.wrapperInputDate}>
       <DatePicker
-        className={classNames(className)}
+        className={classes.input}
         showIcon
         selected={dateStart}
         onChange={handleChange}
         id={id}
         name={name}
       />
-      <label htmlFor={id}>{title}</label>
+      <label className={classes.label} htmlFor={id}>{title}</label>
     </div>
   );
 };

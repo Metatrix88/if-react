@@ -1,11 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './GooglePlay.scss';
+import {useGooglePlayIconStyles} from './GooglePlay.icon.styles';
 
 export const GooglePlay = ({ className }) => {
+  const classes= useGooglePlayIconStyles();
+
   return (
-    <svg className={classNames('icon-google', className)}>
+    <svg className={classNames(classes.root, className)}>
       <use href="#google" />
     </svg>
   );

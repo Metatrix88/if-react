@@ -16,9 +16,10 @@ import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
 
 // styles
-import './Header.scss';
+import {useHeaderStyles} from './Header.styles';
 
 export const Header = () => {
+  const classes = useHeaderStyles();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
@@ -49,47 +50,47 @@ export const Header = () => {
 
   return (
     <>
-      <Container className="header lg-2-col">
-        <Link to={PATH.index} className="header__logo">
+      <Container className={classes.root}>
+        <Link to={PATH.index} className={classes.logo}>
           <Logo />
         </Link>
-        <ul className="header__menu">
-          <li className="header__links">
-            <ul className="header__list">
+        <ul className={classes.menu}>
+          <li className={classes.links}>
+            <ul className={classes.list}>
               <li>
-                <a className="header__link" href="#">
+                <a className={classes.link} href="#">
                   Stays
                 </a>
               </li>
               <li>
-                <a className="header__link" href="#">
+                <a className={classes.link} href="#">
                   Attractions
                 </a>
               </li>
             </ul>
           </li>
-          <li className="header__buttons">
-            <ul className="header__list">
-              <li className="header__button-night">
+          <li>
+            <ul className={classes.list}>
+              <li className={classes.wrapperButtonNight}>
                 <Button
-                  className="header__button"
+                  className={classes.buttonFocus}
                   variant="icon"
                   aria-label="Screen Theme Switch"
                 >
-                  <Night className="header__icon-night header__button--focus" />
+                  <Night className={`${classes.iconNight} ${classes.iconFocus}`} />
                 </Button>
               </li>
-              <li className="header__button-login">
+              <li className={classes.wrapperButtonLogin}>
                 <Button
-                  className="header__button"
+                  className={classes.buttonFocus}
                   variant="icon"
                   aria-label="Login"
                   onMouseEnter={openModal}
                   onMouseLeave={closeModal}
                 >
                   <Login
-                    className={classNames('header__button--focus', {
-                      'header__button-login--is-login': loggedIn,
+                    className={classNames(classes.iconFocus, {
+                      [classes.isLogin]: loggedIn,
                     })}
                   />
                 </Button>
@@ -97,7 +98,7 @@ export const Header = () => {
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={() => setIsModalOpen(false)}
-                className="header__modal-logout"
+                className={classes.wrapperButtonLogout}
                 style={{
                   overlay: {
                     backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -106,19 +107,19 @@ export const Header = () => {
                 ariaHideApp={false}
               >
                 <Button
-                  className="header__button-logout"
+                  className={classes.buttonLogout}
                   onClick={handleLogout}
                 >
                   LogOut
                 </Button>
               </Modal>
-              <li className="header__button-menu">
+              <li className={classes.wrapperButtonMenu}>
                 <Button
-                  className="header__button"
+                  className={classes.buttonFocus}
                   variant="icon"
                   aria-label="Menu"
                 >
-                  <Menu className="header__button--focus" />
+                  <Menu className={classes.iconFocus} />
                 </Button>
               </li>
             </ul>

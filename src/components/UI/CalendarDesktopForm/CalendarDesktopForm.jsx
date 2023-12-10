@@ -1,15 +1,16 @@
 import React, { memo, useState } from 'react';
 import { string, func, array } from 'prop-types';
-import classNames from 'classnames';
 
 import DatePicker from 'react-datepicker';
 
 // styles
 import 'react-datepicker/dist/react-datepicker.css';
 import './CalendarDesktopForm.scss';
+import { useFormDesktopStyles } from '../../FormDesktop/FormDesktop.styles';
 
 export const CalendarDesktopForm = memo(
-  ({ className, dateRange, setDateRange }) => {
+  ({ dateRange, setDateRange }) => {
+    const classes = useFormDesktopStyles();
     const [isInputFocused, setInputFocused] = useState(false);
     const [startDate, endDate] = dateRange;
 
@@ -28,9 +29,9 @@ export const CalendarDesktopForm = memo(
     };
 
     return (
-      <div className={classNames('desktop-form__input', className)}>
+      <div className={classes.inputWrapper}>
         <DatePicker
-          className="desktop-form__input-date"
+          className={`${classes.input} ${classes.inputDate}`}
           selectsRange={true}
           startDate={startDate}
           endDate={endDate}
@@ -43,9 +44,7 @@ export const CalendarDesktopForm = memo(
         />
         <label
           htmlFor="date"
-          className={`desktop-form__label-date ${
-            isInputFocused ? 'focused' : ''
-          }`}
+          className={`${classes.label} ${isInputFocused ? classes.focusDate : ''}`}
         >
           Check-in — Check-out
         </label>

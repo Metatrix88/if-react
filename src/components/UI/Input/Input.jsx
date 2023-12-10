@@ -1,11 +1,16 @@
 import React, { memo } from 'react';
 import classNames from 'classnames';
 
-import './Input.scss';
+import { useInputStyles } from './Input.styles';
 
 export const Input = memo(({ className, type = 'text', ...props }) => {
+  const classes = useInputStyles();
   return (
-    <input className={classNames('input', className)} type={type} {...props} />
+    <input
+      className={classNames(classes.root, className)}
+      type={type}
+      {...props}
+    />
   );
 });
 

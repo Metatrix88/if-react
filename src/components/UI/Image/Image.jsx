@@ -2,12 +2,13 @@ import React from 'react';
 import { string } from 'prop-types';
 import classNames from 'classnames';
 
-import './Image.scss';
+import {useImagesStyles} from './Images.styles';
 
 export const Image = ({ imageUrl, name, className }) => {
+  const classes = useImagesStyles();
   return (
     <img
-      className={classNames('images', className)}
+      className={classNames(classes.root, className)}
       src={imageUrl}
       alt={name}
     />
