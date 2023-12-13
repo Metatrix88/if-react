@@ -3,11 +3,12 @@ import classNames from 'classnames';
 
 import { GooglePlay, AppStore } from '../../icons';
 
-import './MobileApps.scss';
+import {useMobileAppsStyles} from './MobileApps.styles';
 
 export const MobileApps = ({ className }) => {
+  const classes = useMobileAppsStyles();
   return (
-    <ul className={classNames('mobile-app', className)}>
+    <ul className={classNames(classes.root, className)}>
       <li>
         <a
           href="#"

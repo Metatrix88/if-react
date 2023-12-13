@@ -13,5 +13,5 @@ export const globalStyles = () => ({
 });
 
 export const useGlobalStyles = createUseStyles(globalStyles, {
-  name: 'GlobalStyles'
+  name: 'GlobalStyles',
 });

@@ -10,9 +10,10 @@ import { Container } from '../../components/Container';
 import { Image } from '../../components/UI/Image';
 
 // styles
-import './HotelPage.scss';
+import { useHotelPage } from './HotelPage.styles';
 
 export const HotelPage = () => {
+  const classes = useHotelPage();
   const { hotelId } = useParams();
   const [hotel, setHotel] = useState(null);
 
@@ -27,12 +28,12 @@ export const HotelPage = () => {
   return (
     <>
       <Header />
-      <Container className="hotel-page">
-        <h2 className="hotel-page__title">{hotel.name}</h2>
-        <Image className="hotel-page__img" imageUrl={hotel.imageUrl}></Image>
-        <p className="hotel-page__subtitle">{hotel.city}</p>
-        <p className="hotel-page__subtitle">{hotel.country}</p>
-        <p className="hotel-page__text">
+      <Container className={classes.root}>
+        <h2 className={classes.title}>{hotel.name}</h2>
+        <Image className={classes.image} imageUrl={hotel.imageUrl}></Image>
+        <p className={classes.subtitle}>{hotel.city}</p>
+        <p className={classes.subtitle}>{hotel.country}</p>
+        <p className={classes.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias
           aperiam at, deleniti deserunt ducimus eaque eos est exercitationem
           ipsum itaque maxime nam nobis non odio perspiciatis praesentium quas
@@ -46,7 +47,7 @@ export const HotelPage = () => {
           excepturi, facilis, labore mollitia non possimus quas recusandae
           voluptas voluptate.
         </p>
-        <p className="hotel-page__text">
+        <p className={classes.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias
           aperiam at, deleniti deserunt ducimus eaque eos est exercitationem
           ipsum itaque maxime nam nobis non odio perspiciatis praesentium quas
@@ -60,7 +61,7 @@ export const HotelPage = () => {
           excepturi, facilis, labore mollitia non possimus quas recusandae
           voluptas voluptate.
         </p>
-        <p className="hotel-page__text">
+        <p className={classes.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias
           aperiam at, deleniti deserunt ducimus eaque eos est exercitationem
           ipsum itaque maxime nam nobis non odio perspiciatis praesentium quas
@@ -74,7 +75,7 @@ export const HotelPage = () => {
           excepturi, facilis, labore mollitia non possimus quas recusandae
           voluptas voluptate.
         </p>
-        <p className="hotel-page__text">
+        <p className={classes.text}>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias
           aperiam at, deleniti deserunt ducimus eaque eos est exercitationem
           ipsum itaque maxime nam nobis non odio perspiciatis praesentium quas

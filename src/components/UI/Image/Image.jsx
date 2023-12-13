@@ -2,7 +2,7 @@ import React from 'react';
 import { string } from 'prop-types';
 import classNames from 'classnames';
 
-import {useImagesStyles} from './Images.styles';
+import { useImagesStyles } from './Images.styles';
 
 export const Image = ({ imageUrl, name, className }) => {
   const classes = useImagesStyles();

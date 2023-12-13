@@ -1,5 +1,8 @@
 import { createUseStyles } from 'react-jss';
-import {generalWhiteColor, primaryColor} from '../../constants/styles.constatnts';
+import {
+  generalWhiteColor,
+  primaryColor,
+} from '../../constants/styles.constatnts';
 
 export const filterCountersContainerStyles = () => ({
   root: {
@@ -54,5 +57,7 @@ export const filterCountersContainerStyles = () => ({
   },
 });
 
-export const useFilterCounters = createUseStyles(filterCountersContainerStyles, {name: 'FilterCounters'});
-
+export const useFilterCounters = createUseStyles(
+  filterCountersContainerStyles,
+  { name: 'FilterCounters' },
+);

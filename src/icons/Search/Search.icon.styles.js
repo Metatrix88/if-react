@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import {
-  screenMd,
+  screenSm,
   secondaryTextColor,
 } from '../../constants/styles.constatnts';
 
@@ -12,7 +12,7 @@ export const searchIconStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       width: 16,
     },

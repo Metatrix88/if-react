@@ -7,7 +7,7 @@ import { FormLaptop } from '../FormLaptop';
 import { MobileApps } from '../MobileApps';
 
 // styles
-import {useTopSectionStyles} from './TopSection.styles';
+import { useTopSectionStyles } from './TopSection.styles';
 
 export const TopSection = () => {
   const classes = useTopSectionStyles();

@@ -110,10 +110,7 @@ export const FormDesktop = memo(() => {
   };
 
   return (
-    <form
-      className={classes.root}
-      onSubmit={handleSearch}
-    >
+    <form className={classes.root} onSubmit={handleSearch}>
       <div className={classes.inputWrapper}>
         <Input
           id="city"

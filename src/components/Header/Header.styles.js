@@ -1,5 +1,11 @@
 import { createUseStyles } from 'react-jss';
-import {accentColor, generalWhiteColor, primaryColor, screenMd, screenSm} from '../../constants/styles.constatnts';
+import {
+  accentColor,
+  generalWhiteColor,
+  primaryColor,
+  screenMd,
+  screenSm,
+} from '../../constants/styles.constatnts';
 
 export const headerStyles = () => ({
   root: {
@@ -89,7 +95,7 @@ export const headerStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       marginTop: 0,
       paddingTop: 12,
@@ -120,11 +126,13 @@ export const headerStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     iconNight: {
       width: 16,
     },
   },
 });
 
-export const useHeaderStyles = createUseStyles(headerStyles, {name: 'Header'});
+export const useHeaderStyles = createUseStyles(headerStyles, {
+  name: 'Header',
+});

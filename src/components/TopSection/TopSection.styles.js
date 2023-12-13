@@ -33,7 +33,7 @@ export const topSectionStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       paddingTop: 150,
       paddingBottom: 80,
@@ -46,7 +46,7 @@ export const topSectionStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       paddingTop: 88,
     },

@@ -5,99 +5,100 @@ import { Container } from '../Container';
 import { Logo } from '../../icons';
 
 // styles
-import './Footer.scss';
+import { useFooterStyles } from './Footer.styles';
 
 export const Footer = () => {
+  const classes = useFooterStyles();
   return (
-    <footer className="footer">
+    <footer className={classes.root}>
       <Container>
-        <a href="#" className="footer__logo">
-          <Logo className="footer__logo-icon" />
+        <a href="#" className={classes.logo}>
+          <Logo className={classes.icon} />
         </a>
-        <nav className="row footer__nav">
-          <ul className="col-lg-4 col-md-4 col-sm-2 _right footer__list">
-            <li className="footer__item footer__item-title">
-              <a className="footer__link" href="#">
+        <nav className={classes.nav}>
+          <ul className={`${classes.list} ${classes.right}`}>
+            <li className={`${classes.item} ${classes.title}`}>
+              <a className={classes.link} href="#">
                 About
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 How Triphouse works
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Careers
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Privacy
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Terms
               </a>
             </li>
           </ul>
-          <ul className="col-lg-4 col-md-4 col-sm-2 _center footer__list">
-            <li className="footer__item footer__item-title">
-              <a className="footer__link" href="#">
+          <ul className={`${classes.list} ${classes.center}`}>
+            <li className={`${classes.item} ${classes.title}`}>
+              <a className={classes.link} href="#">
                 Property types
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Guest houses
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Hotels
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Apartments
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Villas
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Holiday homes
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Hostels
               </a>
             </li>
           </ul>
-          <ul className="col-lg-4 col-md-4 col-sm-2 _left footer__list">
-            <li className="footer__item footer__item-title">
-              <a className="footer__link" href="#">
+          <ul className={`${classes.list} ${classes.left}`}>
+            <li className={`${classes.item} ${classes.title}`}>
+              <a className={classes.link} href="#">
                 Support
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 Contact Customer Service
               </a>
             </li>
-            <li className="footer__item">
-              <a className="footer__link" href="#">
+            <li className={classes.item}>
+              <a className={classes.link} href="#">
                 FAQ
               </a>
             </li>
           </ul>
         </nav>
-        <p className="footer__copyright">
+        <p className={classes.copyright}>
           &#169; 2022 Triphouse, Inc. All rights reserved
         </p>
       </Container>

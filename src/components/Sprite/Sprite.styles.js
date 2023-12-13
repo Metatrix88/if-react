@@ -9,4 +9,6 @@ export const spriteStyles = () => ({
   },
 });
 
-export const useSpriteStyles = createUseStyles(spriteStyles, {name: 'Sprite'});
+export const useSpriteStyles = createUseStyles(spriteStyles, {
+  name: 'Sprite',
+});

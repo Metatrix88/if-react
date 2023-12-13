@@ -12,8 +12,8 @@ export const borderLightColor = '#f3f3f4';
 export const bgColor = '#eaf0f9';
 
 //Screen
-export const screenSm = '1024px';
-export const screenMd = '600px';
+export const screenMd = '1024px';
+export const screenSm = '600px';
 
 // Space
 export const lineHeight = 1.16;

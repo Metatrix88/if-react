@@ -1,5 +1,9 @@
 import { createUseStyles } from 'react-jss';
-import {screenMd, screenSm, textColor} from '../../../constants/styles.constatnts';
+import {
+  screenMd,
+  screenSm,
+  textColor,
+} from '../../../constants/styles.constatnts';
 
 export const inputStyles = () => ({
   root: {
@@ -16,18 +20,18 @@ export const inputStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       padding: '28px 12px 6px',
     },
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       padding: '24px 8px 6px',
     },
   },
 });
 
-export const useInputStyles = createUseStyles(inputStyles, {name: 'Input'});
+export const useInputStyles = createUseStyles(inputStyles, { name: 'Input' });

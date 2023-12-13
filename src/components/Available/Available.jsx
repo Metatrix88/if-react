@@ -13,8 +13,7 @@ import { useAvailableStyles } from './Available.styles';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './Available.swiper.scss'
-
+import './Available.swiper.scss';
 
 export const Available = memo(() => {
   const classes = useAvailableStyles();

@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { screenSm } from '../../../constants/styles.constatnts';
+import { screenMd } from '../../../constants/styles.constatnts';
 
 export const imagesStyles = () => ({
   root: {
@@ -10,7 +10,7 @@ export const imagesStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       maxWidth: 328,
     },

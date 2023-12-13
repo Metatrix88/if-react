@@ -7,3 +7,5 @@ export * from './Login';
 export * from './Menu';
 export * from './Night';
 export * from './Search';
+export * from './SingUp';
+export * from './SquareLogo';

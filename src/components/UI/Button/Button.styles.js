@@ -1,5 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import {
+  accentColor,
+  buttonRadiusLg,
   generalWhiteColor,
   primaryColor,
   screenMd,
@@ -9,17 +11,38 @@ import {
 
 export const buttonStyles = () => ({
   root: {
+    display: 'flex',
     backgroundColor: generalWhiteColor,
     color: textColor,
     cursor: 'pointer',
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
 
+    '&$outlined': {
+      borderRadius: buttonRadiusLg,
+      border: `1px solid ${primaryColor}`,
+      maxWidth: 128,
+      height: 48,
+      width: '100%',
+      fontSize: 18,
+      padding: '12px 16px',
+      lineHeight: '1.16',
+      color: primaryColor,
+
+      '&:hover': {
+        border: `1px solid ${accentColor}`,
+        color: accentColor,
+      },
+    },
     '&$primary': {
       background: primaryColor,
       color: 'white',
+    },
+    '&$text': {
+      fontWeight: 500,
+      color: primaryColor,
+      padding: 0,
     },
     '&$icon': {
       backgroundColor: 'transparent',
@@ -40,7 +63,7 @@ export const buttonStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       padding: '15px 16px',
 
@@ -48,19 +71,21 @@ export const buttonStyles = () => ({
         padding: 0,
       },
     },
-    icon:{},
+    icon: {},
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       padding: '5px 15px',
     },
   },
 
+  outlined: {},
   primary: {},
   icon: {},
   counter: {},
+  text: {},
 });
 
 export const useButtonStyles = createUseStyles(buttonStyles, {

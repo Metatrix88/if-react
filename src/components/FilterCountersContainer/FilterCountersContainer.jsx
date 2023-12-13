@@ -9,7 +9,7 @@ import { Input } from '../UI/Input';
 import { Label } from '../UI/Label';
 
 // styles
-import {useFilterCounters} from './FilterCountersContainer.styles';
+import { useFilterCounters } from './FilterCountersContainer.styles';
 
 export const FilterCountersContainer = memo(() => {
   const classes = useFilterCounters();

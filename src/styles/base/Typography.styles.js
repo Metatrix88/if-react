@@ -44,7 +44,7 @@ export const typographyStyles = {
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     a: {
       fontSize: 20,
     },
@@ -60,7 +60,7 @@ export const typographyStyles = {
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     a: {
       fontSize: 12,
     },

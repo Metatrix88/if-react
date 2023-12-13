@@ -1,19 +1,21 @@
 import { createUseStyles } from 'react-jss';
-import { screenMd } from '../../constants/styles.constatnts';
+import {primaryDarkColor, screenSm, secondaryTextColor} from '../../constants/styles.constatnts';
 
 export const closeIconStyles = () => ({
   root: {
-    fill: 'red',
+    fill: secondaryTextColor,
     width: 30,
     aspectRatio: '1/1',
-    backgroundColor: '#f3f0f0',
-    borderRadius: '50%',
+
+    '&:hover': {
+      fill: primaryDarkColor,
+    },
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
-      width: 24,
+      width: 22,
     },
   },
 });

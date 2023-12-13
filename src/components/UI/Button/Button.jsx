@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import classNames from 'classnames';
 
 // import './Button.scss';
-import {useButtonStyles} from './Button.styles';
+import { useButtonStyles } from './Button.styles';
 
 export const Button = ({
   variant,
@@ -27,7 +27,10 @@ export const Button = ({
 
   return (
     <button
-      className={classNames(classes.root, className, { ...colors, ...variants })}
+      className={classNames(classes.root, className, {
+        ...colors,
+        ...variants,
+      })}
       type={type}
       {...props}
     >

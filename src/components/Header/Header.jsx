@@ -16,7 +16,7 @@ import { Button } from '../UI/Button';
 import { Login, Logo, Menu, Night } from '../../icons';
 
 // styles
-import {useHeaderStyles} from './Header.styles';
+import { useHeaderStyles } from './Header.styles';
 
 export const Header = () => {
   const classes = useHeaderStyles();
@@ -77,7 +77,9 @@ export const Header = () => {
                   variant="icon"
                   aria-label="Screen Theme Switch"
                 >
-                  <Night className={`${classes.iconNight} ${classes.iconFocus}`} />
+                  <Night
+                    className={`${classes.iconNight} ${classes.iconFocus}`}
+                  />
                 </Button>
               </li>
               <li className={classes.wrapperButtonLogin}>
@@ -106,10 +108,7 @@ export const Header = () => {
                 }}
                 ariaHideApp={false}
               >
-                <Button
-                  className={classes.buttonLogout}
-                  onClick={handleLogout}
-                >
+                <Button className={classes.buttonLogout} onClick={handleLogout}>
                   LogOut
                 </Button>
               </Modal>

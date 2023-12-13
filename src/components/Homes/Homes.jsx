@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 import { getHotels } from '../../services/hotels';
 
@@ -9,14 +10,15 @@ import { Container } from '../Container';
 import { Image } from '../UI/Image';
 
 // styles
-import './Homes.scss';
+import { useHomesStyles } from './Homes.styles';
+import './Homes.swiper.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cube';
-import { Link } from 'react-router-dom';
 
 export const Homes = () => {
+  const classes = useHomesStyles();
   const [homes, setHomes] = useState([]);
 
   useEffect(() => {
@@ -24,8 +26,8 @@ export const Homes = () => {
   }, []);
 
   return (
-    <Container className="homes">
-      <h2 className="homes__title">Homes guests loves</h2>
+    <Container className={classes.root}>
+      <h2 className={classes.title}>Homes guests loves</h2>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}
@@ -44,12 +46,12 @@ export const Homes = () => {
           <SwiperSlide key={home.id}>
             <Link
               to={`/hotels/${home.id}`}
-              className="homes__link"
+              className={classes.link}
               target="_blank"
             >
-              <Image {...home} className="homes__img" />
+              <Image {...home} className={classes.images} />
               {home.name}
-              <h3 className="homes__subtitle">
+              <h3 className={classes.subtitle}>
                 {home.city}, {home.country}
               </h3>
             </Link>

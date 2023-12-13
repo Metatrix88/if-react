@@ -1,10 +1,16 @@
 import { createUseStyles } from 'react-jss';
 import {
   accentColor,
-  bgColor, screenMd,
-  screenSm, secondaryTextColor,
+  bgColor,
+  screenMd,
+  screenSm,
+  secondaryTextColor,
   sectionPaddingTopBottomLg,
-  sectionPaddingTopBottomMd, sectionPaddingTopBottomSm, sectionTitleBottomLg, sectionTitleBottomMd, sectionTitleBottomSm
+  sectionPaddingTopBottomMd,
+  sectionPaddingTopBottomSm,
+  sectionTitleBottomLg,
+  sectionTitleBottomMd,
+  sectionTitleBottomSm,
 } from '../../constants/styles.constatnts';
 
 export const availableStyles = () => ({
@@ -17,9 +23,6 @@ export const availableStyles = () => ({
   title: {
     marginBottom: sectionTitleBottomLg,
   },
-  card: {
-    marginBottom: 16,
-  },
   images: {
     marginBottom: 24,
   },
@@ -30,16 +33,13 @@ export const availableStyles = () => ({
       color: accentColor,
     },
   },
-  // 'link:hover, link:focus': {
-  //   color: accentColor,
-  // },
   subtitle: {
     marginTop: 24,
     color: secondaryTextColor,
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       paddingTop: sectionPaddingTopBottomMd,
       paddingBottom: 64,
@@ -57,16 +57,13 @@ export const availableStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       paddingTop: sectionPaddingTopBottomSm,
       paddingBottom: 32,
     },
     title: {
       marginBottom: sectionTitleBottomSm,
-    },
-    card: {
-      marginBottom: 8,
     },
     images: {
       marginBottom: 8,
@@ -78,4 +75,6 @@ export const availableStyles = () => ({
   },
 });
 
-export const useAvailableStyles = createUseStyles(availableStyles, {name: 'Available'});
+export const useAvailableStyles = createUseStyles(availableStyles, {
+  name: 'Available',
+});

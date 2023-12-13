@@ -3,15 +3,17 @@ import {
   accentColor,
   borderLightColor,
   buttonRadiusLg,
-  generalWhiteColor, primaryColor,
-  screenSm
+  generalWhiteColor,
+  primaryColor,
+  screenMd,
 } from '../../constants/styles.constatnts';
 
 export const formDesktopStyles = () => ({
   root: {
     display: 'grid',
     gridTemplateRows: 'auto',
-    gridTemplateColumns: 'minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px) minmax(150px, 192px)',
+    gridTemplateColumns:
+      'minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px) minmax(150px, 192px)',
     position: 'relative',
     backgroundColor: 'white',
     fontSize: 18,
@@ -89,12 +91,13 @@ export const formDesktopStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       display: 'none',
     },
   },
 });
 
-export const useFormDesktopStyles = createUseStyles(formDesktopStyles, {name: 'FormDesktop'});
-
+export const useFormDesktopStyles = createUseStyles(formDesktopStyles, {
+  name: 'FormDesktop',
+});

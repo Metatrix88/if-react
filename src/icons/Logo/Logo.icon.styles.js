@@ -8,7 +8,7 @@ export const logoIconStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       width: 150,
       height: 32,
@@ -16,7 +16,7 @@ export const logoIconStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       width: 122,
       height: 24,

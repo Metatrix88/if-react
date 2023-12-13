@@ -29,7 +29,9 @@ export const CalendarLaptopFormIn = ({
         id={id}
         name={name}
       />
-      <label className={classes.label} htmlFor={id}>{title}</label>
+      <label className={classes.label} htmlFor={id}>
+        {title}
+      </label>
     </div>
   );
 };

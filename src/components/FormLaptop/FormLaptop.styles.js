@@ -5,8 +5,7 @@ import {
   buttonRadiusMd,
   generalWhiteColor,
   primaryColor,
-  screenMd,
-  screenSm,
+  screenMd, screenSm,
   secondaryTextColor,
   textColor,
 } from '../../constants/styles.constatnts';
@@ -17,7 +16,7 @@ export const formLaptopStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     root: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -106,7 +105,7 @@ export const formLaptopStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     root: {
       fontSize: 15,
       gap: 8,

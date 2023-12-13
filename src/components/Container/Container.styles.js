@@ -10,7 +10,7 @@ export const containerStyles = () => ({
   },
 
   //For mobile tablets:
-  [`@media (max-width: ${screenSm})`]: {
+  [`@media (max-width: ${screenMd})`]: {
     container: {
       maxWidth: 764,
       padding: '0 54px',
@@ -18,7 +18,7 @@ export const containerStyles = () => ({
   },
 
   // For mobile phones:
-  [`@media (max-width: ${screenMd})`]: {
+  [`@media (max-width: ${screenSm})`]: {
     container: {
       maxWidth: 688,
       padding: '0 16px',
@@ -26,4 +26,6 @@ export const containerStyles = () => ({
   },
 });
 
-export const useContainerStyles = createUseStyles(containerStyles, {name: 'Container'});
+export const useContainerStyles = createUseStyles(containerStyles, {
+  name: 'Container',
+});
