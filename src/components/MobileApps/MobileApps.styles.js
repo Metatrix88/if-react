@@ -8,4 +8,6 @@ export const mobileAppsStyles = () => ({
   },
 });
 
-export const useMobileAppsStyles = createUseStyles(mobileAppsStyles, {name: 'MobileApps'});
+export const useMobileAppsStyles = createUseStyles(mobileAppsStyles, {
+  name: 'MobileApps',
+});

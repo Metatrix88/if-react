@@ -1,10 +1,16 @@
 import { createUseStyles } from 'react-jss';
 import {
   accentColor,
-  bgColor, screenMd,
-  screenSm, secondaryTextColor,
-  sectionPaddingTopBottomLg, sectionPaddingTopBottomMd,
-  sectionPaddingTopBottomSm, sectionTitleBottomLg, sectionTitleBottomMd, sectionTitleBottomSm
+  bgColor,
+  screenMd,
+  screenSm,
+  secondaryTextColor,
+  sectionPaddingTopBottomLg,
+  sectionPaddingTopBottomMd,
+  sectionPaddingTopBottomSm,
+  sectionTitleBottomLg,
+  sectionTitleBottomMd,
+  sectionTitleBottomSm,
 } from '../../constants/styles.constatnts';
 
 export const homesStyles = () => ({
@@ -69,5 +75,4 @@ export const homesStyles = () => ({
   },
 });
 
-export const useHomesStyles = createUseStyles(homesStyles, {name: 'Homes'});
-
+export const useHomesStyles = createUseStyles(homesStyles, { name: 'Homes' });

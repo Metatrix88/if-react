@@ -1,5 +1,9 @@
 import { createUseStyles } from 'react-jss';
-import {primaryDarkColor, screenSm, secondaryTextColor} from '../../constants/styles.constatnts';
+import {
+  primaryDarkColor,
+  screenSm,
+  secondaryTextColor,
+} from '../../constants/styles.constatnts';
 
 export const closeIconStyles = () => ({
   root: {

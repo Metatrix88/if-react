@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import {buttonRadiusLg} from '../../constants/styles.constatnts';
+import { buttonRadiusLg } from '../../constants/styles.constatnts';
 
 export const loginStyles = () => ({
   root: {
@@ -20,7 +20,7 @@ export const loginStyles = () => ({
     padding: 32,
     border: '1px solid rgba(22, 24, 35, 0.12)',
     borderRadius: 8,
-    boxSizing:' content-box',
+    boxSizing: ' content-box',
   },
   label: {
     marginBottom: 4,
@@ -45,4 +45,4 @@ export const loginStyles = () => ({
   },
 });
 
-export const useLoginStyles = createUseStyles(loginStyles, {name: 'Login'});
+export const useLoginStyles = createUseStyles(loginStyles, { name: 'Login' });

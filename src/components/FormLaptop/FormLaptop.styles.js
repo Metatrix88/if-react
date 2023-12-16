@@ -5,7 +5,8 @@ import {
   buttonRadiusMd,
   generalWhiteColor,
   primaryColor,
-  screenMd, screenSm,
+  screenMd,
+  screenSm,
   secondaryTextColor,
   textColor,
 } from '../../constants/styles.constatnts';

@@ -14,6 +14,9 @@ import { Homes } from '../Homes';
 import { Footer } from '../Footer';
 import { Loader } from '../Loader';
 import { SingUp } from '../SingUp';
+import { Reviews } from '../Reviews';
+import { Offer } from '../Offer';
+import { Destinations } from '../Destinations';
 
 export const App = () => {
   const [loading, setLoading] = useState(true);
@@ -41,8 +44,11 @@ export const App = () => {
       <TopSection />
       {loading && <Loader />}
       {!loading && hotels.length > 0 && <Available />}
+      <Offer />
       <Homes />
       <SingUp />
+      <Destinations />
+      <Reviews />
       <Footer />
     </>
   );

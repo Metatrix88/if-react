@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { GooglePlay, AppStore } from '../../icons';
 
-import {useMobileAppsStyles} from './MobileApps.styles';
+import { useMobileAppsStyles } from './MobileApps.styles';
 
 export const MobileApps = ({ className }) => {
   const classes = useMobileAppsStyles();

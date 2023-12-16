@@ -1,5 +1,11 @@
 import { createUseStyles } from 'react-jss';
-import {bgColor, generalWhiteColor, primaryColor, screenMd, screenSm} from '../../constants/styles.constatnts';
+import {
+  bgColor,
+  generalWhiteColor,
+  primaryColor,
+  screenMd,
+  screenSm,
+} from '../../constants/styles.constatnts';
 
 export const singUpStyles = () => ({
   root: {
@@ -91,7 +97,6 @@ export const singUpStyles = () => ({
   wrapLaptop: {},
   buttonInstall: {},
 });
-
 
 // .sing-up__title {
 //   font-weight: 500;
@@ -232,5 +237,6 @@ export const singUpStyles = () => ({
 //   }
 // }
 
-
-export const useSingUpStyles = createUseStyles(singUpStyles, {name: 'SingUp'});
+export const useSingUpStyles = createUseStyles(singUpStyles, {
+  name: 'SingUp',
+});

@@ -11,7 +11,6 @@ import { Image } from '../UI/Image';
 
 // styles
 import { useHomesStyles } from './Homes.styles';
-import './Homes.swiper.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

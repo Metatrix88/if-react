@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
-import {screenMd, screenSm} from '../../constants/styles.constatnts';
+import {primaryColor, screenMd, screenSm} from '../../constants/styles.constatnts';
 
 export const hotelPageStyles = () => ({
   root: {
     padding: '150px 16px',
     textAlign: 'center',
-    backgroundColor: '#8c94e1',
+    backgroundColor: '#758ee7',
   },
   title: {
     marginBottom: 50,
@@ -16,7 +16,7 @@ export const hotelPageStyles = () => ({
   subtitle: {
     marginBottom: 24,
     fontSize: 32,
-    color: '#be1ebc',
+    color: primaryColor,
   },
   text: {
     marginBottom: 16,
@@ -57,4 +57,6 @@ export const hotelPageStyles = () => ({
   },
 });
 
-export const useHotelPage = createUseStyles(hotelPageStyles, {name: 'HotelPage'});
+export const useHotelPage = createUseStyles(hotelPageStyles, {
+  name: 'HotelPage',
+});

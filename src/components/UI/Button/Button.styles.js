@@ -43,6 +43,7 @@ export const buttonStyles = () => ({
       fontWeight: 500,
       color: primaryColor,
       padding: 0,
+      width: 'auto',
     },
     '&$icon': {
       backgroundColor: 'transparent',
