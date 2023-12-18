@@ -142,7 +142,7 @@ export const FormDesktop = memo(() => {
           2 Adults — 0 Children — 1 Room
         </Label>
       </div>
-      <Button className={classes.button}   type="submit">
+      <Button className={classes.button} color='primary' type="submit">
         Search
       </Button>
       {isCountersVisible && (

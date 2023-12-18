@@ -46,8 +46,8 @@ export const App = () => {
       {!loading && hotels.length > 0 && <Available />}
       <Offer />
       <Homes />
-      <SingUp />
       <Destinations />
+      <SingUp />
       <Reviews />
       <Footer />
     </>

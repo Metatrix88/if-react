@@ -31,7 +31,6 @@ export const footerStyles = () => ({
     width: '33.33%',
     paddingLeft: 8,
     paddingRight: 8,
-    fontSize: 20,
   },
   item: {
     marginBottom: 24,
@@ -42,6 +41,7 @@ export const footerStyles = () => ({
   },
   link: {
     color: generalWhiteColor,
+    fontSize: 20,
     textDecoration: 'none',
 
     '&:hover, &:focus': {
@@ -110,6 +110,9 @@ export const footerStyles = () => ({
       marginBottom: 32,
     },
     list: {
+      fontSize: 15,
+    },
+    link: {
       fontSize: 15,
     },
   },

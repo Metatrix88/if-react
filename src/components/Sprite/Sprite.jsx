@@ -29,6 +29,48 @@ export const Sprite = () => {
           d="M.941 19.823 7.1 11.612a2 2 0 0 0 0-2.4L.941 1"
         />
       </symbol>
+
+      <symbol id="arrow2" viewBox="0 0 48 49" width="48" height="49">
+        <g filter="url(#a)">
+          <circle cx="24" cy="20.015" r="20" />
+          <path
+            stroke="#383838"
+            strokeWidth="2"
+            d="m15.177 18 8.211 6.159a2 2 0 0 0 2.4 0L34 18"
+          />
+        </g>
+        <defs>
+          <filter
+            id="a"
+            width="48"
+            height="48"
+            x="0"
+            y=".015"
+            colorInterpolationFilters="sRGB"
+            filterUnits="userSpaceOnUse"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              result="hardAlpha"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_32462_449"
+            />
+            <feBlend
+              in="SourceGraphic"
+              in2="effect1_dropShadow_32462_449"
+              result="shape"
+            />
+          </filter>
+        </defs>
+      </symbol>
+
       <symbol id="close" viewBox="0 0 26 26">
         <path d="M26 1.486 24.514 0 13 11.514 1.486 0 0 1.486 11.514 13 0 24.514 1.486 26 13 14.486 24.514 26 26 24.514 14.486 13 26 1.486Z" />
       </symbol>
@@ -133,7 +175,10 @@ export const Sprite = () => {
         <path d="M27 .333C12.28.333.333 12.28.333 27 .333 41.72 12.28 53.667 27 53.667c14.72 0 26.667-11.947 26.667-26.667C53.667 12.28 41.72.333 27 .333Zm0 8c4.427 0 8 3.574 8 8 0 4.427-3.573 8-8 8a7.99 7.99 0 0 1-8-8c0-4.426 3.573-8 8-8ZM27 46.2c-6.667 0-12.56-3.413-16-8.587.08-5.306 10.667-8.213 16-8.213 5.307 0 15.92 2.907 16 8.213-3.44 5.174-9.333 8.587-16 8.587Z" />
       </symbol>
       <symbol id="avatar" viewBox="0 0 64 64">
-        <path fill="#BFBFBF" d="M32 5.333C17.28 5.333 5.333 17.28 5.333 32 5.333 46.72 17.28 58.667 32 58.667c14.72 0 26.667-11.947 26.667-26.667C58.667 17.28 46.72 5.333 32 5.333Zm0 8c4.427 0 8 3.574 8 8 0 4.427-3.573 8-8 8a7.99 7.99 0 0 1-8-8c0-4.426 3.573-8 8-8ZM32 51.2c-6.667 0-12.56-3.413-16-8.587.08-5.306 10.667-8.213 16-8.213 5.307 0 15.92 2.907 16 8.213-3.44 5.174-9.333 8.587-16 8.587Z"/>
+        <path
+          fill="#BFBFBF"
+          d="M32 5.333C17.28 5.333 5.333 17.28 5.333 32 5.333 46.72 17.28 58.667 32 58.667c14.72 0 26.667-11.947 26.667-26.667C58.667 17.28 46.72 5.333 32 5.333Zm0 8c4.427 0 8 3.574 8 8 0 4.427-3.573 8-8 8a7.99 7.99 0 0 1-8-8c0-4.426 3.573-8 8-8ZM32 51.2c-6.667 0-12.56-3.413-16-8.587.08-5.306 10.667-8.213 16-8.213 5.307 0 15.92 2.907 16 8.213-3.44 5.174-9.333 8.587-16 8.587Z"
+        />
       </symbol>
       <symbol id="ua-flag" viewBox="0 0 640 480">
         <g fillRule="evenodd" strokeWidth="1pt">

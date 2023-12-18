@@ -79,9 +79,16 @@ export const buttonStyles = () => ({
   [`@media (max-width: ${screenSm})`]: {
     root: {
       padding: '5px 15px',
-    },
-  },
 
+      '&$outlined': {
+        maxWidth: 90,
+        height: 42,
+        fontSize: 16,
+        padding: 8,
+      },
+    },
+    outlined: {},
+  },
   outlined: {},
   primary: {},
   icon: {},

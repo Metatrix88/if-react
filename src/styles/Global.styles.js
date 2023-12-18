@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-import {screenMd} from '../constants/styles.constatnts';
+import {screenMd, screenSm} from '../constants/styles.constatnts';
 
 import { resetStyles } from './base/Reset.styles';
 import { fontsStyles } from '../fonts/Fonts.styles';
@@ -9,7 +9,11 @@ import { typographyStyles } from './base/Typography.styles';
 export const globalStyles = () => ({
   '@global': {
     ...resetStyles,
-    '@font-face': fontsStyles['@font-face'],
+    '@font-face': [
+      fontsStyles.roboto400['@font-face'],
+      fontsStyles.roboto500['@font-face'],
+      fontsStyles.openSans600['@font-face'],
+    ],
     ...typographyStyles,
 
     '.swiper-wrapper': {
@@ -17,9 +21,9 @@ export const globalStyles = () => ({
     },
     '.swiper-autoheight .swiper-wrapper': {
       alignItems: 'stretch',
-      },
+    },
     '.swiper-button-prev, .swiper-button-next, .swiper-rtl': {
-      top: '30%',
+      top: '33%',
       color: '#af09d3',
     },
     '.swiper-pagination-bullets.swiper-pagination-horizontal': {
@@ -35,8 +39,20 @@ export const globalStyles = () => ({
         fontSize: 35,
       },
     },
+    '.swiper-button-prev': {},
+    '.swiper-button-next': {},
     '.swiper-rtl': {},
+
+    // For mobile phones:
+    [`@media (max-width: ${screenSm})`]: {
+      '.swiper-button-prev, .swiper-button-next': {
+        top: '36%',
+      },
+    },
   },
+  '.swiper-button-prev': {},
+  '.swiper-button-next': {},
+  '.swiper-rtl': {},
 });
 
 export const useGlobalStyles = createUseStyles(globalStyles, {

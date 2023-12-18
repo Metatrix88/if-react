@@ -27,7 +27,7 @@ import krka from '../../images/destinatios/places/krka.jpg';
 import cabodaroca from '../../images/destinatios/places/caboDaRoco.jpg';
 
 export const cardsData = {
-  Regions: [
+  regions: [
     {
       id: 1,
       imageUrl: maldives,
@@ -77,7 +77,7 @@ export const cardsData = {
       title: 'Russia',
     },
   ],
-  Cities: [
+  cities: [
     {
       id: 9,
       imageUrl: berlin,
@@ -127,7 +127,7 @@ export const cardsData = {
       title: 'Amsterdam, Netherlands',
     },
   ],
-  Places: [
+  places: [
     {
       id: 17,
       imageUrl: edinburghCastle,

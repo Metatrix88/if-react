@@ -4,7 +4,11 @@ import {
   screenMd,
   screenSm,
   sectionPaddingTopBottomLg,
-  sectionPaddingTopBottomMd, sectionPaddingTopBottomSm, sectionTitleBottomLg, sectionTitleBottomMd, sectionTitleBottomSm
+  sectionPaddingTopBottomMd,
+  sectionPaddingTopBottomSm,
+  sectionTitleBottomLg,
+  sectionTitleBottomMd,
+  sectionTitleBottomSm,
 } from '../../constants/styles.constatnts';
 
 export const offerStyles = () => ({

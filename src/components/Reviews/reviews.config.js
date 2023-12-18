@@ -40,8 +40,8 @@ export const review = [
     flagSvg: <FlagUSA />,
     comment:
       "I've been in this hostel for a month and here is the best hostel of all\n" +
-      "Excellent management of excellent and ethical staff and bedrooms Bathrooms are always clean and excellent\n" +
-      "Most importantly, those who work here are kind and good-natured.",
+      'Excellent management of excellent and ethical staff and bedrooms Bathrooms are always clean and excellent\n' +
+      'Most importantly, those who work here are kind and good-natured.',
   },
   {
     id: 3,

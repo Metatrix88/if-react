@@ -5,9 +5,9 @@ import {
   screenSm,
 } from '../../constants/styles.constatnts';
 
-export const hotelPageStyles = () => ({
+export const destinationsPageStyles = () => ({
   root: {
-    padding: '150px 16px',
+    padding: '120px 16px',
     textAlign: 'center',
     backgroundColor: '#758ee7',
   },
@@ -22,8 +22,24 @@ export const hotelPageStyles = () => ({
     fontSize: 32,
     color: primaryColor,
   },
-  text: {
+  reviewer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 16,
     marginBottom: 16,
+  },
+  reviewerName: {
+    marginBottom: 8,
+  },
+  countryInfo: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 4,
+  },
+  text: {
+    maxWidth: 500,
+    margin: '0 auto',
   },
 
   //For mobile tablets:
@@ -61,6 +77,6 @@ export const hotelPageStyles = () => ({
   },
 });
 
-export const useHotelPage = createUseStyles(hotelPageStyles, {
-  name: 'HotelPage',
+export const useReviewsPage = createUseStyles(destinationsPageStyles, {
+  name: 'ReviewsPage',
 });

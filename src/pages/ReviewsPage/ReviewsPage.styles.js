@@ -1,5 +1,9 @@
 import { createUseStyles } from 'react-jss';
-import { primaryColor, screenMd, screenSm} from '../../constants/styles.constatnts';
+import {
+  primaryColor,
+  screenMd,
+  screenSm,
+} from '../../constants/styles.constatnts';
 
 export const reviewsPageStyles = () => ({
   root: {
