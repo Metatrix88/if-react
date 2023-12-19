@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-import {screenMd, screenSm} from '../constants/styles.constatnts';
+import { screenMd, screenSm } from '../constants/styles.constatnts';
 
 import { resetStyles } from './base/Reset.styles';
 import { fontsStyles } from '../fonts/Fonts.styles';
@@ -10,11 +10,11 @@ export const globalStyles = () => ({
   '@global': {
     ...resetStyles,
     '@font-face': [
-      fontsStyles.roboto400['@font-face'],
-      fontsStyles.roboto500['@font-face'],
-      fontsStyles.openSans600['@font-face'],
+      ...fontsStyles.roboto400['@font-face'],
+      ...fontsStyles.roboto500['@font-face'],
+      ...fontsStyles.openSans600['@font-face'],
     ],
-    ...typographyStyles,
+    ...typographyStyles(),
 
     '.swiper-wrapper': {
       paddingBottom: 16,

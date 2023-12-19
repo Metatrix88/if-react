@@ -1,4 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+// constants
+import {
+  footerAboutMenu,
+  footerPropertyTypesMenu,
+  footerSupportMenu,
+} from '../../constants/footerMenu';
 
 // components
 import { Container } from '../Container';
@@ -17,85 +25,31 @@ export const Footer = () => {
         </a>
         <nav className={classes.nav}>
           <ul className={`${classes.list} ${classes.right}`}>
-            <li className={`${classes.item} ${classes.title}`}>
-              <a className={classes.link} href="#">
-                About
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                How Triphouse works
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Careers
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Privacy
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Terms
-              </a>
-            </li>
+            {footerAboutMenu.map(({ to, title }) => (
+              <li key={to} className={`${classes.item} ${classes.title}`}>
+                <NavLink to={to} className={classes.link}>
+                  {title}
+                </NavLink>
+              </li>
+            ))}
           </ul>
           <ul className={`${classes.list} ${classes.center}`}>
-            <li className={`${classes.item} ${classes.title}`}>
-              <a className={classes.link} href="#">
-                Property types
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Guest houses
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Hotels
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Apartments
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Villas
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Holiday homes
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Hostels
-              </a>
-            </li>
+            {footerPropertyTypesMenu.map(({ to, title }) => (
+              <li key={to} className={`${classes.item} ${classes.title}`}>
+                <NavLink to={to} className={classes.link}>
+                  {title}
+                </NavLink>
+              </li>
+            ))}
           </ul>
           <ul className={`${classes.list} ${classes.left}`}>
-            <li className={`${classes.item} ${classes.title}`}>
-              <a className={classes.link} href="#">
-                Support
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                Contact Customer Service
-              </a>
-            </li>
-            <li className={classes.item}>
-              <a className={classes.link} href="#">
-                FAQ
-              </a>
-            </li>
+            {footerSupportMenu.map(({ to, title }) => (
+              <li key={to} className={`${classes.item} ${classes.title}`}>
+                <NavLink to={to} className={classes.link}>
+                  {title}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <p className={classes.copyright}>

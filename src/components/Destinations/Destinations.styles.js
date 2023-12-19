@@ -93,7 +93,6 @@ export const destinationsStyles = () => ({
     fontWeight: 400,
     fontSize: 18,
     display: 'none',
-
   },
   link: {
     fontSize: 24,

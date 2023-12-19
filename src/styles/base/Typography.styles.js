@@ -8,7 +8,7 @@ import {
   textColor,
 } from '../../constants/styles.constatnts';
 
-export const typographyStyles = {
+export const typographyStyles = () => ({
   body: {
     position: 'relative',
     background: generalWhiteColor,
@@ -74,4 +74,5 @@ export const typographyStyles = {
       fontSize: 15,
     },
   },
-};
+});
+

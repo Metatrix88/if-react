@@ -1,15 +1,13 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
   buttonRadiusLg,
   generalWhiteColor,
-  primaryColor,
   screenMd,
   screenSm,
   textColor,
 } from '../../../constants/styles.constatnts';
 
-export const buttonStyles = () => ({
+export const buttonStyles = (theme) => ({
   root: {
     display: 'flex',
     backgroundColor: generalWhiteColor,
@@ -21,27 +19,27 @@ export const buttonStyles = () => ({
 
     '&$outlined': {
       borderRadius: buttonRadiusLg,
-      border: `1px solid ${primaryColor}`,
+      border: `1px solid ${theme.palette.primary.btnColor}`,
       maxWidth: 128,
       height: 48,
       width: '100%',
       fontSize: 18,
       padding: '12px 16px',
       lineHeight: '1.16',
-      color: primaryColor,
+      color: theme.palette.primary.btnColor,
 
       '&:hover': {
-        border: `1px solid ${accentColor}`,
-        color: accentColor,
+        border: `1px solid ${theme.palette.primary.hover}`,
+        color: theme.palette.primary.hover,
       },
     },
     '&$primary': {
-      background: primaryColor,
+      background: theme.palette.primary.btnColor,
       color: 'white',
     },
     '&$text': {
       fontWeight: 500,
-      color: primaryColor,
+      color: theme.palette.primary.btnColor,
       padding: 0,
       width: 'auto',
     },
@@ -52,7 +50,7 @@ export const buttonStyles = () => ({
     '&$counter': {
       width: 30,
       height: 30,
-      border: `1px solid ${primaryColor}`,
+      border: `1px solid ${theme.palette.primary.btnColor}`,
       fontSize: 18,
       fontWeight: 400,
 

@@ -1,7 +1,7 @@
 // Fonts
 export const fontFamily = ['Roboto', 'sans-serif'];
 
-//Color
+//Color white Theme
 export const primaryColor = '#3077c6';
 export const primaryDarkColor = '#10367c';
 export const accentColor = '#f5bd41';
@@ -11,17 +11,18 @@ export const generalWhiteColor = '#ffffff';
 export const borderLightColor = '#f3f3f4';
 export const bgColor = '#eaf0f9';
 
+//Color dark Theme
+export const darkThemePrimaryColor = '#ddb51e';
+export const darkThemeGeneralColor = '#201d1d';
+export const darkThemeTextColor = '#cf1818';
+export const darkThemeAccentColor = '#1ea13a';
+
 //Screen
 export const screenMd = '1024px';
 export const screenSm = '600px';
 
 // Space
 export const lineHeight = 1.16;
-export const lineHeightExtra = 1.5;
-
-//Flex layout
-export const colWidth = '100% / 12';
-export const colWidthMd = '100% / 6';
 
 //Indents:
 export const sectionTitleBottomLg = 104;

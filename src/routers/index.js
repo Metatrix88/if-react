@@ -16,6 +16,7 @@ import { Login } from '../pages/Login';
 import { HotelPage } from '../pages/HotelPage';
 import { ReviewsPage } from '../pages/ReviewsPage';
 import { DestinationsPage } from '../pages/DestinationsPage';
+import { StaticPage } from '../pages/StaticPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ export const router = createBrowserRouter(
           path="destinations/:tab/:destinationId"
           element={<DestinationsPage />}
         />
+        <Route path=":staticPage" element={<StaticPage />} />
       </Route>
     </Route>,
   ),
