@@ -1,8 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import {
-  screenMd,
-  screenSm,
-} from '../../constants/styles.constatnts';
+import { screenMd, screenSm } from '../../constants/styles.constatnts';
 
 export const staticPageStyles = () => ({
   root: {

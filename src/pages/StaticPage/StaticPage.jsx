@@ -21,7 +21,9 @@ export const StaticPage = () => {
       <Container className={classes.root}>
         <h1 className={classes.title}>{content.title}</h1>
         {content.text.split('\n').map((paragraph) => (
-          <p className={classes.text} key={paragraph}>{paragraph}</p>
+          <p className={classes.text} key={paragraph}>
+            {paragraph}
+          </p>
         ))}
       </Container>
       <Footer />

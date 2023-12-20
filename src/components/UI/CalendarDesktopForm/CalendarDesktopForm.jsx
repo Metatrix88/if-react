@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
 import { string, func, array } from 'prop-types';
+import { useTheme } from 'react-jss';
 
 import DatePicker from 'react-datepicker';
 
@@ -9,7 +10,8 @@ import './CalendarDesktopForm.scss';
 import { useFormDesktopStyles } from '../../FormDesktop/FormDesktop.styles';
 
 export const CalendarDesktopForm = memo(({ dateRange, setDateRange }) => {
-  const classes = useFormDesktopStyles();
+  const theme = useTheme();
+  const classes = useFormDesktopStyles({ theme });
   const [isInputFocused, setInputFocused] = useState(false);
   const [startDate, endDate] = dateRange;
 

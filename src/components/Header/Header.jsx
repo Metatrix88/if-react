@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import classNames from 'classnames';
+import { useTheme } from 'react-jss';
 
 import { setStatus } from '../../store/slices/auth.slice';
 
@@ -17,9 +18,12 @@ import { Login, Logo, Menu, Night } from '../../icons';
 
 // styles
 import { useHeaderStyles } from './Header.styles';
+import { themeVariants } from '../../constants/themeVariants';
+import { setVariant } from '../../store/slices/themes.slice';
 
 export const Header = () => {
-  const classes = useHeaderStyles();
+  const theme = useTheme();
+  const classes = useHeaderStyles({ theme });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
@@ -27,11 +31,22 @@ export const Header = () => {
   const loggedIn = useSelector(
     (state) => state.auth.status === authStatuses.loggedIn,
   );
+  const themeMode = useSelector((state) => state.themes.variant);
 
   const handleLogout = () => {
     dispatch(setStatus(authStatuses.loggedOut));
     setIsModalOpen(false);
     navigate(PATH.login);
+  };
+
+  const handleChangeThemes = () => {
+    dispatch(
+      setVariant(
+        themeMode === themeVariants.whiteTheme
+          ? themeVariants.darkTheme
+          : themeVariants.whiteTheme,
+      ),
+    );
   };
 
   const openModal = () => {
@@ -73,6 +88,7 @@ export const Header = () => {
             <ul className={classes.list}>
               <li className={classes.wrapperButtonNight}>
                 <Button
+                  onClick={handleChangeThemes}
                   className={classes.buttonFocus}
                   variant="icon"
                   aria-label="Screen Theme Switch"

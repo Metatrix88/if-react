@@ -1,30 +1,43 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { useEffect } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { ThemeProvider } from 'react-jss';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { persistor, store } from '../../store';
+import { themeVariants } from '../../constants/themeVariants';
+
+import { persistor } from '../../store';
+import { setVariant } from '../../store/slices/themes.slice';
 
 import { Sprite } from '../Sprite';
 import { Loader } from '../Loader';
 
-import { useGlobalStyles } from '../../styles/Global.styles';
-import {darkTheme} from '../../styles/darkTheme';
+import { GlobalStyles } from '../../styles/Global';
+import { darkTheme } from '../../styles/themes/darkTheme';
+import { whiteTheme } from '../../styles/themes/whiteTheme';
 
 export const SystemLayout = () => {
-  useGlobalStyles();
+  const dispatch = useDispatch();
+
+  const themeMode = useSelector((state) => state.themes.variant);
+  const currentTheme =
+    themeMode === themeVariants.whiteTheme ? whiteTheme : darkTheme;
+
+  useEffect(() => {
+    dispatch(setVariant(themeVariants.whiteTheme));
+  }, []);
+
   return (
     <>
       <ScrollRestoration />
       <Sprite />
-      <Provider store={store}>
-        <PersistGate loading={<Loader />} persistor={persistor}>
-          <ThemeProvider theme={darkTheme}>
+      <PersistGate loading={<Loader />} persistor={persistor}>
+        <ThemeProvider theme={currentTheme}>
+          <GlobalStyles>
             <Outlet />
-          </ThemeProvider>
-        </PersistGate>
-      </Provider>
+          </GlobalStyles>
+        </ThemeProvider>
+      </PersistGate>
     </>
   );
 };

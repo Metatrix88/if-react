@@ -1,28 +1,25 @@
 import {
   fontFamily,
-  generalWhiteColor,
   lineHeight,
-  primaryColor,
   screenMd,
   screenSm,
-  textColor,
 } from '../../constants/styles.constatnts';
 
-export const typographyStyles = () => ({
+export const typographyStyles = (theme) => ({
   body: {
     position: 'relative',
-    background: generalWhiteColor,
+    background: theme.palette.primary.generalColor,
     fontFamily: fontFamily.join(', '),
     fontStyle: 'normal',
     fontWeight: 400,
-    color: textColor,
+    color: theme.palette.primary.textColor,
   },
 
   a: {
     display: 'inline-block',
     textDecoration: 'none',
     fontSize: 24,
-    color: primaryColor,
+    color: theme.palette.primary.primaryColor,
   },
 
   h2: {
@@ -40,7 +37,7 @@ export const typographyStyles = () => ({
     fontWeight: 400,
     fontSize: 18,
     lineHeight: lineHeight,
-    color: primaryColor,
+    color: theme.palette.primary.primaryColor,
   },
 
   //For mobile tablets:
@@ -75,4 +72,3 @@ export const typographyStyles = () => ({
     },
   },
 });
-

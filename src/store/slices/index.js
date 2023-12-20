@@ -7,6 +7,7 @@ import { userReducer } from './user.slice';
 import { updateCountersReducer } from './updateCounters.slice';
 import { searchParamsReducer } from './searchParams.slice';
 import { availableHotelsReducer } from './availableHotels.slice';
+import { themesReducer } from './themes.slice';
 
 const persistConfig = {
   key: 'root',
@@ -21,5 +22,6 @@ export const rootReducer = persistReducer(
     updateCounters: updateCountersReducer,
     searchParams: searchParamsReducer,
     availableHotels: availableHotelsReducer,
+    themes: themesReducer,
   }),
 );

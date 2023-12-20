@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 
 // services
 import { updateAvailableHotels } from '../../services/hotels';
@@ -19,7 +20,8 @@ import { FilterCountersContainer } from '../FilterCountersContainer';
 import { useFormDesktopStyles } from './FormDesktop.styles';
 
 export const FormDesktop = memo(() => {
-  const classes = useFormDesktopStyles();
+  const theme = useTheme();
+  const classes = useFormDesktopStyles({ theme });
   const dispatch = useDispatch();
   const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [cityInput, setCityInput] = useState('');
@@ -130,7 +132,7 @@ export const FormDesktop = memo(() => {
       <div className={classes.inputWrapper} ref={inputRef}>
         <Input
           id="filter"
-          className={classes.input}
+          className={`${classes.input} ${classes.inputCount}`}
           name="filter"
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"

@@ -1,13 +1,11 @@
 import { createUseStyles } from 'react-jss';
 import {
   accentColor,
-  generalWhiteColor,
-  primaryColor,
   screenMd,
   screenSm,
 } from '../../constants/styles.constatnts';
 
-export const headerStyles = () => ({
+export const headerStyles = (theme) => ({
   root: {
     display: 'grid',
     position: 'absolute',
@@ -20,7 +18,7 @@ export const headerStyles = () => ({
   },
   logo: {
     marginBottom: 6,
-    fill: primaryColor,
+    fill: theme.palette.primary.primaryColor,
   },
   menu: {
     display: 'flex',
@@ -38,7 +36,7 @@ export const headerStyles = () => ({
   },
   link: {
     position: 'relative',
-    color: generalWhiteColor,
+    color: theme.palette.primary.linkColor,
     lineHeight: 1.16,
 
     '&:after': {

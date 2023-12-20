@@ -1,17 +1,15 @@
 import { createUseStyles } from 'react-jss';
 import {
   buttonRadiusLg,
-  generalWhiteColor,
   screenMd,
   screenSm,
-  textColor,
 } from '../../../constants/styles.constatnts';
 
 export const buttonStyles = (theme) => ({
   root: {
     display: 'flex',
-    backgroundColor: generalWhiteColor,
-    color: textColor,
+    backgroundColor: theme.palette.primary.generalColor,
+    color: theme.palette.primary.textColor,
     cursor: 'pointer',
     alignItems: 'center',
     justifyContent: 'center',
@@ -19,14 +17,14 @@ export const buttonStyles = (theme) => ({
 
     '&$outlined': {
       borderRadius: buttonRadiusLg,
-      border: `1px solid ${theme.palette.primary.btnColor}`,
+      border: `1px solid ${theme.palette.primary.primaryColor}`,
       maxWidth: 128,
       height: 48,
       width: '100%',
       fontSize: 18,
       padding: '12px 16px',
       lineHeight: '1.16',
-      color: theme.palette.primary.btnColor,
+      color: theme.palette.primary.primaryColor,
 
       '&:hover': {
         border: `1px solid ${theme.palette.primary.hover}`,
@@ -34,12 +32,12 @@ export const buttonStyles = (theme) => ({
       },
     },
     '&$primary': {
-      background: theme.palette.primary.btnColor,
-      color: 'white',
+      background: theme.palette.primary.primaryColor,
+      color: theme.palette.primary.generalColor,
     },
     '&$text': {
       fontWeight: 500,
-      color: theme.palette.primary.btnColor,
+      color: theme.palette.primary.primaryColor,
       padding: 0,
       width: 'auto',
     },
@@ -50,7 +48,7 @@ export const buttonStyles = (theme) => ({
     '&$counter': {
       width: 30,
       height: 30,
-      border: `1px solid ${theme.palette.primary.btnColor}`,
+      border: `1px solid ${theme.palette.primary.primaryColor}`,
       fontSize: 18,
       fontWeight: 400,
 

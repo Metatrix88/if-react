@@ -1,23 +1,19 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
-  borderLightColor,
   buttonRadiusLg,
-  generalWhiteColor,
-  primaryColor,
   screenMd,
 } from '../../constants/styles.constatnts';
 
-export const formDesktopStyles = () => ({
+export const formDesktopStyles = (theme) => ({
   root: {
     display: 'grid',
     gridTemplateRows: 'auto',
     gridTemplateColumns:
       'minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px) minmax(150px, 192px)',
     position: 'relative',
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.primary.generalColor,
     fontSize: 18,
-    border: `3px solid ${borderLightColor}`,
+    border: `3px solid ${theme.palette.primary.borderLightColor}`,
     borderRadius: buttonRadiusLg,
     gap: 0,
     marginBottom: 120,
@@ -42,8 +38,11 @@ export const formDesktopStyles = () => ({
     padding: '18px 16px',
 
     '&:hover, &:focus': {
-      border: `3px solid ${accentColor}`,
+      border: `3px solid ${theme.palette.primary.hover}`,
       borderRadius: buttonRadiusLg,
+    },
+    '&::placeholder': {
+      color: 'red',
     },
   },
   inputCity: {
@@ -51,17 +50,21 @@ export const formDesktopStyles = () => ({
 
     '&:focus ~ label, &:not(:focus):valid ~ label': {
       top: -40,
-      color: generalWhiteColor,
+      color: theme.palette.primary.inputColor,
       opacity: 1,
     },
   },
   inputDate: {
     minWidth: 240,
     width: '100%',
+    backgroundColor: theme.palette.primary.generalColor,
+  },
+  inputCount: {
+    color: theme.palette.primary.inputValue,
   },
   focusDate: {
     top: -40,
-    color: generalWhiteColor,
+    color: theme.palette.primary.inputColor,
     opacity: 1,
   },
   visuallyHidden: {
@@ -82,11 +85,11 @@ export const formDesktopStyles = () => ({
     marginLeft: 3,
     marginTop: -3,
     marginBottom: -3,
-    border: `3px solid ${primaryColor}`,
+    border: `3px solid ${theme.palette.primary.primaryColor}`,
     borderRadius: buttonRadiusLg,
 
     '&:hover, &:focus': {
-      border: `3px solid ${accentColor}`,
+      border: `3px solid ${theme.palette.primary.hover}`,
     },
   },
 

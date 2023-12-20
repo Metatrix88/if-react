@@ -1,4 +1,5 @@
 import { authStatuses } from './authStatuses';
+import {themeVariants} from './themeVariants';
 
 export const INITIAL_STATE = {
   auth: {
@@ -25,5 +26,8 @@ export const INITIAL_STATE = {
   },
   availableHotels: {
     hotels: [],
+  },
+  themes: {
+    variant: themeVariants.whiteTheme,
   },
 };

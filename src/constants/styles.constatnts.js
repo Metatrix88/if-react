@@ -11,11 +11,25 @@ export const generalWhiteColor = '#ffffff';
 export const borderLightColor = '#f3f3f4';
 export const bgColor = '#eaf0f9';
 
+//Color white Theme
+export const whiteThemePrimaryColor = '#3077c6';
+export const whiteThemePrimaryDarkColor = '#10367c';
+export const whiteThemeAccentColor = '#f5bd41';
+export const whiteThemeTextColor = '#383838';
+export const whiteThemeSecondaryTextColor = '#bfbfbf';
+export const whiteThemeGeneralWhiteColor = '#ffffff';
+export const whiteThemeBorderLightColor = '#f3f3f4';
+export const whiteThemeBgColor = '#eaf0f9';
+
 //Color dark Theme
-export const darkThemePrimaryColor = '#ddb51e';
-export const darkThemeGeneralColor = '#201d1d';
+export const darkThemePrimaryColor = '#19af64';
+export const darkThemePrimaryDarkColor = '#08572f';
+export const darkThemeAccentColor = '#3be808';
 export const darkThemeTextColor = '#cf1818';
-export const darkThemeAccentColor = '#1ea13a';
+export const darkThemeSecondaryTextColor = '#e73b3b';
+export const darkThemeGeneralBlackColor = '#201d1d';
+export const darkThemeBorderLightColor = '#66667a';
+export const darkThemeBgColor = '#4883db';
 
 //Screen
 export const screenMd = '1024px';

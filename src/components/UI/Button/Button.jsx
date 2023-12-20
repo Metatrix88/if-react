@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import classNames from 'classnames';
 
 import { useButtonStyles } from './Button.styles';
-import {useTheme} from 'react-jss';
+import { useTheme } from 'react-jss';
 
 export const Button = ({
   variant,
@@ -14,7 +14,7 @@ export const Button = ({
   ...props
 }) => {
   const theme = useTheme();
-  const classes = useButtonStyles({theme});
+  const classes = useButtonStyles({ theme });
   const colors = {
     [classes.primary]: color === 'primary',
   };
