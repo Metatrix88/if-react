@@ -3,9 +3,10 @@ import { useRouteError } from 'react-router-dom';
 
 import { Error } from '../../icons';
 
-import './ErrorBoundary.scss';
+import { useErrorBoundaryStyles } from './ErrorBoundary.styles';
 
 export const ErrorBoundary = () => {
+  const classes = useErrorBoundaryStyles();
   const error = useRouteError();
   let message = 'Something went wrong';
 
@@ -18,9 +19,9 @@ export const ErrorBoundary = () => {
   }
 
   return (
-    <div className="error-boundary">
-      <Error className="error-boundary__icon" />
-      <h3 className="error-boundary__message">{message}</h3>
+    <div className={classes.root}>
+      <Error className={classes.icon} />
+      <h3 className={classes.message}>{message}</h3>
     </div>
   );
 };

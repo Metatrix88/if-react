@@ -14,9 +14,10 @@ import {
 } from '../UI/CalendarLaptopForm';
 
 // styles
-import './FormLaptop.scss';
+import { useFormLaptop } from './FormLaptop.styles';
 
 export const FormLaptop = () => {
+  const classes = useFormLaptop();
   const dispatch = useDispatch();
   const [cityInput, setCityInput] = useState('');
   const [dateStart, setDateStart] = useState(null);
@@ -76,34 +77,33 @@ export const FormLaptop = () => {
   };
 
   return (
-    <form
-      className="laptop-form md-2-col sm-2-col search-form--laptop"
-      onSubmit={handleSearch}
-    >
-      <div className="laptop-form__input-wrap laptop-form__input--full-width">
-        <div className="laptop-form__destination-wrap">
+    <form className={classes.root} onSubmit={handleSearch}>
+      <div className={`${classes.wrapper} ${classes.wrapperFullWidth}`}>
+        <div className={classes.wrapperDestination}>
           <Button
             variant="icon"
-            className="laptop-form__button-icon"
+            className={classes.buttonSearch}
             aria-label="Your destination or hotel name"
           >
             <Search />
           </Button>
-          <div className="laptop-form__input laptop-form__input-destination">
+          <div className={classes.wrapperInputDestination}>
             <Input
-              className="input-laptop"
+              className={classes.input}
               name="destination"
               id="destination"
               title="Your destination or hotel name"
               value={cityInput}
               onChange={handleChange}
             />
-            <Label htmlFor="destination">Your destination or hotel name</Label>
+            <Label className={classes.label} htmlFor="destination">
+              Your destination or hotel name
+            </Label>
           </div>
         </div>
       </div>
 
-      <div className="laptop-form__input-wrap">
+      <div className={classes.wrapper}>
         <CalendarLaptopFormIn
           setDateStart={setDateStart}
           dateStart={dateStart}
@@ -112,7 +112,7 @@ export const FormLaptop = () => {
           name="dateIn"
         />
       </div>
-      <div className="laptop-form__input-wrap">
+      <div className={classes.wrapper}>
         <CalendarLaptopFormOut
           setDateOut={setDateOut}
           dateOut={dateOut}
@@ -122,48 +122,50 @@ export const FormLaptop = () => {
         />
       </div>
 
-      <div className="laptop-form__input-wrap laptop-form__input--full-width">
-        <div className="laptop-form__properties-wrap">
-          <div className="laptop-form__input laptop-form__input-properties">
+      <div className={`${classes.wrapper} ${classes.wrapperFullWidth}`}>
+        <div className={classes.wrapperProperties}>
+          <div className={classes.wrapperInputProperties}>
             <Input
-              className="input-laptop"
+              className={classes.input}
               name="adults"
               id="adults"
               title="Adults"
               value={adultsQuantity}
               onChange={handleChange}
             />
-            <Label htmlFor="adults">Adults</Label>
+            <Label className={classes.label} htmlFor="adults">
+              Adults
+            </Label>
           </div>
-          <div className="laptop-form__input laptop-form__input-properties">
+          <div className={classes.wrapperInputProperties}>
             <Input
-              className="input-laptop"
+              className={classes.input}
               name="children"
               id="children"
               title="Children"
               value={childrenQuantity}
               onChange={handleChange}
             />
-            <Label htmlFor="children">Children</Label>
+            <Label className={classes.label} htmlFor="children">
+              Children
+            </Label>
           </div>
-          <div className="laptop-form__input laptop-form__input-properties">
+          <div className={classes.wrapperInputProperties}>
             <Input
-              className="input-laptop"
+              className={classes.input}
               name="rooms"
               id="rooms"
               title="Rooms"
               value={roomsQuantity}
               onChange={handleChange}
             />
-            <Label htmlFor="rooms">Rooms</Label>
+            <Label className={classes.label} htmlFor="rooms">
+              Rooms
+            </Label>
           </div>
         </div>
       </div>
-      <Button
-        className="laptop-form__button-search"
-        color="primary"
-        type="submit"
-      >
+      <Button className={classes.button} color="primary" type="submit">
         Search
       </Button>
     </form>

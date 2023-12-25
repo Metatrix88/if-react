@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Водные данные
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Водные данные - это проект, разработанный с использованием React и Redux для отображения информации о водных объектах. Проект включает в себя использование CSS-in-JS подхода с библиотекой JSS, адаптивный дизайн для планшетов и мобильных устройств, а также интеграцию хуков, таких как `useState` и `useEffect`.
 
-## Available Scripts
+## Особенности проекта
 
-In the project directory, you can run:
+- **React Redux:** Проект использует архитектуру Redux для управления состоянием приложения. В частности, используются Redux slices для управления данными.
 
-### `npm start`
+- **Адаптивный дизайн:** Дизайн приложения адаптирован для различных устройств, таких как планшеты и мобильные телефоны, чтобы обеспечить удобство использования на любых экранах.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **CSS-in-JS с JSS:** Для стилизации компонентов применяется подход CSS-in-JS с использованием библиотеки JSS. Это позволяет создавать стили напрямую в компонентах React.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Swiper и Datepicker:** Проект использует библиотеки Swiper для создания каруселей и Datepicker для реализации календаря и выбора дат.
 
-### `npm test`
+- **React Router:** Для навигации по различным страницам проекта используется библиотека React Router.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Запуск проекта
 
-### `npm run build`
+1. Убедитесь, что у вас установлен Node.js.
+2. Клонируйте репозиторий: `git clone https://github.com/your-username/water-data.git`
+3. Перейдите в каталог проекта: `cd water-data`
+4. Установите зависимости: `npm install`
+5. Запустите приложение: `npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Внесение изменений
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Если вы хотите внести изменения в проект, следуйте следующим шагам:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Создайте ветку для своей работы: `git checkout -b feature/your-feature-name`
+2. Внесите изменения и коммиты: `git commit -m "Add your feature"`
+3. Отправьте изменения на GitHub: `git push origin feature/your-feature-name`
+4. Откройте запрос на слияние (Pull Request) на GitHub.
 
-### `npm run eject`
+## Лицензия
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Этот проект лицензирован по лицензии MIT - подробности см. в файле [LICENSE](LICENSE).

@@ -16,9 +16,11 @@ import { Input } from '../../components/UI/Input';
 import { Logo } from '../../icons';
 
 // styles
-import './Login.scss';
+import { useLoginStyles } from './Login.styles';
+import { Header } from '../../components/Header';
 
 export const Login = () => {
+  const classes = useLoginStyles();
   const emailId = useId();
   const passwordId = useId();
   const dispatch = useDispatch();
@@ -37,34 +39,39 @@ export const Login = () => {
   };
 
   return (
-    <div className="login">
-      <Logo className="login__logo" />
-      <form className="login__form" onSubmit={handleSubmit}>
-        <Label className="login__label" htmlFor={emailId}>
-          Email
-        </Label>
-        <Input
-          className="login__text-field"
-          name="email"
-          id={emailId}
-          type="email"
-          placeholder="Email"
-          autoComplete="off"
-        />
-        <Label className="login__label" htmlFor={passwordId}>
-          Password
-        </Label>
-        <Input
-          className="login__text-field"
-          name="password"
-          id={passwordId}
-          type="password"
-          placeholder="Password"
-        />
-        <Button className="login__button" color="primary" type="submit">
-          Log In
-        </Button>
-      </form>
-    </div>
+    <>
+      <Header />
+      <section className={classes.root}>
+        <div className={classes.wrapper}>
+          <Logo className={classes.logo} />
+          <form className={classes.form} onSubmit={handleSubmit}>
+            <Label className={classes.label} htmlFor={emailId}>
+              Email
+            </Label>
+            <Input
+              className={classes.textField}
+              name="email"
+              id={emailId}
+              type="email"
+              placeholder="Email"
+              autoComplete="off"
+            />
+            <Label className={classes.label} htmlFor={passwordId}>
+              Password
+            </Label>
+            <Input
+              className={classes.textField}
+              name="password"
+              id={passwordId}
+              type="password"
+              placeholder="Password"
+            />
+            <Button className={classes.button} color="primary" type="submit">
+              Log In
+            </Button>
+          </form>
+        </div>
+      </section>
+    </>
   );
 };

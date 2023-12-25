@@ -2,21 +2,26 @@ import React, { memo, useEffect, useRef } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
 import { useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
+
+// constants
+import { PATH } from '../../constants/paths';
+
+// icons
+import { Arrow } from '../../icons';
 
 // components
 import { Image } from '../UI/Image';
 import { Container } from '../Container';
+import { Button } from '../UI/Button';
 
 // styles
-import './Available.scss';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
+import { useAvailableStyles } from './Available.styles';
 
 export const Available = memo(() => {
+  const theme = useTheme();
+  const classes = useAvailableStyles({ theme });
   const hotels = useSelector((state) => state.availableHotels.hotels);
 
   const availableRef = useRef(null);
@@ -28,8 +33,8 @@ export const Available = memo(() => {
   }, [hotels]);
 
   return (
-    <Container className="available">
-      <h2 ref={availableRef} className="available__title">
+    <Container className={classes.root}>
+      <h2 ref={availableRef} className={classes.title}>
         Available hotels
       </h2>
       <Swiper
@@ -44,29 +49,33 @@ export const Available = memo(() => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
       >
         {hotels.map((home) => (
-            <SwiperSlide key={home.id}>
-              <NavLink
-                to={`/hotels/${home.id}`}
-                className={({ isActive }) =>
-                  classNames('available__link', {
-                    ['available__link--active']: isActive,
-                  })
-                }
-                target="_blank"
-              >
-                <Image {...home} className="available__img" />
-                {home.name}
-                <h3 className="available__subtitle">
-                  {home.city}, {home.country}
-                </h3>
-              </NavLink>
-            </SwiperSlide>
-          )
-        )}
+          <SwiperSlide key={home.id}>
+            <NavLink
+              className={classes.link}
+              to={`${PATH.hotelsPage}/${home.id}`}
+              target="_blank"
+            >
+              <Image {...home} className={classes.images} />
+              {home.name}
+              <h3 className={classes.subtitle}>
+                {home.city}, {home.country}
+              </h3>
+            </NavLink>
+          </SwiperSlide>
+        ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 });

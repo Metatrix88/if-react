@@ -1,13 +1,10 @@
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
-
 // For mobile tablets:
-@media screen and (max-width: $screen-sm) {
+@media screen and (max-width: 1024px) {
   .react-datepicker__input-container .react-datepicker__calendar-icon {
     padding: 28px 12px 6px;
 
     // For mobile phones:
-    @media screen and (max-width: $screen-md) {
+    @media screen and (max-width: 600px) {
       padding: 24px 8px 6px;
     }
   }
@@ -17,7 +14,7 @@
     max-width: 150px;
 
     // For mobile phones:
-    @media screen and (max-width: $screen-md) {
+    @media screen and (max-width: 600px) {
       padding: 24px 30px 6px;
     }
   }

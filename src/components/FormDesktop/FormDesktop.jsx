@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 
 // services
 import { updateAvailableHotels } from '../../services/hotels';
@@ -16,9 +17,11 @@ import { CalendarDesktopForm } from '../UI/CalendarDesktopForm';
 import { FilterCountersContainer } from '../FilterCountersContainer';
 
 // styles
-import './FormDesktop.scss';
+import { useFormDesktopStyles } from './FormDesktop.styles';
 
 export const FormDesktop = memo(() => {
+  const theme = useTheme();
+  const classes = useFormDesktopStyles({ theme });
   const dispatch = useDispatch();
   const [isCountersVisible, setIsCountersVisible] = useState(false);
   const [cityInput, setCityInput] = useState('');
@@ -66,6 +69,10 @@ export const FormDesktop = memo(() => {
     };
   }, []);
 
+  useEffect(() => {
+    dispatch(setAvailableHotels({ hotels: [] }));
+  }, []);
+
   const handleSearch = async (event) => {
     event.preventDefault();
 
@@ -92,7 +99,7 @@ export const FormDesktop = memo(() => {
     };
 
     updateAvailableHotels(queryParams).then((hotels) =>
-      dispatch(setAvailableHotels({hotels})),
+      dispatch(setAvailableHotels({ hotels })),
     );
 
     dispatch(
@@ -109,14 +116,11 @@ export const FormDesktop = memo(() => {
   };
 
   return (
-    <form
-      className="lg-4-col search-form--desktop desktop-form"
-      onSubmit={handleSearch}
-    >
-      <div className="desktop-form__input">
+    <form className={classes.root} onSubmit={handleSearch}>
+      <div className={classes.inputWrapper}>
         <Input
           id="city"
-          className="desktop-form__input-city"
+          className={`${classes.input} ${classes.inputCity}`}
           name="city"
           title="Your destination or hotel name"
           placeholder=""
@@ -124,15 +128,15 @@ export const FormDesktop = memo(() => {
           onChange={handleChange}
           required
         />
-        <Label htmlFor="city" className="desktop-form__label-city">
+        <Label htmlFor="city" className={classes.label}>
           Your destination or hotel name
         </Label>
       </div>
       <CalendarDesktopForm setDateRange={setDateRange} dateRange={dateRange} />
-      <div className="desktop-form__input" ref={inputRef}>
+      <div className={classes.inputWrapper} ref={inputRef}>
         <Input
           id="filter"
-          className="desktop-form__input-filter"
+          className={`${classes.input} ${classes.inputCount}`}
           name="filter"
           title="2 Adults — 0 Children — 1 Room"
           placeholder="2 Adults — 0 Children — 1 Room"
@@ -140,15 +144,11 @@ export const FormDesktop = memo(() => {
           onClick={toggleCountersVisibility}
           value={`${adultsQuantity} Adults — ${childrenQuantity} Children — ${roomsQuantity} Room`}
         />
-        <Label className="visually-hidden" htmlFor="filter">
+        <Label className={classes.visuallyHidden} htmlFor="filter">
           2 Adults — 0 Children — 1 Room
         </Label>
       </div>
-      <Button
-        className="desktop-form__button-search"
-        color="primary"
-        type="submit"
-      >
+      <Button className={classes.button} color="primary" type="submit">
         Search
       </Button>
       {isCountersVisible && (

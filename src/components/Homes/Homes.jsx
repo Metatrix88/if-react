@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import { useTheme } from 'react-jss';
 
 import { getHotels } from '../../services/hotels';
+// constants
+import { PATH } from '../../constants/paths';
+
+// icons
+import { Arrow } from '../../icons';
 
 // components
 import { Container } from '../Container';
 import { Image } from '../UI/Image';
+import { Button } from '../UI/Button';
 
 // styles
-import './Homes.scss';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cube';
-import { Link } from 'react-router-dom';
+import { useHomesStyles } from './Homes.styles';
 
 export const Homes = () => {
+  const theme = useTheme();
+  const classes = useHomesStyles({ theme });
   const [homes, setHomes] = useState([]);
 
   useEffect(() => {
@@ -24,8 +29,8 @@ export const Homes = () => {
   }, []);
 
   return (
-    <Container className="homes">
-      <h2 className="homes__title">Homes guests loves</h2>
+    <Container className={classes.root}>
+      <h2 className={classes.title}>Homes guests loves</h2>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}
@@ -38,24 +43,33 @@ export const Homes = () => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
       >
         {homes.map((home) => (
           <SwiperSlide key={home.id}>
             <Link
-              to={`/hotels/${home.id}`}
-              className="homes__link"
+              to={`${PATH.hotelsPage}/${home.id}`}
+              className={classes.link}
               target="_blank"
             >
-              <Image {...home} className="homes__img" />
+              <Image {...home} className={classes.images} />
               {home.name}
-              <h3 className="homes__subtitle">
+              <h3 className={classes.subtitle}>
                 {home.city}, {home.country}
               </h3>
             </Link>
           </SwiperSlide>
         ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 };

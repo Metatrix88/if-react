@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -12,7 +12,11 @@ import { TopSection } from '../TopSection';
 import { Available } from '../Available';
 import { Homes } from '../Homes';
 import { Footer } from '../Footer';
-import {Loader} from '../Loader';
+import { Loader } from '../Loader';
+import { SingUp } from '../SingUp';
+import { Reviews } from '../Reviews';
+import { Offer } from '../Offer';
+import { Destinations } from '../Destinations';
 
 export const App = () => {
   const [loading, setLoading] = useState(true);
@@ -30,9 +34,9 @@ export const App = () => {
 
   useEffect(() => {
     if (hotels.length > 0) {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [hotels])
+  }, [hotels]);
 
   return (
     <>
@@ -40,7 +44,11 @@ export const App = () => {
       <TopSection />
       {loading && <Loader />}
       {!loading && hotels.length > 0 && <Available />}
+      <Offer />
       <Homes />
+      <Destinations />
+      <SingUp />
+      <Reviews />
       <Footer />
     </>
   );

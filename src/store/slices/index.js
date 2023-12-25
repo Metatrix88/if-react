@@ -6,17 +6,22 @@ import { authReducer } from './auth.slice';
 import { userReducer } from './user.slice';
 import { updateCountersReducer } from './updateCounters.slice';
 import { searchParamsReducer } from './searchParams.slice';
-import {availableHotelsReducer} from './availableHotels.slice';
+import { availableHotelsReducer } from './availableHotels.slice';
+import { themesReducer } from './themes.slice';
 
 const persistConfig = {
   key: 'root',
   storage,
-}
+};
 
-export const rootReducer = persistReducer(persistConfig, combineReducers({
-  auth: authReducer,
-  user: userReducer,
-  updateCounters: updateCountersReducer,
-  searchParams: searchParamsReducer,
-  availableHotels: availableHotelsReducer,
-}));
+export const rootReducer = persistReducer(
+  persistConfig,
+  combineReducers({
+    auth: authReducer,
+    user: userReducer,
+    updateCounters: updateCountersReducer,
+    searchParams: searchParamsReducer,
+    availableHotels: availableHotelsReducer,
+    themes: themesReducer,
+  }),
+);
