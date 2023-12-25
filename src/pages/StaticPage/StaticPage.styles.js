@@ -1,5 +1,9 @@
 import { createUseStyles } from 'react-jss';
-import {screenMd, screenSm, whiteThemeColorBlack} from '../../constants/styles.constatnts';
+import {
+  screenMd,
+  screenSm,
+  whiteThemeColorBlack,
+} from '../../constants/styles.constatnts';
 
 export const staticPageStyles = (theme) => ({
   root: {

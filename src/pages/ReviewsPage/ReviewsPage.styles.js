@@ -1,7 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import {
   screenMd,
-  screenSm, whiteThemeColorBlack,
+  screenSm,
+  whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
 export const reviewsPageStyles = (theme) => ({
@@ -43,7 +44,7 @@ export const reviewsPageStyles = (theme) => ({
   text: {
     maxWidth: 500,
     margin: '0 auto',
-    color: whiteThemeColorBlack
+    color: whiteThemeColorBlack,
   },
 
   //For mobile tablets:

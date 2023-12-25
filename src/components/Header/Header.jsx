@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link, NavLink, useNavigate} from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { useTheme } from 'react-jss';

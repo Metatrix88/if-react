@@ -9,7 +9,8 @@ import {
   sectionPaddingTopBottomSm,
   sectionTitleBottomLg,
   sectionTitleBottomMd,
-  sectionTitleBottomSm, whiteThemeColorBlack,
+  sectionTitleBottomSm,
+  whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
 export const reviewsStyles = (theme) => ({

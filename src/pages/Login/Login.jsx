@@ -17,7 +17,7 @@ import { Logo } from '../../icons';
 
 // styles
 import { useLoginStyles } from './Login.styles';
-import {Header} from '../../components/Header';
+import { Header } from '../../components/Header';
 
 export const Login = () => {
   const classes = useLoginStyles();
@@ -40,7 +40,7 @@ export const Login = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <section className={classes.root}>
         <div className={classes.wrapper}>
           <Logo className={classes.logo} />

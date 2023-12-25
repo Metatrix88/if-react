@@ -1,7 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import {
   screenMd,
-  screenSm, whiteThemeColorBlack,
+  screenSm,
+  whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
 export const hotelPageStyles = (theme) => ({

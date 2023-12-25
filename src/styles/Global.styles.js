@@ -33,7 +33,7 @@ export const globalStyles = (theme) => ({
     '.swiper-pagination-bullet-active': {
       background: theme.palette.accent.hover,
     },
-  }
+  },
 });
 
 export const useGlobalStyles = createUseStyles(globalStyles, {

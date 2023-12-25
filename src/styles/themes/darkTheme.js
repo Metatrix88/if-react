@@ -1,7 +1,11 @@
 import {
   darkThemeAccentColor,
   darkThemeBgColor,
-  darkThemeBorderLightColor, darkThemeColorDarkBlue, darkThemeColorGray, darkThemeColorWhite, darkThemeColorYellow,
+  darkThemeBorderLightColor,
+  darkThemeColorDarkBlue,
+  darkThemeColorGray,
+  darkThemeColorWhite,
+  darkThemeColorYellow,
   darkThemeSecondaryTextColor,
 } from '../../constants/styles.constatnts';
 

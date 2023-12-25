@@ -14,11 +14,11 @@ import { Logo } from '../../icons';
 
 // styles
 import { useFooterStyles } from './Footer.styles';
-import {useTheme} from 'react-jss';
+import { useTheme } from 'react-jss';
 
 export const Footer = () => {
   const theme = useTheme();
-  const classes = useFooterStyles({theme});
+  const classes = useFooterStyles({ theme });
   return (
     <footer className={classes.root}>
       <Container>

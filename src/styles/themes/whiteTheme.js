@@ -1,7 +1,11 @@
 import {
   whiteThemeAccentColor,
-  whiteThemeBgColor, whiteThemeBgColorPages,
-  whiteThemeBorderLightColor, whiteThemeColorBlack, whiteThemeColorBlue, whiteThemeColorWhite,
+  whiteThemeBgColor,
+  whiteThemeBgColorPages,
+  whiteThemeBorderLightColor,
+  whiteThemeColorBlack,
+  whiteThemeColorBlue,
+  whiteThemeColorWhite,
   whiteThemePrimaryDarkBlue,
   whiteThemeSecondaryTextColor,
 } from '../../constants/styles.constatnts';

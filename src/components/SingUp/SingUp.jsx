@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useTheme } from 'react-jss';
 
 // icons
@@ -17,7 +17,7 @@ export const SingUp = () => {
   const [isSectionVisible, setSectionVisible] = useState(true);
   return (
     <>
-      {isSectionVisible &&
+      {isSectionVisible && (
         <Container>
           <div className={classes.root}>
             <div className={classes.logo}>
@@ -48,7 +48,7 @@ export const SingUp = () => {
             </Button>
           </div>
         </Container>
-      }
+      )}
     </>
   );
 };

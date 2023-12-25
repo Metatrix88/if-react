@@ -70,7 +70,7 @@ export const FormDesktop = memo(() => {
   }, []);
 
   useEffect(() => {
-    dispatch(setAvailableHotels( {hotels: []} ))
+    dispatch(setAvailableHotels({ hotels: [] }));
   }, []);
 
   const handleSearch = async (event) => {

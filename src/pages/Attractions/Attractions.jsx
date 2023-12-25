@@ -6,7 +6,7 @@ import { Container } from '../../components/Container';
 import { Footer } from '../../components/Footer';
 
 // styles
-import {useAttractions} from './Attractions.styles';
+import { useAttractions } from './Attractions.styles';
 
 export const Attractions = () => {
   const classes = useAttractions();

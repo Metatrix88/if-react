@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import {screenSm} from '../../constants/styles.constatnts';
+import { screenSm } from '../../constants/styles.constatnts';
 
 export const arrowStyles = (theme) => ({
   root: {

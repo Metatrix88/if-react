@@ -41,7 +41,6 @@ export const formDesktopStyles = (theme) => ({
     },
   },
   inputCity: {
-
     '&:focus ~ label, &:not(:focus):valid ~ label': {
       top: -40,
       color: theme.palette.text.main,
