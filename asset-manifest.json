@@ -1,8 +1,35 @@
 {
   "files": {
-    "main.css": "/if-react/static/css/main.54cffe89.css",
-    "main.js": "/if-react/static/js/main.ec68bff1.js",
+    "main.css": "/if-react/static/css/main.ed283524.css",
+    "main.js": "/if-react/static/js/main.afadfe59.js",
     "static/media/background.jpg": "/if-react/static/media/background.e34c0cfc8b62bd0b57ab.jpg",
+    "static/media/ubudBali.jpg": "/if-react/static/media/ubudBali.d419b36d7602b82fd0a3.jpg",
+    "static/media/rokokoHotel.jpg": "/if-react/static/media/rokokoHotel.d38dbc93974e2069a864.jpg",
+    "static/media/kingKong.jpg": "/if-react/static/media/kingKong.b73ec1c5426eab8d4cee.jpg",
+    "static/media/amsterdam.jpg": "/if-react/static/media/amsterdam.4ec3833ce76e5ba1432d.jpg",
+    "static/media/russia.jpg": "/if-react/static/media/russia.04aa4ed9dd365e61c926.jpg",
+    "static/media/tbilisi.jpg": "/if-react/static/media/tbilisi.d62f41179b0dcf946ad1.jpg",
+    "static/media/france.jpg": "/if-react/static/media/france.034c7e1ef1b78b79f2ec.jpg",
+    "static/media/japan.jpg": "/if-react/static/media/japan.cb2b6ac7ced0d3b82e64.jpg",
+    "static/media/barcelona.jpg": "/if-react/static/media/barcelona.748c8fbd2909f007d16d.jpg",
+    "static/media/edinburgCastle.jpg": "/if-react/static/media/edinburgCastle.94aa36d89334eefec6b8.jpg",
+    "static/media/paris.jpg": "/if-react/static/media/paris.8c8b5bbe3836d93dab8a.jpg",
+    "static/media/krka.jpg": "/if-react/static/media/krka.bc44bfbf5c5093924a6e.jpg",
+    "static/media/norway.jpg": "/if-react/static/media/norway.cda66c345a580c510d4d.jpg",
+    "static/media/morskieOko.jpg": "/if-react/static/media/morskieOko.94fe7b06dcc793a9c0ee.jpg",
+    "static/media/spain.jpg": "/if-react/static/media/spain.378e349cdd097425e9f5.jpg",
+    "static/media/scottland.jpg": "/if-react/static/media/scottland.73a308917de21a894593.jpg",
+    "static/media/caboDaRoco.jpg": "/if-react/static/media/caboDaRoco.fe9a00c5eecf3f4b1b59.jpg",
+    "static/media/bigBen.jpg": "/if-react/static/media/bigBen.c2f647fd5998f9db85a3.jpg",
+    "static/media/neuschwanstein.jpg": "/if-react/static/media/neuschwanstein.c13508a2c25f04061a27.jpg",
+    "static/media/budapest.jpg": "/if-react/static/media/budapest.bb3b372de9a2a193811b.jpg",
+    "static/media/maldives.jpg": "/if-react/static/media/maldives.269991912891be9540a4.jpg",
+    "static/media/moscow.jpg": "/if-react/static/media/moscow.429a4062f8ef3d5405ef.jpg",
+    "static/media/island.jpg": "/if-react/static/media/island.bb05d5ed051237d62fb5.jpg",
+    "static/media/berlin.jpg": "/if-react/static/media/berlin.4344dabc2312a30e8c9a.jpg",
+    "static/media/london.jpg": "/if-react/static/media/london.d2f0c12221b250529bcb.jpg",
+    "static/media/colosseum.jpg": "/if-react/static/media/colosseum.9bc08c57f5b4494e5716.jpg",
+    "static/media/mattehom.jpg": "/if-react/static/media/mattehom.a88ec4febbccacb4231e.jpg",
     "static/media/loading1.gif": "/if-react/static/media/loading1.b75b820d5677a45b26bd.gif",
     "static/media/roboto-regular-latin.woff2": "/if-react/static/media/roboto-regular-latin.b009a76ad6afe4ebd301.woff2",
     "static/media/roboto-regular-cyrillic-ext.woff2": "/if-react/static/media/roboto-regular-cyrillic-ext.62ced72e5832f02c2796.woff2",
@@ -22,11 +49,11 @@
     "static/media/roboto-regular-cyrillic-greek-ext.woff2": "/if-react/static/media/roboto-regular-cyrillic-greek-ext.169619821ea93019d1bb.woff2",
     "static/media/open-sans-greek-ext.woff2": "/if-react/static/media/open-sans-greek-ext.39370e8b24792420bd6f.woff2",
     "index.html": "/if-react/index.html",
-    "main.54cffe89.css.map": "/if-react/static/css/main.54cffe89.css.map",
-    "main.ec68bff1.js.map": "/if-react/static/js/main.ec68bff1.js.map"
+    "main.ed283524.css.map": "/if-react/static/css/main.ed283524.css.map",
+    "main.afadfe59.js.map": "/if-react/static/js/main.afadfe59.js.map"
   },
   "entrypoints": [
-    "static/css/main.54cffe89.css",
-    "static/js/main.ec68bff1.js"
+    "static/css/main.ed283524.css",
+    "static/js/main.afadfe59.js"
   ]
 }
