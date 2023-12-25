@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 import { screenMd, screenSm } from '../../constants/styles.constatnts';
 import BackgroundImg from '../../images/background.jpg';
 
-export const topSectionStyles = () => ({
+export const topSectionStyles = (theme) => ({
   root: {
     minHeight: '100vh',
     backgroundImage: `url(${BackgroundImg})`,
@@ -13,7 +13,7 @@ export const topSectionStyles = () => ({
     paddingBottom: 120,
   },
   title: {
-    color: 'white',
+    color: theme.palette.text.main,
     maxWidth: 542,
     fontSize: 50,
     textAlign: 'left',

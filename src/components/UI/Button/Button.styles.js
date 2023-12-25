@@ -8,8 +8,8 @@ import {
 export const buttonStyles = (theme) => ({
   root: {
     display: 'flex',
-    backgroundColor: theme.palette.primary.generalColor,
-    color: theme.palette.primary.textColor,
+    backgroundColor: theme.palette.buttons.main,
+    color: theme.palette.text.secondary,
     cursor: 'pointer',
     alignItems: 'center',
     justifyContent: 'center',
@@ -17,29 +17,30 @@ export const buttonStyles = (theme) => ({
 
     '&$outlined': {
       borderRadius: buttonRadiusLg,
-      border: `1px solid ${theme.palette.primary.primaryColor}`,
+      border: `1px solid ${theme.palette.border.secondary}`,
       maxWidth: 128,
       height: 48,
       width: '100%',
       fontSize: 18,
       padding: '12px 16px',
       lineHeight: '1.16',
-      color: theme.palette.primary.primaryColor,
+      color: theme.palette.text.quaternary,
 
       '&:hover': {
-        border: `1px solid ${theme.palette.primary.hover}`,
-        color: theme.palette.primary.hover,
+        border: `1px solid ${theme.palette.accent.hover}`,
+        color: theme.palette.accent.hover,
       },
     },
     '&$primary': {
-      background: theme.palette.primary.primaryColor,
-      color: theme.palette.primary.generalColor,
+      background: theme.palette.buttons.secondary,
+      color: theme.palette.text.main,
     },
     '&$text': {
       fontWeight: 500,
-      color: theme.palette.primary.primaryColor,
+      color: theme.palette.text.quaternary,
       padding: 0,
       width: 'auto',
+      backgroundColor: 'transparent',
     },
     '&$icon': {
       backgroundColor: 'transparent',
@@ -48,7 +49,7 @@ export const buttonStyles = (theme) => ({
     '&$counter': {
       width: 30,
       height: 30,
-      border: `1px solid ${theme.palette.primary.primaryColor}`,
+      border: `1px solid ${theme.palette.border.secondary}`,
       fontSize: 18,
       fontWeight: 400,
 

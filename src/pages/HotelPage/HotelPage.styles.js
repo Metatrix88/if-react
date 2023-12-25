@@ -1,15 +1,14 @@
 import { createUseStyles } from 'react-jss';
 import {
-  primaryColor,
   screenMd,
-  screenSm,
+  screenSm, whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
-export const hotelPageStyles = () => ({
+export const hotelPageStyles = (theme) => ({
   root: {
     padding: '150px 16px',
     textAlign: 'center',
-    backgroundColor: '#758ee7',
+    backgroundColor: theme.palette.background.pages,
   },
   title: {
     marginBottom: 50,
@@ -20,10 +19,11 @@ export const hotelPageStyles = () => ({
   subtitle: {
     marginBottom: 24,
     fontSize: 32,
-    color: primaryColor,
+    color: theme.palette.text.quaternary,
   },
   text: {
     marginBottom: 16,
+    color: whiteThemeColorBlack,
   },
 
   //For mobile tablets:

@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useTheme } from 'react-jss';
 
 import { cardsData } from './destinations.config';
+import { PATH } from '../../constants/paths';
 
 // components
 import { Container } from '../Container';
@@ -17,7 +19,8 @@ import { Arrow } from '../../icons';
 import { useDestinationsStyles } from './Destinations.styles';
 
 export const Destinations = () => {
-  const classes = useDestinationsStyles();
+  const theme = useTheme();
+  const classes = useDestinationsStyles({ theme });
   const [activeTab, setActiveTab] = useState('regions');
   const [showOnlyFirstRow, setShowOnlyFirstRow] = useState(true);
   const [hide, setHide] = useState(true);
@@ -34,13 +37,11 @@ export const Destinations = () => {
   const toggleCardVisibility = () => {
     setShowOnlyFirstRow(!showOnlyFirstRow);
     setHide(!hide);
-  };
 
-  useEffect(() => {
     if (destinationsRef.current) {
       destinationsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [hide]);
+  };
 
   return (
     <Container className={classes.root}>
@@ -86,7 +87,7 @@ export const Destinations = () => {
               </div>
               <NavLink
                 className={classes.link}
-                to={`/destinations/${activeTab}/${card.id}`}
+                to={`${PATH.destination}/${activeTab}/${card.id}`}
                 target="_blank"
               >
                 {card.name}
@@ -96,11 +97,15 @@ export const Destinations = () => {
       </ul>
       <Button
         onClick={toggleCardVisibility}
-        className={`${classes.buttonIcon} ${hide ? classes.arrowIconShow : ''}`}
+        className={classes.buttonShow}
         type="button"
         aria-label="Next destinations"
       >
-        <Arrow className={classes.arrowIconHide} />
+        <Arrow
+          className={`${classes.arrowIconHide} ${
+            hide ? classes.arrowIconShow : ''
+          }`}
+        />
       </Button>
 
       <Swiper
@@ -113,7 +118,10 @@ export const Destinations = () => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
       >
         {cardsData[activeTab].map((card) => (
           <SwiperSlide key={card.id}>
@@ -125,7 +133,7 @@ export const Destinations = () => {
             </div>
             <NavLink
               className={classes.link}
-              to={`/destinations/${activeTab}/${card.id}`}
+              to={`${PATH.destination}/${activeTab}/${card.id}`}
               target="_blank"
             >
               {card.name}
@@ -133,6 +141,12 @@ export const Destinations = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 };

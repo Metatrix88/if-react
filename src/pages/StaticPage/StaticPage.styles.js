@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
-import { screenMd, screenSm } from '../../constants/styles.constatnts';
+import {screenMd, screenSm, whiteThemeColorBlack} from '../../constants/styles.constatnts';
 
-export const staticPageStyles = () => ({
+export const staticPageStyles = (theme) => ({
   root: {
     padding: '150px 16px',
     textAlign: 'center',
-    backgroundColor: '#758ee7',
+    backgroundColor: theme.palette.background.pages,
   },
   title: {
     marginBottom: 50,
@@ -13,6 +13,7 @@ export const staticPageStyles = () => ({
   },
   text: {
     marginBottom: 16,
+    color: whiteThemeColorBlack,
   },
 
   //For mobile tablets:

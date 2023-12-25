@@ -1,25 +1,44 @@
 import {
-  whiteThemeAccentColor, whiteThemeBgColor, whiteThemeBorderLightColor, whiteThemeGeneralWhiteColor,
-  whiteThemePrimaryColor,
-  whiteThemePrimaryDarkColor,
+  whiteThemeAccentColor,
+  whiteThemeBgColor, whiteThemeBgColorPages,
+  whiteThemeBorderLightColor, whiteThemeColorBlack, whiteThemeColorBlue, whiteThemeColorWhite,
+  whiteThemePrimaryDarkBlue,
   whiteThemeSecondaryTextColor,
-  whiteThemeTextColor,
 } from '../../constants/styles.constatnts';
 
 export const whiteTheme = {
   palette: {
-    primary: {
-      primaryColor: whiteThemePrimaryColor,
-      primaryDarkColor: whiteThemePrimaryDarkColor,
+    text: {
+      main: whiteThemeColorWhite,
+      secondary: whiteThemeColorBlack,
+      tertiary: whiteThemeColorBlack,
+      quaternary: whiteThemeColorBlue,
+      quinary: whiteThemeSecondaryTextColor,
+    },
+    buttons: {
+      main: whiteThemeColorWhite,
+      secondary: whiteThemeColorBlue,
+    },
+    icons: {
+      bgColor: whiteThemeColorWhite,
+      main: whiteThemeColorBlue,
+    },
+    background: {
+      main: whiteThemeColorWhite,
+      section: whiteThemeBgColor,
+      secondary: whiteThemeBorderLightColor,
+      tertiary: whiteThemeBorderLightColor,
+      formMd: whiteThemeAccentColor,
+      quaternary: whiteThemePrimaryDarkBlue,
+      pages: whiteThemeBgColorPages,
+    },
+    accent: {
       hover: whiteThemeAccentColor,
-      textColor: whiteThemeTextColor,
-      secondaryTextColor: whiteThemeSecondaryTextColor,
-      generalColor: whiteThemeGeneralWhiteColor,
-      borderLightColor: whiteThemeBorderLightColor,
-      inputColor: whiteThemeGeneralWhiteColor,
-      inputValue: whiteThemeTextColor,
-      bgColor: whiteThemeBgColor,
-      linkColor: whiteThemeGeneralWhiteColor,
+      btn: whiteThemeColorBlue,
+    },
+    border: {
+      main: whiteThemeBorderLightColor,
+      secondary: whiteThemeColorBlue,
     },
   },
 };

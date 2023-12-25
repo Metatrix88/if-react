@@ -1,11 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import { screenMd, screenSm } from '../../constants/styles.constatnts';
 
-export const devicesStyles = () => ({
+export const devicesStyles = (theme) => ({
   root: {
     width: '100%',
     maxWidth: 100,
     aspectRatio: '1/1',
+    fill: theme.palette.icons.main,
   },
 
   //For mobile tablets:

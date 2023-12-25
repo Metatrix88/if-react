@@ -69,6 +69,10 @@ export const FormDesktop = memo(() => {
     };
   }, []);
 
+  useEffect(() => {
+    dispatch(setAvailableHotels( {hotels: []} ))
+  }, []);
+
   const handleSearch = async (event) => {
     event.preventDefault();
 

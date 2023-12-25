@@ -2,22 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
+import { useTheme } from 'react-jss';
 
 import { getHotels } from '../../services/hotels';
+// constants
+import { PATH } from '../../constants/paths';
+
+// icons
+import { Arrow } from '../../icons';
 
 // components
 import { Container } from '../Container';
 import { Image } from '../UI/Image';
+import { Button } from '../UI/Button';
 
 // styles
 import { useHomesStyles } from './Homes.styles';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cube';
 
 export const Homes = () => {
-  const classes = useHomesStyles();
+  const theme = useTheme();
+  const classes = useHomesStyles({ theme });
   const [homes, setHomes] = useState([]);
 
   useEffect(() => {
@@ -39,12 +43,15 @@ export const Homes = () => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
       >
         {homes.map((home) => (
           <SwiperSlide key={home.id}>
             <Link
-              to={`/hotels/${home.id}`}
+              to={`${PATH.hotelsPage}/${home.id}`}
               className={classes.link}
               target="_blank"
             >
@@ -57,6 +64,12 @@ export const Homes = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 };

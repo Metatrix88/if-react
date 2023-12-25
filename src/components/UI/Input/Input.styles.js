@@ -2,17 +2,16 @@ import { createUseStyles } from 'react-jss';
 import {
   screenMd,
   screenSm,
-  textColor,
 } from '../../../constants/styles.constatnts';
 
-export const inputStyles = () => ({
+export const inputStyles = (theme) => ({
   root: {
     width: '100%',
     background: 'transparent',
 
     '&:placeholder': {
       fontSize: 18,
-      color: textColor,
+      color: theme.palette.text.tertiary,
     },
     '&:placeholder-shown': {
       textOverflow: 'ellipsis',

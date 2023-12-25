@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {Link, NavLink, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Modal from 'react-modal';
 import classNames from 'classnames';
 import { useTheme } from 'react-jss';
 
+// slices
 import { setStatus } from '../../store/slices/auth.slice';
+import { setVariant } from '../../store/slices/themes.slice';
 
 // constants
 import { PATH } from '../../constants/paths';
 import { authStatuses } from '../../constants/authStatuses';
+import { themeVariants } from '../../constants/themeVariants';
 
 // components
 import { Container } from '../Container';
@@ -18,14 +20,11 @@ import { Login, Logo, Menu, Night } from '../../icons';
 
 // styles
 import { useHeaderStyles } from './Header.styles';
-import { themeVariants } from '../../constants/themeVariants';
-import { setVariant } from '../../store/slices/themes.slice';
 
 export const Header = () => {
   const theme = useTheme();
   const classes = useHeaderStyles({ theme });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedIn = useSelector(
@@ -33,9 +32,30 @@ export const Header = () => {
   );
   const themeMode = useSelector((state) => state.themes.variant);
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isModalOpen && !event.target.closest(`${classes.wrapperLogOut}`)) {
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isModalOpen]);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleLogout = () => {
     dispatch(setStatus(authStatuses.loggedOut));
-    setIsModalOpen(false);
     navigate(PATH.login);
   };
 
@@ -49,20 +69,6 @@ export const Header = () => {
     );
   };
 
-  const openModal = () => {
-    setIsHovered(true);
-  };
-
-  const closeModal = () => {
-    setIsHovered(false);
-  };
-
-  useEffect(() => {
-    if (isHovered) {
-      setIsModalOpen(true);
-    }
-  }, [isHovered]);
-
   return (
     <>
       <Container className={classes.root}>
@@ -73,14 +79,14 @@ export const Header = () => {
           <li className={classes.links}>
             <ul className={classes.list}>
               <li>
-                <a className={classes.link} href="#">
+                <NavLink to={PATH.stays} className={classes.link}>
                   Stays
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className={classes.link} href="#">
+                <NavLink to={PATH.attractions} className={classes.link}>
                   Attractions
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>
@@ -104,7 +110,6 @@ export const Header = () => {
                   variant="icon"
                   aria-label="Login"
                   onMouseEnter={openModal}
-                  onMouseLeave={closeModal}
                 >
                   <Login
                     className={classNames(classes.iconFocus, {
@@ -112,22 +117,24 @@ export const Header = () => {
                     })}
                   />
                 </Button>
+                {isModalOpen && (
+                  <div className={classes.wrapperLogOut}>
+                    <p>Are you sure you want to get out?</p>
+                    <Button
+                      className={classes.buttonsLogOut}
+                      onClick={handleLogout}
+                    >
+                      LogOut
+                    </Button>
+                    <Button
+                      className={classes.buttonsLogOut}
+                      onClick={closeModal}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                )}
               </li>
-              <Modal
-                isOpen={isModalOpen}
-                onRequestClose={() => setIsModalOpen(false)}
-                className={classes.wrapperButtonLogout}
-                style={{
-                  overlay: {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                  },
-                }}
-                ariaHideApp={false}
-              >
-                <Button className={classes.buttonLogout} onClick={handleLogout}>
-                  LogOut
-                </Button>
-              </Modal>
               <li className={classes.wrapperButtonMenu}>
                 <Button
                   className={classes.buttonFocus}

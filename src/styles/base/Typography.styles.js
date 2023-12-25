@@ -8,18 +8,18 @@ import {
 export const typographyStyles = (theme) => ({
   body: {
     position: 'relative',
-    background: theme.palette.primary.generalColor,
+    background: theme.palette.background.main,
     fontFamily: fontFamily.join(', '),
     fontStyle: 'normal',
     fontWeight: 400,
-    color: theme.palette.primary.textColor,
+    color: theme.palette.text.tertiary,
   },
 
   a: {
     display: 'inline-block',
     textDecoration: 'none',
     fontSize: 24,
-    color: theme.palette.primary.primaryColor,
+    color: theme.palette.text.quaternary,
   },
 
   h2: {
@@ -37,7 +37,7 @@ export const typographyStyles = (theme) => ({
     fontWeight: 400,
     fontSize: 18,
     lineHeight: lineHeight,
-    color: theme.palette.primary.primaryColor,
+    color: theme.palette.text.quaternary,
   },
 
   //For mobile tablets:

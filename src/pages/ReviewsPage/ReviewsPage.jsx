@@ -47,7 +47,7 @@ export const ReviewsPage = () => {
             <p className={classes.reviewerName}>{hotelReviews.nameReviewer}</p>
             <div className={classes.countryInfo}>
               {hotelReviews.flagSvg}
-              <p>{hotelReviews.countyReviewer}</p>
+              <p className={classes.country}>{hotelReviews.countyReviewer}</p>
             </div>
           </div>
         </div>

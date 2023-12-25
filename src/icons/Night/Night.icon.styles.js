@@ -1,13 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import {
-  generalWhiteColor,
   screenMd,
   screenSm,
 } from '../../constants/styles.constatnts';
 
-export const nightIconStyles = () => ({
+export const nightIconStyles = (theme) => ({
   root: {
-    fill: generalWhiteColor,
+    fill: theme.palette.icons.bgColor,
     width: 40,
     aspectRatio: '1/1',
   },

@@ -17,6 +17,7 @@ import { Logo } from '../../icons';
 
 // styles
 import { useLoginStyles } from './Login.styles';
+import {Header} from '../../components/Header';
 
 export const Login = () => {
   const classes = useLoginStyles();
@@ -38,34 +39,39 @@ export const Login = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <Logo className={classes.logo} />
-      <form className={classes.form} onSubmit={handleSubmit}>
-        <Label className={classes.label} htmlFor={emailId}>
-          Email
-        </Label>
-        <Input
-          className={classes.textField}
-          name="email"
-          id={emailId}
-          type="email"
-          placeholder="Email"
-          autoComplete="off"
-        />
-        <Label className={classes.label} htmlFor={passwordId}>
-          Password
-        </Label>
-        <Input
-          className={classes.textField}
-          name="password"
-          id={passwordId}
-          type="password"
-          placeholder="Password"
-        />
-        <Button className={classes.button} color="primary" type="submit">
-          Log In
-        </Button>
-      </form>
-    </div>
+    <>
+      <Header/>
+      <section className={classes.root}>
+        <div className={classes.wrapper}>
+          <Logo className={classes.logo} />
+          <form className={classes.form} onSubmit={handleSubmit}>
+            <Label className={classes.label} htmlFor={emailId}>
+              Email
+            </Label>
+            <Input
+              className={classes.textField}
+              name="email"
+              id={emailId}
+              type="email"
+              placeholder="Email"
+              autoComplete="off"
+            />
+            <Label className={classes.label} htmlFor={passwordId}>
+              Password
+            </Label>
+            <Input
+              className={classes.textField}
+              name="password"
+              id={passwordId}
+              type="password"
+              placeholder="Password"
+            />
+            <Button className={classes.button} color="primary" type="submit">
+              Log In
+            </Button>
+          </form>
+        </div>
+      </section>
+    </>
   );
 };

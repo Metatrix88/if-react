@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
+  buttonRadiusLg, buttonRadiusMd, buttonRadiusSm,
   screenMd,
   screenSm,
 } from '../../constants/styles.constatnts';
@@ -18,7 +18,7 @@ export const headerStyles = (theme) => ({
   },
   logo: {
     marginBottom: 6,
-    fill: theme.palette.primary.primaryColor,
+    fill: theme.palette.icons.main,
   },
   menu: {
     display: 'flex',
@@ -36,7 +36,7 @@ export const headerStyles = (theme) => ({
   },
   link: {
     position: 'relative',
-    color: theme.palette.primary.linkColor,
+    color: theme.palette.text.main,
     lineHeight: 1.16,
 
     '&:after': {
@@ -46,7 +46,7 @@ export const headerStyles = (theme) => ({
       top: 40,
       width: 0,
       height: 4,
-      backgroundColor: accentColor,
+      backgroundColor: theme.palette.accent.hover,
       transition: 'width 0.3s ease-out',
     },
     '&:hover:after, &:focus:after': {
@@ -61,33 +61,48 @@ export const headerStyles = (theme) => ({
     width: 30,
   },
   wrapperButtonLogin: {
+    position: 'relative',
     marginBottom: 6,
   },
   wrapperButtonMenu: {
     display: 'none',
   },
   isLogin: {
-    fill: accentColor,
+    fill: theme.palette.text.main,
   },
-  wrapperButtonLogout: {
-    width: 80,
-    marginLeft: '79.5%',
-    marginTop: '5%',
+  wrapperLogOut: {
+    position: 'absolute',
+    right: '-280%',
+    color: theme.palette.text.main,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 8,
+    top: 45,
+    lineHeight: 1.16,
+    fontSize: 13,
+    width: 250,
   },
-  buttonLogout: {
-    backgroundColor: 'yellowgreen',
-    padding: 6,
-    borderRadius: 6,
+  buttonsLogOut: {
+    maxWidth: 70,
+    height: 30,
+    fontSize: 16,
+    padding: 0,
+    borderRadius: buttonRadiusLg,
+
+    '&:hover': {
+      color: theme.palette.accent.hover,
+    },
   },
   iconFocus: {
     '&:hover': {
-      fill: accentColor,
+      fill: theme.palette.accent.hover,
     },
   },
   buttonFocus: {
     '&:focus, &:focus-visible': {
       '& $iconFocus': {
-        fill: accentColor,
+        fill: theme.palette.accent.hover,
       },
     },
   },
@@ -118,6 +133,20 @@ export const headerStyles = (theme) => ({
     wrapperButtonLogin: {
       marginBottom: 0,
     },
+    wrapperLogOut: {
+      right: '-380%',
+      gap: 4,
+      top: 40,
+      fontSize: 12,
+      width: 250,
+    },
+    buttonsLogOut: {
+      maxWidth: 70,
+      height: 30,
+      fontSize: 13,
+      padding: 0,
+      borderRadius: buttonRadiusMd,
+    },
     wrapperButtonMenu: {
       display: 'block',
     },
@@ -127,6 +156,15 @@ export const headerStyles = (theme) => ({
   [`@media (max-width: ${screenSm})`]: {
     iconNight: {
       width: 16,
+    },
+    wrapperLogOut: {
+      right: '-165%',
+      top: 30,
+      width: 100,
+    },
+    buttonsLogOut: {
+      height: 16,
+      borderRadius: buttonRadiusSm,
     },
   },
 });

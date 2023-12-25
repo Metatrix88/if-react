@@ -1,8 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import {
-  buttonRadiusLg,
-  screenMd,
-} from '../../constants/styles.constatnts';
+import { buttonRadiusLg, screenMd } from '../../constants/styles.constatnts';
 
 export const formDesktopStyles = (theme) => ({
   root: {
@@ -11,9 +8,8 @@ export const formDesktopStyles = (theme) => ({
     gridTemplateColumns:
       'minmax(150px, 1fr) minmax(150px, 300px) minmax(150px, 314px) minmax(150px, 192px)',
     position: 'relative',
-    backgroundColor: theme.palette.primary.generalColor,
+    backgroundColor: theme.palette.background.main,
     fontSize: 18,
-    border: `3px solid ${theme.palette.primary.borderLightColor}`,
     borderRadius: buttonRadiusLg,
     gap: 0,
     marginBottom: 120,
@@ -31,14 +27,13 @@ export const formDesktopStyles = (theme) => ({
     pointerEvents: 'auto',
   },
   input: {
-    border: '3px solid transparent',
+    border: `3px solid ${theme.palette.border.main}`,
     borderRadius: buttonRadiusLg,
-    marginTop: -2,
-    marginBottom: -3,
     padding: '18px 16px',
+    color: theme.palette.text.tertiary,
 
     '&:hover, &:focus': {
-      border: `3px solid ${theme.palette.primary.hover}`,
+      border: `3px solid ${theme.palette.accent.hover}`,
       borderRadius: buttonRadiusLg,
     },
     '&::placeholder': {
@@ -46,25 +41,24 @@ export const formDesktopStyles = (theme) => ({
     },
   },
   inputCity: {
-    marginLeft: -3,
 
     '&:focus ~ label, &:not(:focus):valid ~ label': {
       top: -40,
-      color: theme.palette.primary.inputColor,
+      color: theme.palette.text.main,
       opacity: 1,
     },
   },
   inputDate: {
     minWidth: 240,
     width: '100%',
-    backgroundColor: theme.palette.primary.generalColor,
+    backgroundColor: theme.palette.background.main,
   },
   inputCount: {
-    color: theme.palette.primary.inputValue,
+    color: theme.palette.text.tertiary,
   },
   focusDate: {
     top: -40,
-    color: theme.palette.primary.inputColor,
+    color: theme.palette.text.main,
     opacity: 1,
   },
   visuallyHidden: {
@@ -82,14 +76,11 @@ export const formDesktopStyles = (theme) => ({
   button: {
     fontWeight: 500,
     fontSize: 24,
-    marginLeft: 3,
-    marginTop: -3,
-    marginBottom: -3,
-    border: `3px solid ${theme.palette.primary.primaryColor}`,
+    border: `3px solid ${theme.palette.buttons.secondary}`,
     borderRadius: buttonRadiusLg,
 
     '&:hover, &:focus': {
-      border: `3px solid ${theme.palette.primary.hover}`,
+      border: `3px solid ${theme.palette.accent.hover}`,
     },
   },
 

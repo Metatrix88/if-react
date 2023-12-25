@@ -17,6 +17,8 @@ import { HotelPage } from '../pages/HotelPage';
 import { ReviewsPage } from '../pages/ReviewsPage';
 import { DestinationsPage } from '../pages/DestinationsPage';
 import { StaticPage } from '../pages/StaticPage';
+import { Stays } from '../pages/Stays';
+import { Attractions } from '../pages/Attractions';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,13 +26,15 @@ export const router = createBrowserRouter(
       <Route errorElement={<ErrorBoundary />}>
         <Route path={PATH.login} element={<Login />} />
         <Route path={PATH.index} element={<App />} />
-        <Route path="hotels/:hotelId" element={<HotelPage />} />
-        <Route path="review/:reviewId" element={<ReviewsPage />} />
+        <Route path={`${PATH.hotelsPage}/:hotelId`} element={<HotelPage />} />
+        <Route path={`${PATH.review}/:reviewId`} element={<ReviewsPage />} />
         <Route
-          path="destinations/:tab/:destinationId"
+          path={`${PATH.destination}/:tab/:destinationId`}
           element={<DestinationsPage />}
         />
         <Route path=":staticPage" element={<StaticPage />} />
+        <Route path={PATH.stays} element={<Stays />} />
+        <Route path={PATH.attractions} element={<Attractions />} />
       </Route>
     </Route>,
   ),

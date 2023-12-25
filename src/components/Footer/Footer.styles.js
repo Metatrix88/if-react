@@ -1,8 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
   generalWhiteColor,
-  primaryDarkColor,
   screenMd,
   screenSm,
   sectionPaddingTopBottomLg,
@@ -10,9 +8,9 @@ import {
   sectionPaddingTopBottomSm,
 } from '../../constants/styles.constatnts';
 
-export const footerStyles = () => ({
+export const footerStyles = (theme) => ({
   root: {
-    backgroundColor: primaryDarkColor,
+    backgroundColor: theme.palette.background.quaternary,
     color: generalWhiteColor,
     paddingTop: sectionPaddingTopBottomLg,
     paddingBottom: sectionPaddingTopBottomLg,
@@ -46,7 +44,7 @@ export const footerStyles = () => ({
 
     '&:hover, &:focus': {
       cursor: 'pointer',
-      color: accentColor,
+      color: theme.palette.accent.hover,
     },
   },
   copyright: {

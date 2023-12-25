@@ -1,23 +1,43 @@
 import {
-  darkThemeAccentColor, darkThemeBgColor, darkThemeBorderLightColor, darkThemeGeneralBlackColor,
-  darkThemePrimaryColor, darkThemePrimaryDarkColor, darkThemeSecondaryTextColor,
-  darkThemeTextColor,
+  darkThemeAccentColor,
+  darkThemeBgColor,
+  darkThemeBorderLightColor, darkThemeColorDarkBlue, darkThemeColorGray, darkThemeColorWhite, darkThemeColorYellow,
+  darkThemeSecondaryTextColor,
 } from '../../constants/styles.constatnts';
 
 export const darkTheme = {
   palette: {
-    primary: {
-      primaryColor: darkThemePrimaryColor,
-      primaryDarkColor: darkThemePrimaryDarkColor,
+    text: {
+      main: darkThemeColorYellow,
+      secondary: darkThemeColorWhite,
+      tertiary: darkThemeColorYellow,
+      quaternary: darkThemeColorYellow,
+      quinary: darkThemeSecondaryTextColor,
+    },
+    buttons: {
+      main: darkThemeColorDarkBlue,
+      secondary: darkThemeColorDarkBlue,
+    },
+    icons: {
+      bgColor: darkThemeColorDarkBlue,
+      main: darkThemeColorDarkBlue,
+    },
+    background: {
+      main: darkThemeColorGray,
+      section: darkThemeBgColor,
+      secondary: darkThemeBgColor,
+      tertiary: darkThemeColorGray,
+      formMd: darkThemeBgColor,
+      quaternary: darkThemeColorDarkBlue,
+      pages: darkThemeBgColor,
+    },
+    accent: {
       hover: darkThemeAccentColor,
-      textColor: darkThemeTextColor,
-      secondaryTextColor: darkThemeSecondaryTextColor,
-      generalColor: darkThemeGeneralBlackColor,
-      borderLightColor: darkThemeBorderLightColor,
-      inputColor: darkThemeTextColor,
-      inputValue: darkThemeTextColor,
-      bgColor: darkThemeBgColor,
-      linkColor: darkThemeTextColor,
+      btn: darkThemeColorDarkBlue,
+    },
+    border: {
+      main: darkThemeBorderLightColor,
+      secondary: darkThemeColorDarkBlue,
     },
   },
 };

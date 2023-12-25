@@ -1,17 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
   buttonRadiusLg,
   buttonRadiusMd,
-  generalWhiteColor,
-  primaryColor,
   screenMd,
   screenSm,
-  secondaryTextColor,
-  textColor,
 } from '../../constants/styles.constatnts';
 
-export const formLaptopStyles = () => ({
+export const formLaptopStyles = (theme) => ({
   root: {
     display: 'none',
   },
@@ -26,13 +21,13 @@ export const formLaptopStyles = () => ({
       lineHeight: 1.16,
       fontWeight: 500,
       padding: 12,
-      backgroundColor: accentColor,
-      border: `4px solid ${accentColor}`,
+      backgroundColor: theme.palette.background.formMd,
+      border: `4px solid ${theme.palette.background.formMd}`,
       marginBottom: 80,
     },
     wrapper: {
       width: '100%',
-      background: generalWhiteColor,
+      background: theme.palette.background.main,
       whiteSpace: 'normal',
       borderRadius: buttonRadiusMd,
     },
@@ -71,7 +66,7 @@ export const formLaptopStyles = () => ({
         top: 6,
         left: -8,
         height: 40,
-        borderRight: `1px solid ${secondaryTextColor}`,
+        borderRight: `1px solid ${theme.palette.text.quinary}`,
       },
     },
     label: {
@@ -84,13 +79,16 @@ export const formLaptopStyles = () => ({
       fontSize: 16,
       lineHeight: 1.16,
       fontWeight: 400,
+      color: theme.palette.text.secondary,
     },
     input: {
       borderRadius: buttonRadiusLg,
+      color: theme.palette.text.tertiary,
+      background: 'transparent',
 
       '&:focus ~ label, &:not(:focus):valid ~ label': {
         top: 16,
-        color: textColor,
+        color: theme.palette.text.secondary,
         opacity: 1,
       },
     },
@@ -98,7 +96,7 @@ export const formLaptopStyles = () => ({
       gridColumn: '1/3',
       lineHeight: 1,
       padding: 14,
-      border: `3px solid ${primaryColor}`,
+      border: `3px solid ${theme.palette.border.secondary}`,
       borderRadius: buttonRadiusLg,
       fontWeight: 500,
       fontSize: 22,

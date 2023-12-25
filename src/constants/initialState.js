@@ -1,5 +1,5 @@
 import { authStatuses } from './authStatuses';
-import {themeVariants} from './themeVariants';
+import { themeVariants } from './themeVariants';
 
 export const INITIAL_STATE = {
   auth: {

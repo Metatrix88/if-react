@@ -1,6 +1,9 @@
 export const PAGE = {
   index: 'if-react',
   login: 'login',
+  hotelsPage: 'hotels',
+  review: 'review',
+  destination: 'destination',
   about: 'About',
   work: 'How-Triphouse-works',
   careers: 'Careers',
@@ -16,11 +19,16 @@ export const PAGE = {
   support: 'Support',
   contact: 'Contact-Customer-Service',
   faq: 'FAQ',
+  stays: 'stays',
+  attractions: 'attractions',
 };
 
 export const PATH = {
   index: `/${PAGE.index}`,
   login: `/${PAGE.login}`,
+  hotelsPage: `/${PAGE.hotelsPage}`,
+  review: `/${PAGE.review}`,
+  destination: `/${PAGE.destination}`,
   about: `/${PAGE.about}`,
   work: `/${PAGE.work}`,
   careers: `/${PAGE.careers}`,
@@ -36,4 +44,6 @@ export const PATH = {
   support: `/${PAGE.support}`,
   contact: `/${PAGE.contact}`,
   faq: `/${PAGE.faq}`,
+  stays: `/${PAGE.stays}`,
+  attractions: `/${PAGE.attractions}`,
 };

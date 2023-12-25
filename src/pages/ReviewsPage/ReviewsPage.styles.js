@@ -1,15 +1,14 @@
 import { createUseStyles } from 'react-jss';
 import {
-  primaryColor,
   screenMd,
-  screenSm,
+  screenSm, whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
-export const reviewsPageStyles = () => ({
+export const reviewsPageStyles = (theme) => ({
   root: {
     padding: '120px 16px',
     textAlign: 'center',
-    backgroundColor: '#758ee7',
+    backgroundColor: theme.palette.background.pages,
   },
   title: {
     marginBottom: 50,
@@ -20,7 +19,7 @@ export const reviewsPageStyles = () => ({
   subtitle: {
     marginBottom: 24,
     fontSize: 32,
-    color: primaryColor,
+    color: theme.palette.text.quaternary,
   },
   reviewer: {
     display: 'flex',
@@ -31,15 +30,20 @@ export const reviewsPageStyles = () => ({
   },
   reviewerName: {
     marginBottom: 8,
+    color: whiteThemeColorBlack,
   },
   countryInfo: {
     display: 'flex',
     alignItems: 'center',
     gap: 4,
   },
+  country: {
+    color: theme.palette.text.secondary,
+  },
   text: {
     maxWidth: 500,
     margin: '0 auto',
+    color: whiteThemeColorBlack
   },
 
   //For mobile tablets:

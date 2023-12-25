@@ -3,19 +3,25 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
+
+// constants
+import { PATH } from '../../constants/paths';
+
+// icons
+import { Arrow } from '../../icons';
 
 // components
 import { Image } from '../UI/Image';
 import { Container } from '../Container';
+import { Button } from '../UI/Button';
 
 // styles
 import { useAvailableStyles } from './Available.styles';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 export const Available = memo(() => {
-  const classes = useAvailableStyles();
+  const theme = useTheme();
+  const classes = useAvailableStyles({ theme });
   const hotels = useSelector((state) => state.availableHotels.hotels);
 
   const availableRef = useRef(null);
@@ -43,13 +49,16 @@ export const Available = memo(() => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
       >
         {hotels.map((home) => (
           <SwiperSlide key={home.id}>
             <NavLink
               className={classes.link}
-              to={`/hotels/${home.id}`}
+              to={`${PATH.hotelsPage}/${home.id}`}
               target="_blank"
             >
               <Image {...home} className={classes.images} />
@@ -61,6 +70,12 @@ export const Available = memo(() => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 });

@@ -6,9 +6,9 @@ import ReactModal from 'react-modal';
 import { Loader } from './components/Loader';
 
 import { router } from './routers';
-import {store} from './store';
-import {Provider} from 'react-redux';
-import {ThemeProvider} from 'react-jss';
+import { store } from './store';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'react-jss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,6 +21,5 @@ root.render(
         <RouterProvider router={router} fallbackElement={<Loader />} />
       </ThemeProvider>
     </Provider>
-
   </React.StrictMode>,
 );

@@ -1,16 +1,13 @@
 import { createUseStyles } from 'react-jss';
 import {
-  bgColor,
-  generalWhiteColor,
-  primaryColor,
   screenMd,
   screenSm,
 } from '../../constants/styles.constatnts';
 
-export const singUpStyles = () => ({
+export const singUpStyles = (theme) => ({
   root: {
     position: 'relative',
-    backgroundColor: bgColor,
+    backgroundColor: theme.palette.background.section,
     padding: '52px 24px',
     display: 'flex',
     alignItems: 'center',
@@ -22,7 +19,7 @@ export const singUpStyles = () => ({
     alignItems: 'center',
     width: 86,
     height: 86,
-    backgroundColor: generalWhiteColor,
+    backgroundColor: theme.palette.background.main,
     borderRadius: '50%',
   },
   title: {
@@ -59,7 +56,7 @@ export const singUpStyles = () => ({
       display: 'flex',
       alignItems: 'center',
       position: 'static',
-      backgroundColor: generalWhiteColor,
+      backgroundColor: theme.palette.background.section,
       padding: '24px 0',
       gap: 16,
     },
@@ -67,7 +64,7 @@ export const singUpStyles = () => ({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: primaryColor,
+      backgroundColor: theme.palette.icons.main,
       maxWidth: 58,
       height: 58,
       borderRadius: 4,
@@ -78,6 +75,7 @@ export const singUpStyles = () => ({
     },
     wrapMobile: {
       display: 'flex',
+      alignItems: 'baseline',
       order: 2,
     },
     title: {

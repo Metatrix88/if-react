@@ -1,5 +1,5 @@
-import { updateAvailableHotels } from '../services/hotels';
-import { urls } from '../constants/urls';
+import { updateAvailableHotels } from '../../services/hotels';
+import { urls } from '../../constants/urls';
 
 const cache = new Map();
 

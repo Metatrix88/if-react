@@ -5,15 +5,19 @@ import { NavLink } from 'react-router-dom';
 
 import { review } from './reviews.config';
 
+// constants
+import { PATH } from '../../constants/paths';
+
+// icons
+import { Arrow } from '../../icons';
+
 // components
 import { Container } from '../Container';
 import { Image } from '../UI/Image';
+import { Button } from '../UI/Button';
 
 // styles
 import { useReviewsStyles } from './Reviews.styles';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 export const Reviews = () => {
   const classes = useReviewsStyles();
@@ -37,14 +41,17 @@ export const Reviews = () => {
           },
         }}
         pagination={{ clickable: true }}
-        navigation
+        navigation={{
+          nextEl: `.${classes.customNext}`,
+          prevEl: `.${classes.customPrev}`,
+        }}
         autoHeight={true}
       >
         {review.map((review) => (
           <SwiperSlide key={review.id} className={classes.slide}>
             <NavLink
               className={classes.link}
-              to={`/review/${review.id}`}
+              to={`${PATH.review}/${review.id}`}
               target="_blank"
             >
               <div className={classes.wrapperImg}>
@@ -75,17 +82,25 @@ export const Reviews = () => {
                       </p>
                       <div className={classes.countryInfo}>
                         {review.flagSvg}
-                        <p>{review.countyReviewer}</p>
+                        <p className={classes.country}>
+                          {review.countyReviewer}
+                        </p>
                       </div>
                     </div>
                   </div>
-                  <p>{review.comment}</p>
+                  <p className={classes.text}>{review.comment}</p>
                 </div>
               </div>
             </NavLink>
           </SwiperSlide>
         ))}
       </Swiper>
+      <Button className={classes.customPrev}>
+        <Arrow className={classes.arrowIconPrev} />
+      </Button>
+      <Button className={classes.customNext}>
+        <Arrow className={classes.arrowIconNext} />
+      </Button>
     </Container>
   );
 };

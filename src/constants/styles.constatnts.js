@@ -1,35 +1,32 @@
 // Fonts
 export const fontFamily = ['Roboto', 'sans-serif'];
 
-//Color white Theme
 export const primaryColor = '#3077c6';
 export const primaryDarkColor = '#10367c';
 export const accentColor = '#f5bd41';
-export const textColor = '#383838';
 export const secondaryTextColor = '#bfbfbf';
 export const generalWhiteColor = '#ffffff';
-export const borderLightColor = '#f3f3f4';
-export const bgColor = '#eaf0f9';
 
 //Color white Theme
-export const whiteThemePrimaryColor = '#3077c6';
-export const whiteThemePrimaryDarkColor = '#10367c';
+export const whiteThemeColorWhite = '#ffffff';
+export const whiteThemeColorBlack = '#383838';
 export const whiteThemeAccentColor = '#f5bd41';
-export const whiteThemeTextColor = '#383838';
-export const whiteThemeSecondaryTextColor = '#bfbfbf';
-export const whiteThemeGeneralWhiteColor = '#ffffff';
+export const whiteThemeColorBlue = '#3077c6';
 export const whiteThemeBorderLightColor = '#f3f3f4';
 export const whiteThemeBgColor = '#eaf0f9';
+export const whiteThemeSecondaryTextColor = '#bfbfbf';
+export const whiteThemePrimaryDarkBlue = '#10367c';
+export const whiteThemeBgColorPages = '#a4adbb';
 
 //Color dark Theme
-export const darkThemePrimaryColor = '#19af64';
-export const darkThemePrimaryDarkColor = '#08572f';
-export const darkThemeAccentColor = '#3be808';
-export const darkThemeTextColor = '#cf1818';
-export const darkThemeSecondaryTextColor = '#e73b3b';
-export const darkThemeGeneralBlackColor = '#201d1d';
-export const darkThemeBorderLightColor = '#66667a';
-export const darkThemeBgColor = '#4883db';
+export const darkThemeColorYellow = '#e5932a';
+export const darkThemeColorWhite = '#ffffff';
+export const darkThemeAccentColor = '#ffba61';
+export const darkThemeColorDarkBlue = '#0737cf';
+export const darkThemeColorGray = '#505c6a';
+export const darkThemeBorderLightColor = '#816d6d';
+export const darkThemeBgColor = '#6e819f';
+export const darkThemeSecondaryTextColor = '#363328';
 
 //Screen
 export const screenMd = '1024px';

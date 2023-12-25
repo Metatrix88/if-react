@@ -1,16 +1,12 @@
 import { createUseStyles } from 'react-jss';
-import {
-  generalWhiteColor,
-  primaryColor,
-} from '../../constants/styles.constatnts';
 
-export const filterCountersContainerStyles = () => ({
+export const filterCountersContainerStyles = (theme) => ({
   root: {
     position: 'absolute',
     zIndex: 1,
     top: 65,
     left: '67%',
-    backgroundColor: generalWhiteColor,
+    backgroundColor: theme.palette.background.main,
     maxWidth: 260,
     borderRadius: 8,
     padding: 22,
@@ -38,6 +34,7 @@ export const filterCountersContainerStyles = () => ({
     fontSize: 16,
     maxWidth: 30,
     textAlign: 'center',
+    color: theme.palette.text.tertiary,
   },
   filterText: {
     fontSize: 12,
@@ -52,8 +49,10 @@ export const filterCountersContainerStyles = () => ({
     width: '48%',
     fontSize: 12,
     padding: 8,
-    border: `1px solid ${primaryColor}`,
+    border: `1px solid ${theme.palette.border.secondary}`,
     cursor: 'pointer',
+    backgroundColor: theme.palette.background.main,
+    color: theme.palette.text.tertiary,
   },
 });
 

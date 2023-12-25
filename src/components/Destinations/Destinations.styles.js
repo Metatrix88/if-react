@@ -1,12 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import {
-  accentColor,
-  borderLightColor,
   buttonRadiusLg,
   buttonRadiusMd,
   buttonRadiusSm,
-  generalWhiteColor,
-  primaryColor,
   screenMd,
   screenSm,
   sectionPaddingTopBottomLg,
@@ -17,7 +13,7 @@ import {
   sectionTitleBottomSm,
 } from '../../constants/styles.constatnts';
 
-export const destinationsStyles = () => ({
+export const destinationsStyles = (theme) => ({
   root: {
     position: 'relative',
     paddingTop: sectionPaddingTopBottomLg,
@@ -29,14 +25,15 @@ export const destinationsStyles = () => ({
   wrapperButtons: {
     display: 'flex',
     width: '100%',
+    backgroundColor: theme.palette.background.secondary,
     maxWidth: 622,
-    backgroundColor: borderLightColor,
     borderRadius: buttonRadiusLg,
     marginBottom: 64,
   },
   buttons: {
     borderRadius: 8,
-    backgroundColor: 'inherit',
+    backgroundColor: 'transparent',
+    color: theme.palette.text.secondary,
     height: 64,
     width: 192,
     fontSize: 24,
@@ -47,13 +44,13 @@ export const destinationsStyles = () => ({
       flexGrow: 1,
     },
     '&:hover, &:focus': {
-      backgroundColor: primaryColor,
-      color: generalWhiteColor,
+      backgroundColor: theme.palette.accent.btn,
+      color: theme.palette.text.main,
     },
   },
   activeButtons: {
-    backgroundColor: primaryColor,
-    color: generalWhiteColor,
+    backgroundColor: theme.palette.accent.btn,
+    color: theme.palette.text.main,
   },
   wrapperCards: {
     display: 'flex',
@@ -97,28 +94,44 @@ export const destinationsStyles = () => ({
   link: {
     fontSize: 24,
     fontWeight: 400,
-    color: primaryColor,
+    color: theme.palette.text.quaternary,
     lineHeight: 1.16,
 
     '&:hover, &:focus': {
-      color: accentColor,
+      color: theme.palette.accent.hover,
     },
   },
-  buttonIcon: {
-    width: 50,
+  buttonShow: {
+    backgroundColor: theme.palette.background.secondary,
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    transition: 'transform 0.3s ease',
     margin: '0 auto',
 
-    '&:hover $arrowIconHide, &:focus $arrowIconHide': {
-      fill: accentColor,
+    '&:hover': {
+      transform: 'translateY(5px)',
+      backgroundColor: theme.palette.accent.btn,
+    },
+
+    '&:hover $arrowIconHide, &:hover $arrowIconShow': {
+      stroke: theme.palette.accent.hover,
     },
   },
   arrowIconHide: {
-    transform: 'rotate(180deg)',
+    transform: 'rotate(270deg)',
   },
   arrowIconShow: {
-    transform: 'rotate(180deg)',
+    transform: 'rotate(90deg)',
   },
   swiper: {
+    display: 'none',
+  },
+  customPrev: {
+    display: 'none',
+  },
+  customNext: {
     display: 'none',
   },
 
@@ -148,7 +161,7 @@ export const destinationsStyles = () => ({
       height: 48,
       width: 150,
       fontSize: 22,
-      border: `1px solid ${borderLightColor}`,
+      border: `1px solid ${theme.palette.border.main}`,
 
       '&:last-child': {
         flexGrow: 0,
@@ -167,7 +180,7 @@ export const destinationsStyles = () => ({
     link: {
       fontSize: 16,
     },
-    buttonIcon: {
+    buttonShow: {
       padding: 0,
     },
   },
@@ -198,7 +211,7 @@ export const destinationsStyles = () => ({
     wrapperCards: {
       display: 'none',
     },
-    buttonIcon: {
+    buttonShow: {
       display: 'none',
     },
     image: {
@@ -207,7 +220,57 @@ export const destinationsStyles = () => ({
     link: {
       fontSize: 12,
     },
+    customNext: {
+      display: 'flex',
+      position: 'absolute',
+      backgroundColor: theme.palette.background.tertiary,
+      top: '55%',
+      right: 5,
+      zIndex: 5,
+      width: 35,
+      height: 35,
+      borderRadius: '50%',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      transition: 'transform 0.3s ease',
+
+      '&:hover': {
+        transform: 'translateX(5px)',
+        backgroundColor: theme.palette.accent.btn,
+      },
+
+      '&:hover $arrowIconNext': {
+        stroke: theme.palette.accent.hover,
+      },
+    },
+    customPrev: {
+      display: 'flex',
+      position: 'absolute',
+      backgroundColor: theme.palette.background.tertiary,
+      top: '55%',
+      left: 5,
+      zIndex: 5,
+      width: 35,
+      height: 35,
+      borderRadius: '50%',
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      transition: 'transform 0.3s ease',
+
+      '&:hover': {
+        transform: 'translateX(-5px)',
+        backgroundColor: theme.palette.accent.btn,
+      },
+
+      '&:hover $arrowIconPrev': {
+        stroke: theme.palette.accent.hover,
+      },
+    },
+    arrowIconPrev: {
+      transform: 'rotate(180deg)',
+    },
+    arrowIconNext: {},
   },
+  arrowIconPrev: {},
+  arrowIconNext: {},
   hideName: {},
 });
 

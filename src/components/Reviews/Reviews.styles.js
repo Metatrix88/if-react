@@ -1,21 +1,18 @@
 import { createUseStyles } from 'react-jss';
 import {
-  bgColor,
   buttonRadiusLg,
   generalWhiteColor,
-  primaryDarkColor,
   screenMd,
   screenSm,
-  secondaryTextColor,
   sectionPaddingTopBottomLg,
   sectionPaddingTopBottomMd,
   sectionPaddingTopBottomSm,
   sectionTitleBottomLg,
   sectionTitleBottomMd,
-  sectionTitleBottomSm,
+  sectionTitleBottomSm, whiteThemeColorBlack,
 } from '../../constants/styles.constatnts';
 
-export const reviewsStyles = () => ({
+export const reviewsStyles = (theme) => ({
   root: {
     position: 'relative',
     paddingTop: sectionPaddingTopBottomLg,
@@ -28,7 +25,7 @@ export const reviewsStyles = () => ({
     display: 'none',
   },
   slide: {
-    backgroundColor: bgColor,
+    backgroundColor: theme.palette.background.section,
   },
   link: {
     fontSize: 18,
@@ -46,7 +43,7 @@ export const reviewsStyles = () => ({
     position: 'absolute',
     height: 48,
     backgroundColor: 'rgba(56, 56, 56, 0.7)',
-    color: generalWhiteColor,
+    color: theme.palette.text.main,
     padding: '0 24px',
     display: 'flex',
     alignItems: 'center',
@@ -83,7 +80,7 @@ export const reviewsStyles = () => ({
     borderRadius: buttonRadiusLg,
     width: 48,
     height: 32,
-    backgroundColor: primaryDarkColor,
+    backgroundColor: theme.palette.background.quaternary,
     color: generalWhiteColor,
     fontFamily: '"Open Sans", sans-serif',
     lineHeight: '1.4',
@@ -91,7 +88,7 @@ export const reviewsStyles = () => ({
   },
   countReviews: {
     fontSize: 14,
-    color: secondaryTextColor,
+    color: theme.palette.text.quinary,
     textAlign: 'center',
   },
   reviewer: {
@@ -102,11 +99,63 @@ export const reviewsStyles = () => ({
   },
   reviewerName: {
     marginBottom: 8,
+    color: whiteThemeColorBlack,
   },
   countryInfo: {
     display: 'flex',
     alignItems: 'center',
     gap: 4,
+  },
+  country: {
+    color: theme.palette.text.quinary,
+  },
+  text: {
+    color: whiteThemeColorBlack,
+  },
+  customNext: {
+    position: 'absolute',
+    backgroundColor: theme.palette.background.tertiary,
+    top: '48%',
+    right: 85,
+    zIndex: 5,
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    transition: 'transform 0.3s ease',
+
+    '&:hover': {
+      transform: 'translateX(5px)',
+      backgroundColor: theme.palette.accent.btn,
+    },
+
+    '&:hover $arrowIconNext': {
+      stroke: theme.palette.accent.hover,
+    },
+  },
+  customPrev: {
+    position: 'absolute',
+    backgroundColor: theme.palette.background.tertiary,
+    top: '48%',
+    left: 85,
+    zIndex: 5,
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    transition: 'transform 0.3s ease',
+
+    '&:hover': {
+      transform: 'translateX(-5px)',
+      backgroundColor: theme.palette.accent.btn,
+    },
+
+    '&:hover $arrowIconPrev': {
+      stroke: theme.palette.accent.hover,
+    },
+  },
+  arrowIconPrev: {
+    transform: 'rotate(180deg)',
   },
 
   //For mobile tablets:
@@ -118,12 +167,18 @@ export const reviewsStyles = () => ({
     titleLg: {
       marginBottom: sectionTitleBottomMd,
     },
+    customNext: {
+      right: 35,
+    },
+    customPrev: {
+      left: 35,
+    },
   },
 
   // For mobile phones:
   [`@media (max-width: ${screenSm})`]: {
     root: {
-      backgroundColor: bgColor,
+      backgroundColor: theme.palette.background.section,
       paddingTop: sectionPaddingTopBottomSm,
       paddingBottom: sectionPaddingTopBottomSm,
     },
@@ -171,7 +226,16 @@ export const reviewsStyles = () => ({
     reviewerName: {
       marginBottom: 4,
     },
+    customNext: {
+      top: '30%',
+      right: 5,
+    },
+    customPrev: {
+      top: '30%',
+      left: 5,
+    },
   },
+  arrowIconNext: {},
 });
 
 export const useReviewsStyles = createUseStyles(reviewsStyles, {

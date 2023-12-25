@@ -21,8 +21,6 @@ export const HotelPage = () => {
     fetchHotel(hotelId).then((hotel) => setHotel(hotel));
   }, [hotelId]);
 
-  console.log(hotel);
-
   if (!hotel) {
     return <p>Loading...</p>;
   }
