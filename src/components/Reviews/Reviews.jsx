@@ -52,7 +52,6 @@ export const Reviews = () => {
             <NavLink
               className={classes.link}
               to={`${PATH.review}/${review.id}`}
-              target="_blank"
             >
               <div className={classes.wrapperImg}>
                 <Image {...review} className={classes.image} />

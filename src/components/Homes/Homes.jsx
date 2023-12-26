@@ -50,10 +50,7 @@ export const Homes = () => {
       >
         {homes.map((home) => (
           <SwiperSlide key={home.id}>
-            <Link
-              to={`${PATH.hotelsPage}/${home.id}`}
-              className={classes.link}
-            >
+            <Link to={`${PATH.hotelsPage}/${home.id}`} className={classes.link}>
               <Image {...home} className={classes.images} />
               {home.name}
               <h3 className={classes.subtitle}>
