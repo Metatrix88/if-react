@@ -53,8 +53,6 @@ export const Homes = () => {
             <Link
               to={`${PATH.hotelsPage}/${home.id}`}
               className={classes.link}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <Image {...home} className={classes.images} />
               {home.name}
