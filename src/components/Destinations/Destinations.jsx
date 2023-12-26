@@ -88,7 +88,6 @@ export const Destinations = () => {
               <NavLink
                 className={classes.link}
                 to={`${PATH.destination}/${activeTab}/${card.id}`}
-                target="_blank"
               >
                 {card.name}
               </NavLink>
@@ -134,7 +133,6 @@ export const Destinations = () => {
             <NavLink
               className={classes.link}
               to={`${PATH.destination}/${activeTab}/${card.id}`}
-              target="_blank"
             >
               {card.name}
             </NavLink>

@@ -17,8 +17,8 @@
 ## Запуск проекта
 
 1. Убедитесь, что у вас установлен Node.js.
-2. Клонируйте репозиторий: `git clone https://github.com/your-username/water-data.git`
-3. Перейдите в каталог проекта: `cd water-data`
+2. Клонируйте репозиторий: `git clone https://github.com/Metatrix88/if-react.git`
+3. Перейдите в каталог проекта: `cd if-react`
 4. Установите зависимости: `npm install`
 5. Запустите приложение: `npm start`
 
@@ -31,6 +31,3 @@
 3. Отправьте изменения на GitHub: `git push origin feature/your-feature-name`
 4. Откройте запрос на слияние (Pull Request) на GitHub.
 
-## Лицензия
-
-Этот проект лицензирован по лицензии MIT - подробности см. в файле [LICENSE](LICENSE).

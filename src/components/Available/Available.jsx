@@ -59,7 +59,6 @@ export const Available = memo(() => {
             <NavLink
               className={classes.link}
               to={`${PATH.hotelsPage}/${home.id}`}
-              target="_blank"
             >
               <Image {...home} className={classes.images} />
               {home.name}
